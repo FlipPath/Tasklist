@@ -3,6 +3,7 @@ class Task
   include Mongoid::Timestamps
   
   field :task
+  field :completed, :type => Boolean, :default => false
   
   attr_accessible :task
   
@@ -12,5 +13,10 @@ class Task
     def latest
       order_by(:created_at.desc)
     end
+  end
+  
+  def complete
+    self.completed = true
+    self.save
   end
 end

@@ -6,4 +6,13 @@ class TasksController < ApplicationController
       format.js
     end
   end
+  
+  def complete
+    @task = Task.find(params[:id])
+    @task.complete
+    
+    respond_to do |format|
+      format.js
+    end
+  end
 end

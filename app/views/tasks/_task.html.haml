@@ -1,1 +1,2 @@
-%li= task.task
+%li
+  = link_to task.task, complete_task_path(task), :remote => true, :method => :put, :class => link_class(task), "data-id" => task.id

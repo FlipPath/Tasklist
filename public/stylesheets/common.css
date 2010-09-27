@@ -1,0 +1,9 @@
+#task_list li {
+  cursor: pointer; }
+#task_list a {
+  color: #000;
+  text-decoration: none; }
+#task_list :hover, #task_list .completed {
+  text-decoration: line-through; }
+#task_list .completed {
+  color: #888; }

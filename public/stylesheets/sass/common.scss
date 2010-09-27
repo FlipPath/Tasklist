@@ -1,3 +1,17 @@
-body {
-  
+$red: #ff0000;
+
+#task_list {
+  li {
+    cursor: pointer;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+  :hover,.completed {
+    text-decoration: line-through;
+  }
+  .completed {
+    color: #888;
+  }
 }
