@@ -1,9 +1,15 @@
-#task_list li {
+div.task {
   cursor: pointer; }
-#task_list a {
-  color: #000;
-  text-decoration: none; }
-#task_list :hover, #task_list .completed {
-  text-decoration: line-through; }
-#task_list .completed {
-  color: #888; }
+  div.task > a {
+    color: #000;
+    text-decoration: none; }
+  div.task > a:hover, div.task .completed {
+    text-decoration: line-through; }
+  div.task .completed {
+    color: #888; }
+  div.task p {
+    display: inline;
+    visibility: hidden; }
+
+div.task:hover p {
+  visibility: visible; }

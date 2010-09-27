@@ -1,17 +1,23 @@
 $red: #ff0000;
 
-#task_list {
-  li {
-    cursor: pointer;
-  }
-  a {
+div.task {
+  cursor: pointer;
+  > a {
     color: #000;
     text-decoration: none;
   }
-  :hover,.completed {
+  >a:hover,.completed {
     text-decoration: line-through;
   }
   .completed {
     color: #888;
   }
+  p {
+    display: inline;
+    visibility: hidden;
+  }
+}
+
+div.task:hover p {
+  visibility: visible;
 }
