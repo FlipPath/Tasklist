@@ -1,0 +1,10 @@
+- server:
+  - rvm use ree@rails3
+  - r s --debugger
+- console:
+  - rvm use ree@rails3
+  - r c --debugger
+- mongo:
+  - mongo_start
+- bash:
+  - rvm use ree@rails3
