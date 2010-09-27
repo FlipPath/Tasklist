@@ -1,2 +1,15 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+var Tasklist = { };
+
+Tasklist.tasks = {
+  create : function(ev) {
+    $("#task_task").val("");
+    $(ev.taskHtml).prependTo("ul");
+  }
+};
+
+$(document).bind("tasks:create", Tasklist.tasks.create);
+
+$("#task_task").focus();
+$("#new_task").submit(function(){
+  return ($("#task_task").val().length > 0);
+});
