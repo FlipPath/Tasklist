@@ -5,6 +5,8 @@ class Task
   field :task
   field :completed, :type => Boolean, :default => false
   
+  embedded_in :list, :inverse_of => :tasks
+  
   attr_accessible :task
   
   validates_presence_of :task
