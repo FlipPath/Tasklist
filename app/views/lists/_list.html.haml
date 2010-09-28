@@ -1,0 +1,4 @@
+%div.list{ "data-id" => list.id }
+  %h3= list.name
+  = render 'tasks/form', :list => list
+  = render 'tasks/list', :tasks => list.tasks
