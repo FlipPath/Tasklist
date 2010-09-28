@@ -1,3 +1,14 @@
+div.list h3 {
+  display: inline; }
+div.list div > p {
+  display: inline;
+  visibility: hidden; }
+div.list div > p a {
+  color: red; }
+
+div.list > div:hover > p {
+  visibility: visible; }
+
 div.task {
   cursor: pointer; }
   div.task > a {
@@ -11,5 +22,5 @@ div.task {
     display: inline;
     visibility: hidden; }
 
-div.task:hover p {
+div.task:hover > p {
   visibility: visible; }
