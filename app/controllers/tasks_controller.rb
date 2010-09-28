@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_filter :load_list
-  before_filter :load_task, :only => [:complete, :destroy]
+  before_filter :load_task, :only => [:toggle_complete, :destroy]
   
   def create
     @task = @list.tasks.create(:task => params[:task][:task])
@@ -10,8 +10,8 @@ class TasksController < ApplicationController
     end
   end
   
-  def complete
-    @task.complete
+  def toggle_complete
+    @task.toggle_complete
     
     respond_to do |format|
       format.js
