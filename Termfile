@@ -6,5 +6,8 @@
   - r c --debugger
 - mongo:
   - mongo_start
+- autotest:
+  - rvm use ree@rails3
+  - autotest
 - bash:
   - rvm use ree@rails3
