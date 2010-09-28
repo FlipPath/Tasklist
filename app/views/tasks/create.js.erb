@@ -1,1 +1,1 @@
-$(document).trigger({type:'tasks:create',taskHtml:"<%=raw escape_javascript(render @task) %>"});
+$(document).trigger({type:'tasks:create',listId:"<%= @list.id %>",taskHtml:"<%=raw escape_javascript(render @task) %>"});
