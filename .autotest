@@ -1,0 +1,9 @@
+require 'autotest/timestamp'
+require 'autotest/growl'
+require 'autotest/fsevent'
+require "autotest/restart"
+
+Autotest.add_hook :initialize do  |autotest|
+  %w{.git .svn .hg .DS_Store ._* vendor tmp log doc}.each {|exception| autotest.add_exception(exception) }
+  false
+end
