@@ -1,17 +1,33 @@
 var Tasklist = { };
 
+// Lists
+
+Tasklist.lists = {
+  create : function(ev) {
+    $("#list_name").val("");
+    $(ev.listHtml).prependTo("#list_list");
+    $("#"+ev.listId+"_task_task").focus();
+  }
+};
+
+$(document).bind("lists:create", Tasklist.lists.create);
+
+$("#list_name").focus();
+
+// Tasks
+
 Tasklist.tasks = {
   create : function(ev) {
-    $("#task_task").val("");
-    $(ev.taskHtml).prependTo("ul");
+    $("#"+ev.listId+"_task_task").val("");
+    $(ev.taskHtml).prependTo(".list[data-id="+ev.listId+"] .tasks");
   },
   
   complete : function(ev) {
-    $("div.task[data-id="+ev.taskId+"]").html(ev.taskHtml);
+    $(".task[data-id="+ev.taskId+"]").html(ev.taskHtml);
   },
   
   destroy : function(ev) {
-    $("div.task[data-id="+ev.taskId+"]").parents("li").slideUp("fast", function(){
+    $(".task[data-id="+ev.taskId+"]").parents("li").slideUp("fast", function(){
       $(this).remove();
     });
   }
@@ -21,7 +37,7 @@ $(document).bind("tasks:create", Tasklist.tasks.create);
 $(document).bind("tasks:complete", Tasklist.tasks.complete);
 $(document).bind("tasks:destroy", Tasklist.tasks.destroy);
 
-$("#task_task").focus();
+// $("#task_task").focus();
 $("#new_task").submit(function(){
   return ($("#task_task").val().length > 0);
 });
