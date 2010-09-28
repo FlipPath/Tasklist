@@ -1,4 +1,4 @@
-settings = URI.parse(ENV['MONGOHQ_URL'] || 'mongodb://localhost/tasklist_dev')
+settings = URI.parse(ENV['MONGOHQ_URL'] || "mongodb://localhost/tasklist_#{Rails.env}")
 database_name = settings.path.gsub(/^\//, '')
 
 Mongoid.configure do |config|
