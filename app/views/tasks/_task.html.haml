@@ -1,6 +1,6 @@
 %li
   %div.task{ "data-id" => task.id }
-    = link_to complete_task_path(task), :remote => true, :method => :put, :class => link_class(task) do
+    = link_to complete_list_task_path(task.list, task), :remote => true, :method => :put, :class => link_class(task) do
       = task.task
     %p
-      = link_to "x", task_path(task), :remote => true, :method => :delete
+      = link_to "x", list_task_path(task.list, task), :remote => true, :method => :delete
