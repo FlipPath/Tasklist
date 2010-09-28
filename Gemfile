@@ -7,8 +7,8 @@ gem "mongoid",      "2.0.0.beta.18"
 gem "haml",         "3.0.18"
 gem "sass",         "3.1.0.alpha.4"
 
-gem 'ruby-debug-base19', "0.11.24"
-gem 'ruby-debug19', "0.11.6"
+# gem 'ruby-debug-base19', "0.11.24"
+# gem 'ruby-debug19', "0.11.6"
 
 group :development, :test do
   gem "jquery-rails",         "0.1.3"
