@@ -7,10 +7,17 @@ Tasklist.lists = {
     $("#list_name").val("");
     $(ev.listHtml).prependTo("#list_list");
     $("#"+ev.listId+"_task_task").focus();
+  },
+  
+  destroy : function(ev) {
+    $(".list[data-id="+ev.listId+"]").slideUp("fast", function(){
+      $(this).remove();
+    });
   }
 };
 
 $(document).bind("lists:create", Tasklist.lists.create);
+$(document).bind("lists:destroy", Tasklist.lists.destroy);
 
 $("#list_name").focus();
 
