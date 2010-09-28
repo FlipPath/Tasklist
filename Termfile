@@ -1,9 +1,9 @@
 - server:
   - rvm use 1.9.2@rails3
-  - r s --debugger
+  - r s
 - console:
   - rvm use 1.9.2@rails3
-  - r c --debugger
+  - r c
 - mongo:
   - mongo_start
 - autotest:
