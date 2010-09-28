@@ -2,5 +2,5 @@
   %div.handle
     = link_to "delete", list_task_path(task.list, task), :remote => true, :method => :delete
   %div.task_title
-    = link_to complete_list_task_path(task.list, task), :remote => true, :method => :put, :class => link_class(task) do
+    = link_to toggle_complete_list_task_path(task.list, task), :remote => true, :method => :put, :class => link_class(task) do
       = task.task
