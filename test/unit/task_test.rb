@@ -3,16 +3,22 @@ require 'test_helper'
 class TaskTest < ActiveSupport::TestCase
   should validate_presence_of(:task)
   
-  context "for complete method" do
+  context "for toggle complete method" do
     setup do
       @list = Factory(:list_with_item)
       @task = @list.tasks.first
-      @task.completed = false
     end
     
     should "mark task completed" do
-      @task.complete
+      @task.completed = false
+      @task.toggle_complete
       assert @task.completed
+    end
+    
+    should "mark task incomplete" do
+      @task.completed = true
+      @task.toggle_complete
+      assert !@task.completed
     end
   end
   
