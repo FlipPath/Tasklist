@@ -1,26 +1,68 @@
-div.list h3 {
-  display: inline; }
-div.list div > p {
-  display: inline;
-  visibility: hidden; }
-div.list div > p a {
-  color: red; }
+body {
+  font-family: "Lucida Grande", Arial, Sans-Serif;
+  font-size: 12px;
+  background-color: #e5e5e5; }
 
-div.list > div:hover > p {
-  visibility: visible; }
-
-div.task {
-  cursor: pointer; }
-  div.task > a {
-    color: #000;
-    text-decoration: none; }
-  div.task > a:hover, div.task .completed {
-    text-decoration: line-through; }
-  div.task .completed {
-    color: #888; }
-  div.task p {
-    display: inline;
+div.block {
+  -moz-box-shadow: 3px 3px 4px #a5a5a5;
+  background: none repeat scroll 0 0 #fff;
+  border-bottom: 1px solid #a5a5a5;
+  border-right: 1px solid #a5a5a5;
+  margin: 10px 10px 20px 30px; }
+  div.block h1 {
+    background: none repeat scroll 0 0 #edf3fe;
+    margin: 0 0 5px;
+    padding: 13px 30px 13px 24px;
+    font-size: 14px; }
+  div.block ul {
+    padding: 0 10px; }
+  div.block form {
+    padding: 10px 0 0 10px; }
+  div.block li.task {
+    list-style-type: none; }
+    div.block li.task .handle {
+      visibility: hidden; }
+  div.block li.task:hover > .handle {
+    visibility: visible; }
+  div.block div.list > .handle {
     visibility: hidden; }
+  div.block div.list .title span {
+    display: inline;
+    font-size: 16px;
+    position: relative;
+    right: 40px;
+    text-decoration: underline; }
+  div.block div.list .title .handle {
+    visibility: hidden; }
+  div.block div.list .title:hover .handle {
+    visibility: visible; }
+  div.block .task_title {
+    display: inline;
+    position: relative;
+    right: 40px; }
+    div.block .task_title a {
+      color: #000;
+      text-decoration: none; }
+    div.block .task_title a:hover, div.block .task_title .completed {
+      text-decoration: line-through; }
+    div.block .task_title .completed {
+      color: #888; }
+  div.block .handle {
+    display: inline;
+    position: relative;
+    right: 40px;
+    background-color: #fff;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 5px; }
+    div.block .handle a {
+      text-decoration: none;
+      color: red;
+      font-size: 10px; }
+  div.block > div {
+    padding: 0 20px; }
+  div.block #new_list {
+    padding: 10px 25px; }
 
-div.task:hover > p {
-  visibility: visible; }
+div.list {
+  padding: 10px 0; }
