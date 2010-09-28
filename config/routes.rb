@@ -1,8 +1,11 @@
 Tasklist::Application.routes.draw do
-  resources :tasks, :only => [:index, :create, :destroy] do
-    member do
-      put :complete
+  resources :lists, :only => [:index, :create] do
+    resources :tasks, :only => [:create, :destroy] do
+      member do
+        put :complete
+      end
     end
   end
-  root :to => 'tasks#index'
+  
+  root :to => 'lists#index'
 end
