@@ -1,4 +1,7 @@
 %div.list{ "data-id" => list.id }
-  %h3= list.name
+  %div
+    %h3= list.name
+    %p
+      = link_to "x", list_path(list), :remote => true, :method => :delete
   = render 'tasks/form', :list => list
   = render 'tasks/list', :tasks => list.tasks
