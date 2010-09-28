@@ -4,7 +4,11 @@ class TaskTest < ActiveSupport::TestCase
   should validate_presence_of(:task)
   
   context "for complete method" do
-    setup { @task = Factory(:valid_task, :completed => false) }
+    setup do
+      @list = Factory(:list_with_item)
+      @task = @list.tasks.first
+      @task.completed = false
+    end
     
     should "mark task completed" do
       @task.complete
@@ -14,13 +18,19 @@ class TaskTest < ActiveSupport::TestCase
   
   context "for latest" do
     setup do
-      Task.destroy_all
-      @first_task = Factory(:valid_task, :created_at => Time.now)
-      @second_task = Factory(:valid_task, :created_at => 1.day.ago)
+      @list = Factory(:empty_list)
+      
+      @first_task = @list.tasks.create(:task => "Love the way you lie")
+      @first_task.created_at = 1.day.ago
+      @first_task.save
+      
+      @second_task = @list.tasks.create(:task => "California Gurls")
+      @second_task.created_at = Time.now
+      @second_task.save
     end
     
     should "be order descending" do
-      assert_same_elements [@second_task, @first_task], Task.latest.to_a
+      assert_equal [@second_task, @first_task], @list.tasks.latest
     end
   end
   
