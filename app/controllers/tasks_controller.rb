@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
+  before_filter :load_list
+  before_filter :load_task, :only => [:complete, :destroy]
+  
   def create
-    @task = Task.create(:task => params[:task][:task])
+    @task = @list.tasks.create(:task => params[:task][:task])
     
     respond_to do |format|
       format.js
@@ -8,7 +11,6 @@ class TasksController < ApplicationController
   end
   
   def complete
-    @task = Task.find(params[:id])
     @task.complete
     
     respond_to do |format|
@@ -17,11 +19,20 @@ class TasksController < ApplicationController
   end
   
   def destroy
-    @task = Task.find(params[:id])
     @task.destroy
     
     respond_to do |format|
       format.js
     end
+  end
+  
+  private
+  
+  def load_list
+    @list = List.find(params[:list_id])
+  end
+  
+  def load_task
+    @task = @list.tasks.find(params[:id])
   end
 end
