@@ -26,7 +26,7 @@ $("#list_name").focus();
 Tasklist.tasks = {
   create : function(ev) {
     $("#"+ev.listId+"_task_task").val("");
-    $(ev.taskHtml).prependTo(".list[data-id="+ev.listId+"] .tasks");
+    $(ev.taskHtml).appendTo(".list[data-id="+ev.listId+"] .tasks");
   },
   
   complete : function(ev) {
@@ -34,7 +34,7 @@ Tasklist.tasks = {
   },
   
   destroy : function(ev) {
-    $(".task[data-id="+ev.taskId+"]").parents("li").slideUp("fast", function(){
+    $(".task[data-id="+ev.taskId+"]").slideUp("fast", function(){
       $(this).remove();
     });
   }
