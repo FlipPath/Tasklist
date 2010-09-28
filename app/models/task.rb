@@ -17,8 +17,8 @@ class Task
     end
   end
   
-  def complete
-    self.completed = true
+  def toggle_complete
+    self.completed = !completed
     self.save
   end
 end
