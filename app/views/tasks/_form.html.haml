@@ -1,2 +1,3 @@
-= form_for Task.new, :remote => true do |f|
-  = f.text_field :task
+= form_for Task.new, :url => list_tasks_path(list), :remote => true do |f|
+  = f.label :task
+  = f.text_field :task, :id => "#{list.id}_task_task"
