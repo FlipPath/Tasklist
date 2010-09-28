@@ -13,12 +13,12 @@ class TasksControllerTest < ActionController::TestCase
       should render_template(:create)
     end
     
-    context "for complete action" do
-      setup { put(:complete, :format => :js, :list_id => @list.id, :id => @first_task.id) }
+    context "for toggle complete action" do
+      setup { put(:toggle_complete, :format => :js, :list_id => @list.id, :id => @first_task.id) }
       
       should assign_to(:task).with_kind_of(Task)
       
-      should render_template(:complete)
+      should render_template(:toggle_complete)
     end
     
     context "for destroy action" do
