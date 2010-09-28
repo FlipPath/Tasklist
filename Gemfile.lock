@@ -124,6 +124,7 @@ DEPENDENCIES
   mongoid (= 2.0.0.beta.18)
   rails (= 3.0.0)
   rails_code_qa (= 0.4.1)
+  ruby-debug-base19 (= 0.11.24)
   ruby-debug19 (= 0.11.6)
   sass (= 3.1.0.alpha.4)
   shoulda (= 2.11.3)
