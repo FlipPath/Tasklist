@@ -1,0 +1,1 @@
+$(document).trigger({type:"lists:share",listId:"<%= @list.id %>",userHtml:"<%=raw escape_javascript(render "user", :user => @user) %>"});
