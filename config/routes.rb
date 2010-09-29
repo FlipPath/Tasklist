@@ -3,10 +3,9 @@ Tasklist::Application.routes.draw do
   
   devise_for :users
   resources :users, :only => :show
-  namespace :user do
-    root :to => redirect('/lists')
-  end
-
+  
+  match "/lists" => 'lists#index', :as => "user_root"
+  
   resources :lists, :only => [:index, :create, :destroy] do
     resources :tasks, :only => [:create, :destroy] do
       member do
