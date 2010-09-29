@@ -7,6 +7,7 @@ class User
   
   field :username
   field :name
+  key :username
   
   references_many :lists
   
@@ -16,8 +17,4 @@ class User
   validates_uniqueness_of :username, :email, :case_sensitive => false
   
   attr_accessible :username, :name, :email, :password, :password_confirmation
-  
-  def to_param
-    username.parameterize
-  end
 end
