@@ -18,4 +18,14 @@ class User
   validates_uniqueness_of :username, :email, :case_sensitive => false
   
   attr_accessible :username, :name, :email, :password, :password_confirmation
+  
+  class << self
+    def search(query)
+      where(:username => /#{query}/i)
+    end
+  end
+  
+  def as_json(options={})
+    attributes.slice("username")
+  end
 end
