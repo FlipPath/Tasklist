@@ -1,0 +1,3 @@
+= form_tag reorder_list_path(list), :remote => true, :method => :put, :class => :reorder_form do
+  = hidden_field_tag :task_id, nil, :id => nil, :class => :task_id
+  = hidden_field_tag :position, nil, :id => nil, :class => :position

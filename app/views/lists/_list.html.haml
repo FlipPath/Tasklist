@@ -5,4 +5,5 @@
     %span.name
       = list.name
   = render 'tasks/form', :list => list
-  = render 'tasks/list', :tasks => list.tasks
+  = render 'tasks/list', :tasks => list.tasks, :list_id => list.id
+  = render 'reorder_form', :list => list
