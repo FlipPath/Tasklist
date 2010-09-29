@@ -26,7 +26,7 @@ $("#list_name").focus();
 Tasklist.tasks = {
   create : function(ev) {
     $("#"+ev.listId+"_task_task").val("");
-    $(ev.taskHtml).appendTo(".list[data-id="+ev.listId+"] .tasks");
+    $(ev.taskHtml).prependTo(".list[data-id="+ev.listId+"] .tasks");
   },
   
   complete : function(ev) {
