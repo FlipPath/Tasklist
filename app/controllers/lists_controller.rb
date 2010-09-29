@@ -39,7 +39,7 @@ class ListsController < ApplicationController
       format.js
     end
   end
-  
+    
   private
   
   def load_lists
