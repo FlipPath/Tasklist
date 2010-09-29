@@ -30,7 +30,7 @@ class ListsController < ApplicationController
       format.js { head :ok }
     end
   end
-  
+
   def share
     @share_user = User.find(params[:username])
     @list.share(@share_user)

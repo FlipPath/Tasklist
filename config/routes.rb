@@ -11,6 +11,7 @@ Tasklist::Application.routes.draw do
     member do
       put :reorder, :share
     end
+    
     resources :tasks, :only => [:create, :destroy] do
       member do
         put :toggle_complete
