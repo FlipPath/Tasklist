@@ -4,7 +4,7 @@ Tasklist::Application.routes.draw do
   devise_for :users
   resources :users, :only => :show
   
-  match "/lists" => 'lists#index', :as => "user_root"
+  get "/lists" => 'lists#index', :as => "user_root"
   
   resources :lists, :only => [:index, :create, :destroy] do
     resources :tasks, :only => [:create, :destroy] do
