@@ -40,11 +40,15 @@ div.block {
     
     li {
       list-style-type:none; 
-
-      .handle {
-        visibility: hidden;
+    }
+    
+    .completed {
+      .task_title, a:hover > .task_title {
+        text-decoration: line-through;
+        color: #888;
+        font-style: italic;
       }
-
+      
       &:hover > .handle {
         visibility: visible;
       }
@@ -57,7 +61,6 @@ div.block {
   
   div.list {
     padding: 10px 0;
-    
     
     > div {
       padding: 0 20px;
@@ -73,7 +76,7 @@ div.block {
         text-decoration: underline;
       }
     
-      .handle, .share {
+      .share {
          visibility: hidden;
       }
     
@@ -97,6 +100,7 @@ div.block {
     @include rounded(10px);
     display: inline;
     position: relative;
+    visibility: hidden;
     right: 40px;
     background-color: #fff;
     padding: 5px;
@@ -116,14 +120,6 @@ div.block {
     a {
       color: #000;
       text-decoration: none;
-    }
-    
-    a:hover, .completed {
-      text-decoration: line-through;
-    }
-    
-    .completed {
-      color: #888;
     }
   }
   

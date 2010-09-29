@@ -22,10 +22,12 @@ div.block {
     padding: 0 30px; }
     div.block .tasks li {
       list-style-type: none; }
-      div.block .tasks li .handle {
-        visibility: hidden; }
-      div.block .tasks li:hover > .handle {
-        visibility: visible; }
+    div.block .tasks .completed .task_title, div.block .tasks .completed a:hover > .task_title {
+      text-decoration: line-through;
+      color: #888;
+      font-style: italic; }
+    div.block .tasks .completed:hover > .handle {
+      visibility: visible; }
   div.block form {
     padding: 10px 0 0 30px; }
   div.block div.list {
@@ -38,7 +40,7 @@ div.block {
       position: relative;
       right: 40px;
       text-decoration: underline; }
-    div.block div.list .title .handle, div.block div.list .title .share {
+    div.block div.list .title .share {
       visibility: hidden; }
     div.block div.list .title:hover .handle, div.block div.list .title:hover .share {
       visibility: visible; }
@@ -54,6 +56,7 @@ div.block {
     -webkit-border-radius: 10px;
     display: inline;
     position: relative;
+    visibility: hidden;
     right: 40px;
     background-color: #fff;
     padding: 5px; }
@@ -68,10 +71,6 @@ div.block {
     div.block .task_title a {
       color: #000;
       text-decoration: none; }
-    div.block .task_title a:hover, div.block .task_title .completed {
-      text-decoration: line-through; }
-    div.block .task_title .completed {
-      color: #888; }
   div.block .new_list {
     padding: 10px 25px; }
 
