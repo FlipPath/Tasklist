@@ -5,6 +5,7 @@ class List
   field :name
   
   embeds_many :tasks
+  referenced_in :user
   
   attr_accessible :name
   
