@@ -16,10 +16,44 @@ var sortableTaskListOptions = {
   }
 };
 
+var autocompleteSharingOptions = {
+  source: function(request, response){
+    $.ajax({
+      url: $("input#search_path").val(),
+      dataType: "json",
+      data: { q: request.term },
+      success: function(data) {
+        response(
+          $.map(data, function(user){
+            return { label: user.username, value: user.username }
+          }));
+      }
+    });
+  },
+  minLength: 2,
+  select: function(event, ui){
+    if (ui.item) {
+      $(this).addClass("username_valid");
+      $(".sharing input.username").val(ui.item.value);
+    } else {
+      $(".sharing input.username").val("");
+    }
+  },
+  open: function(){
+    console.log("opened");
+    $(".sharing input.username").val("");
+  },
+  close: function(){
+    console.log("closed");
+  }
+};
+
 Tasklist.lists = {
   create : function(ev) {
+    var $list = $(ev.listHtml).prependTo("#list_list");
     $("#list_name").val("");
-    $(ev.listHtml).prependTo("#list_list").find(".tasks").sortable(sortableTaskListOptions);
+    $(".tasks", $list).sortable(sortableTaskListOptions)
+    $("input.ac_username", $list).autocomplete(autocompleteSharingOptions);
     $("#"+ev.listId+"_task_task").focus();
   },
   
@@ -27,14 +61,27 @@ Tasklist.lists = {
     $(".list[data-id="+ev.listId+"]").slideUp("fast", function(){
       $(this).remove();
     });
+  },
+  
+  share : function(ev) {
+    var $list = $(".list[data-id="+ev.listId+"]");
+    $("input.ac_username", $list).val("").removeClass("username_valid");
+    $(ev.userHtml).prependTo(".sharing ul", $list);
+    $(".input.username", $list).val(ui.item.value);
   }
 };
 
 $(document).bind("lists:create", Tasklist.lists.create);
 $(document).bind("lists:destroy", Tasklist.lists.destroy);
+$(document).bind("lists:share", Tasklist.lists.share);
 
 $("#list_name").focus();
 $("ul.tasks").sortable(sortableTaskListOptions);
+$(".list input.ac_username").autocomplete(autocompleteSharingOptions);
+
+$("#share_list").submit(function(){
+  return ($(".username", this).val().length > 0);
+});
 
 // Tasks
 
