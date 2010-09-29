@@ -4,7 +4,11 @@ body {
   background-color: #e5e5e5; }
 
 div.block {
-  -moz-box-shadow: 3px 3px 4px #a5a5a5;
+  -moz-box-shadow: 0px 1px 2px #a5a5a5;
+  -webkit-box-shadow: 0px 1px 2px #a5a5a5;
+  box-shadow: 0px 1px 2px #a5a5a5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color');
   background: none repeat scroll 0 0 #fff;
   border-bottom: 1px solid #a5a5a5;
   border-right: 1px solid #a5a5a5;
@@ -48,12 +52,13 @@ div.block {
     div.block .task_title .completed {
       color: #888; }
   div.block .handle {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
     display: inline;
     position: relative;
     right: 40px;
     background-color: #fff;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
     padding: 5px; }
     div.block .handle a {
       text-decoration: none;

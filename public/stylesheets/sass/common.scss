@@ -1,6 +1,20 @@
 $red:      #ff0000;
 $bg_color: #e5e5e5;
 
+@mixin shadow($color: #333333) {
+  -moz-box-shadow: 0px 1px 2px $color;
+  -webkit-box-shadow: 0px 1px 2px $color;
+  box-shadow: 0px 1px 2px $color;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color');
+}
+
+@mixin rounded($radius: 10px) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
 body {
   font-family: "Lucida Grande", Arial, Sans-Serif;
   font-size: 12px;
@@ -8,7 +22,7 @@ body {
 }
 
 div.block {
-  -moz-box-shadow: 3px 3px 4px darken($bg_color, 25%);
+  @include shadow(darken($bg_color, 25%));
   background: none repeat scroll 0 0 #fff;
   border-bottom: 1px solid darken($bg_color, 25%);
   border-right: 1px solid darken($bg_color, 25%);
@@ -85,12 +99,11 @@ div.block {
   }
   
   .handle {
+    @include rounded(10px);
     display: inline;
     position: relative;
     right: 40px;
     background-color: #fff;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
     padding: 5px;
     
     a {
