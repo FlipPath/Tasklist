@@ -141,3 +141,7 @@ ul.hmenu {
 .shadow {
   @include shadow(darken($bg_color, 50%));
 }
+
+.username_valid {
+  background-color: lighten(green, 50%);
+}

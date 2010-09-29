@@ -87,3 +87,6 @@ ul.hmenu {
   box-shadow: 0px 1px 2px #666666;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color'); }
+
+.username_valid {
+  background-color: #80ff80; }
