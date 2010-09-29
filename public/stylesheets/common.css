@@ -18,39 +18,36 @@ div.block {
     margin: 0 0 5px;
     padding: 13px 30px 13px 24px;
     font-size: 14px; }
-  div.block ul {
-    padding: 0 10px; }
+  div.block .tasks {
+    padding: 0 30px; }
+    div.block .tasks li {
+      list-style-type: none; }
+      div.block .tasks li .handle {
+        visibility: hidden; }
+      div.block .tasks li:hover > .handle {
+        visibility: visible; }
   div.block form {
-    padding: 10px 0 0 10px; }
-  div.block li.task {
-    list-style-type: none; }
-    div.block li.task .handle {
+    padding: 10px 0 0 30px; }
+  div.block div.list {
+    padding: 10px 0; }
+    div.block div.list > div {
+      padding: 0 20px; }
+    div.block div.list .title .name {
+      display: inline;
+      font-size: 16px;
+      position: relative;
+      right: 40px;
+      text-decoration: underline; }
+    div.block div.list .title .handle, div.block div.list .title .share {
       visibility: hidden; }
-  div.block li.task:hover > .handle {
-    visibility: visible; }
-  div.block div.list > .handle {
-    visibility: hidden; }
-  div.block div.list .title span {
+    div.block div.list .title:hover .handle, div.block div.list .title:hover .share {
+      visibility: visible; }
+  div.block .share {
     display: inline;
-    font-size: 16px;
-    position: relative;
-    right: 40px;
-    text-decoration: underline; }
-  div.block div.list .title .handle {
-    visibility: hidden; }
-  div.block div.list .title:hover .handle {
-    visibility: visible; }
-  div.block .task_title {
-    display: inline;
-    position: relative;
-    right: 40px; }
-    div.block .task_title a {
-      color: #000;
-      text-decoration: none; }
-    div.block .task_title a:hover, div.block .task_title .completed {
-      text-decoration: line-through; }
-    div.block .task_title .completed {
-      color: #888; }
+    /*    position: relative;*/
+    /*    left: 50px;*/
+    background-color: #fff;
+    padding: 5px; }
   div.block .handle {
     border-radius: 10px;
     -moz-border-radius: 10px;
@@ -64,13 +61,19 @@ div.block {
       text-decoration: none;
       color: red;
       font-size: 10px; }
-  div.block > div {
-    padding: 0 20px; }
-  div.block #new_list {
+  div.block .task_title {
+    display: inline;
+    position: relative;
+    right: 40px; }
+    div.block .task_title a {
+      color: #000;
+      text-decoration: none; }
+    div.block .task_title a:hover, div.block .task_title .completed {
+      text-decoration: line-through; }
+    div.block .task_title .completed {
+      color: #888; }
+  div.block .new_list {
     padding: 10px 25px; }
-
-div.list {
-  padding: 10px 0; }
 
 ul.hmenu {
   list-style: none;
@@ -78,3 +81,10 @@ ul.hmenu {
   padding: 0; }
   ul.hmenu li {
     display: inline; }
+
+.shadow {
+  -moz-box-shadow: 0px 1px 2px #666666;
+  -webkit-box-shadow: 0px 1px 2px #666666;
+  box-shadow: 0px 1px 2px #666666;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color'); }

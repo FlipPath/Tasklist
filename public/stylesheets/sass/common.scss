@@ -35,48 +35,77 @@ div.block {
     font-size: 14px;
   }
   
-  ul{
-    padding: 0 10px;
+  .tasks {
+    padding: 0 30px;
+    
+    li {
+      list-style-type:none; 
+
+      .handle {
+        visibility: hidden;
+      }
+
+      &:hover > .handle {
+        visibility: visible;
+      }
+    }
   }
   
   form {
-    padding: 10px 0 0 10px;
-    
+    padding: 10px 0 0 30px;
   }
   
-  li.task {
-    list-style-type:none; 
+  div.list {
+    padding: 10px 0;
     
-    .handle {
-      visibility: hidden;
+    
+    > div {
+      padding: 0 20px;
+    }
+    
+    .title {
+      
+      .name {
+        display: inline;
+        font-size: 16px;
+        position: relative;
+        right: 40px;
+        text-decoration: underline;
+      }
+    
+      .handle, .share {
+         visibility: hidden;
+      }
+    
+      &:hover {
+        .handle, .share {
+          visibility: visible;
+        }
+      }
     }
   }
   
-  
-  li.task:hover > .handle {
-    visibility: visible;
+  .share {
+    display: inline;
+/*    position: relative;*/
+/*    left: 50px;*/
+    background-color: #fff;
+    padding: 5px;
   }
   
-  div.list > .handle {
-    visibility: hidden;
-  }
-  
-  div.list .title {
-    span {
-      display: inline;
-      font-size: 16px;
-      position: relative;
-      right: 40px;
-      text-decoration: underline;
-    }
+  .handle {
+    @include rounded(10px);
+    display: inline;
+    position: relative;
+    right: 40px;
+    background-color: #fff;
+    padding: 5px;
     
-    .handle {
-       visibility: hidden;
+    a {
+      text-decoration: none;
+      color: $red;
+      font-size: 10px;
     }
-  }
-
-  div.list .title:hover .handle {
-    visibility: visible;
   }
   
   .task_title {
@@ -98,32 +127,9 @@ div.block {
     }
   }
   
-  .handle {
-    @include rounded(10px);
-    display: inline;
-    position: relative;
-    right: 40px;
-    background-color: #fff;
-    padding: 5px;
-    
-    a {
-      text-decoration: none;
-      color: $red;
-      font-size: 10px;
-    }
-  }
-  
-  > div {
-    padding: 0 20px;
-  }
-  
-  #new_list {
+  .new_list {
     padding: 10px 25px;
   }
-}
-
-div.list {
-  padding: 10px 0;
 }
 
 ul.hmenu {
@@ -134,4 +140,8 @@ ul.hmenu {
   li {
     display: inline;
   }
+}
+
+.shadow {
+  @include shadow(darken($bg_color, 50%));
 }
