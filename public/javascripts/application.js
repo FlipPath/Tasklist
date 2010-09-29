@@ -45,11 +45,11 @@ Tasklist.tasks = {
   },
   
   complete : function(ev) {
-    $(".task[data-id="+ev.taskId+"]#").html(ev.taskHtml);
+    $(".task[data-id="+ev.taskId+"]").replaceWith(ev.taskHtml);
   },
   
   destroy : function(ev) {
-    $(".task[data-id="+ev.taskId+"]#").slideUp("fast", function(){
+    $(".task[data-id="+ev.taskId+"]").slideUp("fast", function(){
       $(this).remove();
     });
   }
