@@ -9,7 +9,7 @@ Tasklist::Application.routes.draw do
   
   resources :lists, :only => [:index, :create, :destroy] do
     member do
-      put :reorder
+      put :reorder, :share
     end
     resources :tasks, :only => [:create, :destroy] do
       member do

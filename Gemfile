@@ -2,15 +2,15 @@ source "http://rubygems.org"
 
 gem "rails", "~> 3.0.0"
 
-gem "bson_ext",     "~> 1.0.4"
-gem "mongoid",      "~> 2.0.0.beta.18"
-gem "haml",         "~> 3.0.18"
-gem "sass",         "~> 3.1.0.alpha.4"
-gem "haml-rails",   "~> 0.2"
-gem "jquery-rails", "~> 0.1.3"
-gem "devise",       "~> 1.1.3"
-gem "hpricot",      "~> 0.8.2"
-
+gem "bson_ext",           "~> 1.0.4"
+gem "mongoid",            "~> 2.0.0.beta.18"
+gem "haml",               "~> 3.0.18"
+gem "sass",               "~> 3.1.0.alpha.4"
+gem "haml-rails",         "~> 0.2"
+gem "jquery-rails",       "~> 0.1.3"
+gem "devise",             "~> 1.1.3"
+gem "hpricot",            "~> 0.8.2"
+gem "gravatar_image_tag", "~> 0.1.0"
 
 group :development do
   gem "heroku",       "~> 1.10.8"

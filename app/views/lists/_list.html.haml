@@ -1,9 +1,10 @@
 %div.list{ "data-id" => list.id }
   %div.title
-    %div.handle
-      = link_to "delete", list_path(list), :remote => true, :method => :delete, :class => "destroy"
-    %span.name
-      = list.name
+    %div.handle= link_to "delete", list_path(list), :remote => true, :method => :delete, :class => "destroy"
+    %div.name= list.name
+    %div.share= link_to_function "share"
+  %div.collaborators
+    = text_field_tag nil, nil, :id => nil, :class => "username"
   = render 'tasks/form', :list => list
   = render 'tasks/list', :tasks => list.tasks, :list_id => list.id
   = render 'reorder_form', :list => list

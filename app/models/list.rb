@@ -5,9 +5,9 @@ class List
   field :name
   
   embeds_many :tasks
-  referenced_in :user
+  references_many :users, :stored_as => :array, :inverse_of => :lists
   
-  attr_accessible :name
+  attr_accessible :name, :user_ids
   
   validates_presence_of :name
   
@@ -15,5 +15,10 @@ class List
     def latest
       order_by(:created_at.desc)
     end
+  end
+  
+  def share(user)
+    user.lists << self
+    user.save
   end
 end

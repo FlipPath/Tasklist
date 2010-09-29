@@ -31,6 +31,15 @@ class ListsController < ApplicationController
     end
   end
   
+  def share
+    @share_user = User.find(params[:username])
+    @list.share(@share_user)
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   private
   
   def load_lists
