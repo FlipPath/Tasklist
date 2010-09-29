@@ -20,36 +20,40 @@ div.block {
     font-size: 14px; }
   div.block .tasks {
     padding: 0 30px; }
-    div.block .tasks li {
+    div.block .tasks .task {
       list-style-type: none; }
-    div.block .tasks .completed .task_title, div.block .tasks .completed a:hover > .task_title {
-      text-decoration: line-through;
-      color: #888;
-      font-style: italic; }
-    div.block .tasks .completed:hover > .handle {
-      visibility: visible; }
+      div.block .tasks .task .task_title {
+        display: inline;
+        position: relative;
+        right: 40px; }
+        div.block .tasks .task .task_title a {
+          color: #000;
+          text-decoration: none; }
+      div.block .tasks .task.completed .task_title a, div.block .tasks .task .task_title a:hover {
+        text-decoration: line-through;
+        font-style: italic; }
+      div.block .tasks .task.completed .task_title a {
+        color: #888; }
+      div.block .tasks .task.completed:hover > .handle {
+        visibility: visible; }
   div.block form {
     padding: 10px 0 0 30px; }
   div.block div.list {
     padding: 10px 0; }
-    div.block div.list > div {
+    div.block div.list .title {
       padding: 0 20px; }
-    div.block div.list .title .name {
-      display: inline;
-      font-size: 16px;
-      position: relative;
-      right: 40px;
-      text-decoration: underline; }
-    div.block div.list .title .share {
-      visibility: hidden; }
-    div.block div.list .title:hover .handle, div.block div.list .title:hover .share {
-      visibility: visible; }
-  div.block .share {
-    display: inline;
-    /*    position: relative;*/
-    /*    left: 50px;*/
-    background-color: #fff;
-    padding: 5px; }
+      div.block div.list .title .name {
+        display: inline;
+        font-size: 16px;
+        position: relative;
+        right: 40px;
+        text-decoration: underline; }
+      div.block div.list .title .share {
+        display: inline;
+        background-color: #fff;
+        visibility: hidden; }
+      div.block div.list .title:hover .handle, div.block div.list .title:hover .share {
+        visibility: visible; }
   div.block .handle {
     border-radius: 10px;
     -moz-border-radius: 10px;
@@ -64,13 +68,6 @@ div.block {
       text-decoration: none;
       color: red;
       font-size: 10px; }
-  div.block .task_title {
-    display: inline;
-    position: relative;
-    right: 40px; }
-    div.block .task_title a {
-      color: #000;
-      text-decoration: none; }
   div.block .new_list {
     padding: 10px 25px; }
 

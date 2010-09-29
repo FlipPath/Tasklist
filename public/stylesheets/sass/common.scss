@@ -38,19 +38,33 @@ div.block {
   .tasks {
     padding: 0 30px;
     
-    li {
+    .task {
       list-style-type:none; 
-    }
-    
-    .completed {
-      .task_title, a:hover > .task_title {
+      
+      .task_title {
+        display: inline;
+        position: relative;
+        right: 40px;
+
+        a {
+          color: #000;
+          text-decoration: none;
+        }
+      }
+      
+      &.completed .task_title a, .task_title a:hover {
         text-decoration: line-through;
-        color: #888;
         font-style: italic;
       }
       
-      &:hover > .handle {
-        visibility: visible;
+      &.completed .task_title a {
+        color: #888;
+      }
+      
+      &.completed {
+        &:hover > .handle {
+          visibility: visible;
+        }
       }
     }
   }
@@ -62,11 +76,8 @@ div.block {
   div.list {
     padding: 10px 0;
     
-    > div {
-      padding: 0 20px;
-    }
-    
     .title {
+      padding: 0 20px;
       
       .name {
         display: inline;
@@ -75,9 +86,11 @@ div.block {
         right: 40px;
         text-decoration: underline;
       }
-    
+      
       .share {
-         visibility: hidden;
+        display: inline;
+        background-color: #fff;
+        visibility: hidden;
       }
     
       &:hover {
@@ -88,14 +101,6 @@ div.block {
     }
   }
   
-  .share {
-    display: inline;
-/*    position: relative;*/
-/*    left: 50px;*/
-    background-color: #fff;
-    padding: 5px;
-  }
-  
   .handle {
     @include rounded(10px);
     display: inline;
@@ -104,22 +109,11 @@ div.block {
     right: 40px;
     background-color: #fff;
     padding: 5px;
-    
+
     a {
       text-decoration: none;
       color: $red;
       font-size: 10px;
-    }
-  }
-  
-  .task_title {
-    display: inline;
-    position: relative;
-    right: 40px;
-    
-    a {
-      color: #000;
-      text-decoration: none;
     }
   }
   
