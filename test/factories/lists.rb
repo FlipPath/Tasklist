@@ -1,7 +1,3 @@
-Factory.define :valid_list, :class => List do |f|
-  f.name "Around the house"
-end
-
 Factory.define :invalid_list, :class => List do |f|
 end
 
