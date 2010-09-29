@@ -3,7 +3,11 @@ Tasklist::Application.routes.draw do
   root :to => 'home#index'
   
   devise_for :users
-  resources :users, :only => :show
+  resources :users, :only => :show do
+    collection do
+      get :search
+    end
+  end
   
   get "/lists" => 'lists#index', :as => "user_root"
   
