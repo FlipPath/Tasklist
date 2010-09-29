@@ -1,6 +1,12 @@
 class ListsController < ApplicationController
+  before_filter :authenticate_user!
+  
+  def index
+    @lists = current_user.lists.latest
+  end
+  
   def create
-    @list = List.create(:name => params[:list][:name])
+    @list = current_user.lists.create(:name => params[:list][:name])
     
     respond_to do |format|
       format.js
@@ -8,7 +14,7 @@ class ListsController < ApplicationController
   end
   
   def destroy
-    @list = List.find(params[:id])
+    @list = current_user.lists.find(params[:id])
     @list.destroy
     
     respond_to do |format|
