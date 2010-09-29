@@ -1,5 +1,0 @@
-Assets On Heroku - CSS, JavaScript, Sass. Works with Rails, Merb and Rack apps
-
-This gem provides a single middleware for use with Rails, Merb or any Rack app: 
-
-AssetsOnHeroku::Rack
