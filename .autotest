@@ -1,3 +1,4 @@
+require 'redgreen/autotest'
 require 'autotest/timestamp'
 require 'autotest/growl'
 require 'autotest/fsevent'

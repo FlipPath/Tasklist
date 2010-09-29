@@ -1,13 +1,13 @@
 - server:
-  - rvm use 1.9.2@rails3
-  - r s
+  - rvm use ree@rails3
+  - r s --debugger
 - console:
-  - rvm use 1.9.2@rails3
-  - r c
+  - rvm use ree@rails3
+  - r c --debugger
 - mongo:
   - mongo_start
 - autotest:
-  - rvm use 1.9.2@rails3
+  - rvm use ree@rails3
   - autotest
 - bash:
-  - rvm use 1.9.2@rails3
+  - rvm use ree@rails3
