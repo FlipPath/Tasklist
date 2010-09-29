@@ -1,4 +1,5 @@
 Tasklist::Application.routes.draw do
+  root :to => 'lists#index', :constraints => lambda {|r| r.env["warden"].authenticate? }
   root :to => 'home#index'
   
   devise_for :users
