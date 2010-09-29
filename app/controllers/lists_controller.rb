@@ -1,12 +1,14 @@
 class ListsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :load_lists
+  before_filter :load_list, :only => [:destroy, :reorder]
   
   def index
-    @lists = current_user.lists.latest
+    @lists = @lists.latest
   end
   
   def create
-    @list = current_user.lists.create(:name => params[:list][:name])
+    @list = @lists.create(:name => params[:list][:name])
     
     respond_to do |format|
       format.js
@@ -14,11 +16,28 @@ class ListsController < ApplicationController
   end
   
   def destroy
-    @list = current_user.lists.find(params[:id])
     @list.destroy
     
     respond_to do |format|
       format.js
     end
+  end
+  
+  def reorder
+    @list.tasks.find(params[:task_id]).move_to(params[:position].to_i)
+    
+    respond_to do |format|
+      format.js { head :ok }
+    end
+  end
+  
+  private
+  
+  def load_lists
+    @lists = current_user.lists
+  end
+  
+  def load_list
+    @list = @lists.find(params[:id])
   end
 end
