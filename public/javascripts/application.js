@@ -2,10 +2,24 @@ var Tasklist = { };
 
 // Lists
 
+var sortableTaskListOptions = {
+  update: function(ev, ui){
+    var $list = $(this).parents(".list"),
+        $lis  = $("li", $list),
+        $form = $(".reorder_form", $list),
+        task_id = $(ui.item).attr("data-id"),
+        position = ($lis.length - $lis.index(ui.item) - 1);
+    
+    $(".task_id", $form).val(task_id);
+    $(".position", $form).val(position);
+    $form.submit();
+  }
+};
+
 Tasklist.lists = {
   create : function(ev) {
     $("#list_name").val("");
-    $(ev.listHtml).prependTo("#list_list");
+    $(ev.listHtml).prependTo("#list_list").find(".tasks").sortable(sortableTaskListOptions);
     $("#"+ev.listId+"_task_task").focus();
   },
   
@@ -20,6 +34,7 @@ $(document).bind("lists:create", Tasklist.lists.create);
 $(document).bind("lists:destroy", Tasklist.lists.destroy);
 
 $("#list_name").focus();
+$("ul.tasks").sortable(sortableTaskListOptions);
 
 // Tasks
 
@@ -30,7 +45,7 @@ Tasklist.tasks = {
   },
   
   complete : function(ev) {
-    $(".task[data-id="+ev.taskId+"]").html(ev.taskHtml);
+    $(".task[data-id="+ev.taskId+"]").replaceWith(ev.taskHtml);
   },
   
   destroy : function(ev) {

@@ -8,7 +8,7 @@ class ListsControllerTest < ActionController::TestCase
       User.destroy_all
       @user = Factory(:user)
       sign_in @user
-      @list = Factory(:valid_list)
+      @list = Factory(:list_with_ten_items)
       @user.lists << @list
     end
     
@@ -33,6 +33,16 @@ class ListsControllerTest < ActionController::TestCase
       should assign_to(:list).with_kind_of(List)
       
       should render_template(:destroy)
+    end
+    
+    context "for reorder action" do
+      setup do
+        @task = @list.tasks.first
+        
+        put(:reorder, :format => :js, :id => @list.id, :task_id => @task.id, :position => "2")
+      end
+      
+      should respond_with :ok
     end
   end
 end

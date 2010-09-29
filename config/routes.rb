@@ -8,6 +8,9 @@ Tasklist::Application.routes.draw do
   get "/lists" => 'lists#index', :as => "user_root"
   
   resources :lists, :only => [:index, :create, :destroy] do
+    member do
+      put :reorder
+    end
     resources :tasks, :only => [:create, :destroy] do
       member do
         put :toggle_complete
