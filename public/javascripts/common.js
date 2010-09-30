@@ -75,12 +75,29 @@ $(document).bind("lists:create", Tasklist.lists.create);
 $(document).bind("lists:destroy", Tasklist.lists.destroy);
 $(document).bind("lists:share", Tasklist.lists.share);
 
-$("#list_name").focus();
 $("ul.tasks").sortable(sortableTaskListOptions);
 $(".list input.ac_username").autocomplete(autocompleteSharingOptions);
 
 $("#share_list").submit(function(){
   return ($(".username", this).val().length > 0);
+});
+
+$(".list").each(function(){
+  var dataId         = $(this).attr("data-id"),
+      // presenceSocket = server.subscribe("presence-list-" + dataId),
+      listSocket     = server.subscribe("private-list-" + dataId);
+      
+      // presenceSocket.bind("pusher:subscription_succeeded", function(member){
+      //   console.log("member subscribed: " + member[0].user_info.name);
+      // });
+      // 
+      // presenceSocket.bind("pusher:member_added", function(member){
+      //   console.log("member added: " + member.user_info.name);
+      // });
+      // 
+      // presenceSocket.bind("pusher:member_removed", function(member){
+      //   console.log("member removed: " + member.user_info.name);
+      // });
 });
 
 // Tasks
@@ -106,7 +123,6 @@ $(document).bind("tasks:create", Tasklist.tasks.create);
 $(document).bind("tasks:complete", Tasklist.tasks.complete);
 $(document).bind("tasks:destroy", Tasklist.tasks.destroy);
 
-// $("#task_task").focus();
 $("#new_task").submit(function(){
   return ($("#task_task").val().length > 0);
 });
