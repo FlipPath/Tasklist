@@ -5,7 +5,5 @@
   = submit_tag "add"
 %ul
   - list.users.order_by(:name.asc).reject{|u| u.id == current_user.id }.each do |u|
-    %li
-      %p= gravatar_image_tag u.email, :align => :left, :gravatar => { :size => 24 }
-      %p= u.username
+    = render "sharing_user", :user => u
 %a.share_close{ :href => "javascript:;" } Close
