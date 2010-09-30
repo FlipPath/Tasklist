@@ -33,8 +33,9 @@ div.block {
         display: inline;
         position: absolute;
         right: 2px;
+        padding-top: 5px;
         background-color: #fff;
-        /*        visibility: hidden;*/ }
+        visibility: hidden; }
         div.block ul#lists li.list div.extra a {
           text-decoration: none; }
           div.block ul#lists li.list div.extra a.share {
@@ -76,6 +77,8 @@ div.block {
       div.block ul#lists li.list form.new_task input {
         margin-top: 10px;
         width: 194px; }
+      div.block ul#lists li.list:hover > div.extra {
+        visibility: visible; }
     div.block ul#lists ul.tasks {
       list-style: none;
       padding: 0;
