@@ -14,12 +14,12 @@ Tasklist::Application.routes.draw do
   
   resources :lists, :only => [:index, :create, :destroy] do
     member do
-      put :reorder, :share
+      put :share
     end
     
     resources :tasks, :only => [:create, :destroy] do
       member do
-        put :toggle_complete
+        put :toggle_complete, :reorder
       end
     end
   end
