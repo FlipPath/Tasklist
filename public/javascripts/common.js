@@ -34,14 +34,14 @@ var autocompleteSharingOptions = {
   select: function(event, ui){
     if (ui.item) {
       $(this).addClass("username_valid");
-      $(".sharing input.username").val(ui.item.value);
+      $(".share_form input.username").val(ui.item.value);
     } else {
-      $(".sharing input.username").val("");
+      $(".share_form input.username").val("");
     }
   },
   open: function(){
     console.log("opened");
-    $(".sharing input.username").val("");
+    $(".share_form input.username").val("");
   },
   close: function(){
     console.log("closed");
@@ -50,7 +50,7 @@ var autocompleteSharingOptions = {
 
 Tasklist.lists = {
   create : function(ev) {
-    var $list = $(ev.listHtml).prependTo("#list_list");
+    var $list = $(ev.listHtml).prependTo("#lists");
     $("#list_name").val("");
     $(".tasks", $list).sortable(sortableTaskListOptions)
     $("input.ac_username", $list).autocomplete(autocompleteSharingOptions);
@@ -66,7 +66,7 @@ Tasklist.lists = {
   share : function(ev) {
     var $list = $(".list[data-id="+ev.listId+"]");
     $("input.ac_username", $list).val("").removeClass("username_valid");
-    $(ev.userHtml).prependTo(".sharing ul", $list);
+    $(ev.userHtml).prependTo(".share_form ul", $list);
     $(".input.username", $list).val(ui.item.value);
   }
 };
@@ -74,6 +74,12 @@ Tasklist.lists = {
 $(document).bind("lists:create", Tasklist.lists.create);
 $(document).bind("lists:destroy", Tasklist.lists.destroy);
 $(document).bind("lists:share", Tasklist.lists.share);
+
+$("ul#lists .share").toggle(function() {
+  $(this).parents("li.list").find(".share_form").slideDown("fast");
+}, function() {
+  $(this).parents("li.list").find(".share_form").slideUp("fast");
+});
 
 $("ul.tasks").sortable(sortableTaskListOptions);
 $(".list input.ac_username").autocomplete(autocompleteSharingOptions);
