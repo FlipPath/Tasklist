@@ -1,3 +1,2 @@
-= form_tag reorder_list_path(list), :remote => true, :method => :put, :class => :reorder_task_form do
-  = hidden_field_tag :task_id, nil, :id => nil, :class => :task_id
+= form_tag '#', :remote => true, :method => :put, "data-path" => reorder_list_task_path(list, "%id"), :class => :reorder_tasks_form do
   = hidden_field_tag :position, nil, :id => nil, :class => :position
