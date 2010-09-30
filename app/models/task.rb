@@ -30,6 +30,7 @@ class Task
   end
   
   def move_to(new_position)
+    new_position = new_position.to_i
     return if new_position == position
     
     limit = list.tasks.count
