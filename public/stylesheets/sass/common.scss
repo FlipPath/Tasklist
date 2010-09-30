@@ -79,6 +79,7 @@ div.block {
     padding-left: 20px;
     
     li.list {
+      background-color: #fff;
       list-style: none;
       position: relative;
       display: inline-block;
@@ -108,7 +109,7 @@ div.block {
         a {
           text-decoration: none;
           
-          &.share {
+          &.share_open {
             color: green;
           }
           
@@ -125,11 +126,35 @@ div.block {
       
       div.share_form {
         display: none;
-        margin-top: 10px;
+        position:absolute;
+        margin-top: 8px;
+        background-color: white;
+        z-index: 2000;
+        width: $list_width - 20px;
+        padding: 15px 10px 25px 10px;
+        border-top: 1px solid #ddd;
+        @include shadow;
         
         ul {
-          @include list();
+          @include list;
+          padding-top: 1px;
           background-color: #ffffc2;
+          
+          li {
+            margin: 0;
+            padding: 0;
+            display: block;
+            
+            p > img {
+              padding: 0 5px 0 10px;
+            }
+          }
+        }
+        
+        .share_close {
+          color: red;
+          position: absolute;
+          right: 10px;
         }
       }
       
@@ -146,28 +171,28 @@ div.block {
     }
     
     ul.tasks {
-      @include list();
-      li {
+      @include list;
+      li.task {
         cursor: move;
         
-        div.extra {
-          visibility: hidden;
-        }
-        
-        &:hover > div.title {
-          text-decoration: line-through;
+        &:hover {
+          div.extra {
+            visibility: visible;
+          }
+          div.title {
+            text-decoration: line-through;
+          }
         }
         
         &.completed {
-          .title a {
+          div.title a {
             text-decoration: line-through;
             color: #888;
           }
-          &:hover {
-            > div.extra {
-              visibility: visible;
-            }
-          }
+        }
+        
+        div.extra {
+          visibility: hidden;
         }
       }
     }
@@ -179,7 +204,7 @@ div.block {
 }
 
 ul.ui-autocomplete {
-  @include list();
+  @include list;
   width: $list_width;
   background-color: #d7ffc2;
 }

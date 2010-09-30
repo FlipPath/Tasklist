@@ -21,6 +21,7 @@ div.block {
   div.block ul#lists {
     padding-left: 20px; }
     div.block ul#lists li.list {
+      background-color: #fff;
       list-style: none;
       position: relative;
       display: inline-block;
@@ -43,7 +44,7 @@ div.block {
         visibility: hidden; }
         div.block ul#lists li.list div.extra a {
           text-decoration: none; }
-          div.block ul#lists li.list div.extra a.share {
+          div.block ul#lists li.list div.extra a.share_open {
             color: green; }
           div.block ul#lists li.list div.extra a.destroy {
             color: #bbb;
@@ -52,11 +53,23 @@ div.block {
               color: red; }
       div.block ul#lists li.list div.share_form {
         display: none;
-        margin-top: 10px; }
+        position: absolute;
+        margin-top: 8px;
+        background-color: white;
+        z-index: 2000;
+        width: 180px;
+        padding: 15px 10px 25px 10px;
+        border-top: 1px solid #ddd;
+        -moz-box-shadow: 0px 1px 2px #333333;
+        -webkit-box-shadow: 0px 1px 2px #333333;
+        box-shadow: 0px 1px 2px #333333;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color'); }
         div.block ul#lists li.list div.share_form ul {
           list-style: none;
           padding: 0;
           margin: 5px 0 10px 0;
+          padding-top: 1px;
           background-color: #ffffc2; }
           div.block ul#lists li.list div.share_form ul li {
             line-height: 20px;
@@ -79,6 +92,16 @@ div.block {
             div.block ul#lists li.list div.share_form ul li a {
               color: #000;
               text-decoration: none; }
+          div.block ul#lists li.list div.share_form ul li {
+            margin: 0;
+            padding: 0;
+            display: block; }
+            div.block ul#lists li.list div.share_form ul li p > img {
+              padding: 0 5px 0 10px; }
+        div.block ul#lists li.list div.share_form .share_close {
+          color: red;
+          position: absolute;
+          right: 10px; }
       div.block ul#lists li.list form.new_task input {
         margin-top: 10px;
         width: 194px; }
@@ -109,17 +132,17 @@ div.block {
         div.block ul#lists ul.tasks li a {
           color: #000;
           text-decoration: none; }
-      div.block ul#lists ul.tasks li {
+      div.block ul#lists ul.tasks li.task {
         cursor: move; }
-        div.block ul#lists ul.tasks li div.extra {
-          visibility: hidden; }
-        div.block ul#lists ul.tasks li:hover > div.title {
+        div.block ul#lists ul.tasks li.task:hover div.extra {
+          visibility: visible; }
+        div.block ul#lists ul.tasks li.task:hover div.title {
           text-decoration: line-through; }
-        div.block ul#lists ul.tasks li.completed .title a {
+        div.block ul#lists ul.tasks li.task.completed div.title a {
           text-decoration: line-through;
           color: #888; }
-        div.block ul#lists ul.tasks li.completed:hover > div.extra {
-          visibility: visible; }
+        div.block ul#lists ul.tasks li.task div.extra {
+          visibility: hidden; }
   div.block form#new_list {
     padding: 5px 0 10px 20px; }
 
