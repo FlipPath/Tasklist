@@ -65,9 +65,9 @@ var autocompleteSharingOptions = {
 
 Tasklist.lists = {
   create : function(ev){
-    var $list = $(ev.list_html).prependTo("#lists");
+    var $list = $(ev.list_html).hide().prependTo("#lists").fadeIn("slow");
     $("#list_name").val("");
-    $(".tasks", $list).sortable(sortableTaskOptions)
+    $(".tasks", $list).sortable(sortableTaskOptions);
     $(this).parents("li").sortable(sortableListOptions);
     $("input.ac_username", $list).autocomplete(autocompleteSharingOptions);
     $("#"+ev.list_id+"_task_task").focus();
