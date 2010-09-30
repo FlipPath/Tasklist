@@ -2,7 +2,7 @@ Tasklist::Application.routes.draw do
   root :to => 'lists#index', :constraints => lambda {|r| r.env["warden"].authenticate? }
   root :to => 'home#index'
   
-  get "/lists" => 'lists#index', :as => "user_root"
+  get "/" => 'lists#index', :as => "user_root"
   post "/pusher/auth" => 'pusher#auth', :format => :js
   
   devise_for :users
