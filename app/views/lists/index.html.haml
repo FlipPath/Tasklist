@@ -1,7 +1,7 @@
 %div.block
-  %h1 Lists
+  %div.header
+    %h1 Lists
+    %div.create_list
+      = render 'form'
   %ul#lists
     = render @lists
-%div.block
-  %h1 Create a new list
-  = render 'form'

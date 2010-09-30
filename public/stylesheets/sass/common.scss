@@ -68,11 +68,20 @@ div.block {
   border-right: 1px solid darken($bg_color, 25%);
   margin: 10px 10px 20px 30px;
   
-  h1 {
-    background: none repeat scroll 0 0 #edf3fe;
-    margin: 0 0 5px;
-    padding: 13px 30px 13px 24px;
-    font-size: 14px;
+  div.header {
+    position: relative;
+    background-color: #edf3fe;
+    padding: 4px 24px;
+    
+    h1 {
+      font-size: 14px;
+    }
+    
+    div.create_list {
+      top: 5px;
+      right: 75px;
+      position: absolute;
+    }
   }
   
   ul#lists {
@@ -210,17 +219,21 @@ ul.ui-autocomplete {
 }
 
 ul#hmenu {
+  position: relative;
   list-style: none;
   margin: 0 0 2em;
   padding: 0;
+  z-index: 2000;
   
   li {
     display: inline;
   }
-}
-
-.shadow {
-  @include shadow(darken($bg_color, 50%));
+  
+  img {
+    float: right;
+    border: 2px solid white;
+    @include shadow;
+  }
 }
 
 .username_valid {
