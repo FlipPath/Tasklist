@@ -3,4 +3,9 @@
   = hidden_field_tag "username", nil, :id => nil, :class => "username"
   = text_field_tag nil, nil, :id => nil, :class => "ac_username"
   = submit_tag "add"
-= render "users", :users => list.users
+%ul
+  - list.users.each do |u|
+    %li
+      %p= gravatar_image_tag u.email, :align => :left, :gravatar => { :size => 24 }
+      %p= u.username
+%a.share_close{ :href => "javascript:;" } Close
