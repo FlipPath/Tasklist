@@ -1,1 +1,1 @@
-$(document).trigger({type:'lists:create',listId:"<%= @list.id %>",listHtml:"<%=raw escape_javascript(render @list) %>"});
+$(document).trigger({type:'lists:create',list_id:"<%= @list.id %>",list_html:"<%=raw escape_javascript(render @list) %>"});
