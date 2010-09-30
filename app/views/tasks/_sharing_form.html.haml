@@ -4,7 +4,7 @@
   = text_field_tag nil, nil, :id => nil, :class => "ac_username"
   = submit_tag "add"
 %ul
-  - list.users.each do |u|
+  - list.users.order_by(:name.asc).reject{|u| u.id == current_user.id }.each do |u|
     %li
       %p= gravatar_image_tag u.email, :align => :left, :gravatar => { :size => 24 }
       %p= u.username
