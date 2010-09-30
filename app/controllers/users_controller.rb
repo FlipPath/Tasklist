@@ -6,10 +6,10 @@ class UsersController < ApplicationController
   end
   
   def search
-    @results = User.search(params[:q])
+    @users = User.search(params[:q]).reject {|u| u.id == current_user.id }
     
     respond_to do |format|
-      format.json { render :json => @results }
+      format.json { render :json => @users }
     end
   end
 end
