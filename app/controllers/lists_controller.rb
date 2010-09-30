@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :load_lists
-  before_filter :load_list, :only => [:destroy, :reorder, :share]
+  before_filter :load_list, :only => [:destroy, :share]
   
   def index
     @lists = @lists.latest
@@ -23,14 +23,6 @@ class ListsController < ApplicationController
     end
   end
   
-  def reorder
-    @list.tasks.find(params[:task_id]).move_to(params[:position].to_i)
-    
-    respond_to do |format|
-      format.js { head :ok }
-    end
-  end
-
   def share
     @user = User.find(params[:username])
     @list.share(@user)
