@@ -28,4 +28,17 @@ class User
   def as_json(options={})
     attributes.slice("username")
   end
+  
+  def can_access_channel(channel_name)
+    case channel_name
+    when /^(?:presence|private)-list-([\da-f]+)/ then check_list_access($1)
+    else false
+    end
+  end
+  
+  private
+  
+  def check_list_access(list_id)
+    !!lists.find(list_id) rescue false
+  end
 end
