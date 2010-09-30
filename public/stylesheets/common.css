@@ -18,64 +18,134 @@ div.block {
     margin: 0 0 5px;
     padding: 13px 30px 13px 24px;
     font-size: 14px; }
-  div.block .tasks {
-    padding: 0 30px; }
-    div.block .tasks .task {
-      list-style-type: none; }
-      div.block .tasks .task .task_title {
-        display: inline;
-        position: relative;
-        right: 40px; }
-        div.block .tasks .task .task_title a {
-          color: #000;
-          text-decoration: none; }
-      div.block .tasks .task.completed .task_title a, div.block .tasks .task .task_title a:hover {
-        text-decoration: line-through;
-        font-style: italic; }
-      div.block .tasks .task.completed .task_title a {
-        color: #888; }
-      div.block .tasks .task.completed:hover > .handle {
-        visibility: visible; }
-  div.block form {
-    padding: 10px 0 0 30px; }
-  div.block div.list {
-    padding: 10px 0; }
-    div.block div.list .title {
-      padding: 0 20px; }
-      div.block div.list .title .name {
+  div.block ul#lists {
+    padding-left: 20px; }
+    div.block ul#lists li.list {
+      list-style: none;
+      width: 200px;
+      position: relative; }
+      div.block ul#lists li.list div.name {
         display: inline;
         font-size: 16px;
-        position: relative;
-        right: 40px;
+        padding-right: 20px;
         text-decoration: underline; }
-      div.block div.list .title .share {
+      div.block ul#lists li.list div.extra {
         display: inline;
+        position: absolute;
+        right: 2px;
         background-color: #fff;
-        visibility: hidden; }
-      div.block div.list .title:hover .handle, div.block div.list .title:hover .share {
-        visibility: visible; }
-  div.block .handle {
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    display: inline;
-    position: relative;
-    visibility: hidden;
-    right: 40px;
-    background-color: #fff;
-    padding: 5px; }
-    div.block .handle a {
-      text-decoration: none;
-      color: red;
-      font-size: 10px; }
-  div.block .new_list {
-    padding: 10px 25px; }
+        /*        visibility: hidden;*/ }
+        div.block ul#lists li.list div.extra a {
+          text-decoration: none; }
+          div.block ul#lists li.list div.extra a.share {
+            color: green; }
+          div.block ul#lists li.list div.extra a.destroy {
+            color: #bbb;
+            padding: 0 4px; }
+            div.block ul#lists li.list div.extra a.destroy:hover {
+              color: red; }
+      div.block ul#lists li.list div.share_form {
+        display: none;
+        margin-top: 10px; }
+        div.block ul#lists li.list div.share_form ul {
+          list-style: none;
+          padding: 0;
+          margin: 5px 0 10px 0;
+          background-color: #ffffc2; }
+          div.block ul#lists li.list div.share_form ul li {
+            line-height: 20px;
+            border-bottom: 1px dotted #ddd;
+            margin-bottom: 2px;
+            padding-left: 4px;
+            position: relative; }
+            div.block ul#lists li.list div.share_form ul li div {
+              display: inline;
+              padding-right: 10px; }
+            div.block ul#lists li.list div.share_form ul li div.extra {
+              position: absolute;
+              padding-right: 0;
+              right: 2px; }
+              div.block ul#lists li.list div.share_form ul li div.extra a {
+                color: #888;
+                padding: 0 4px; }
+                div.block ul#lists li.list div.share_form ul li div.extra a:hover {
+                  color: red; }
+            div.block ul#lists li.list div.share_form ul li a {
+              color: #000;
+              text-decoration: none; }
+      div.block ul#lists li.list form.new_task input {
+        margin-top: 10px;
+        width: 194px; }
+    div.block ul#lists ul.tasks {
+      list-style: none;
+      padding: 0;
+      margin: 5px 0 10px 0; }
+      div.block ul#lists ul.tasks li {
+        line-height: 20px;
+        border-bottom: 1px dotted #ddd;
+        margin-bottom: 2px;
+        padding-left: 4px;
+        position: relative; }
+        div.block ul#lists ul.tasks li div {
+          display: inline;
+          padding-right: 10px; }
+        div.block ul#lists ul.tasks li div.extra {
+          position: absolute;
+          padding-right: 0;
+          right: 2px; }
+          div.block ul#lists ul.tasks li div.extra a {
+            color: #888;
+            padding: 0 4px; }
+            div.block ul#lists ul.tasks li div.extra a:hover {
+              color: red; }
+        div.block ul#lists ul.tasks li a {
+          color: #000;
+          text-decoration: none; }
+      div.block ul#lists ul.tasks li {
+        cursor: move; }
+        div.block ul#lists ul.tasks li div.extra {
+          visibility: hidden; }
+        div.block ul#lists ul.tasks li.completed .title a {
+          text-decoration: line-through;
+          color: #888; }
+        div.block ul#lists ul.tasks li.completed:hover > div.extra {
+          visibility: visible; }
+  div.block form#new_list {
+    padding: 5px 0 10px 20px; }
 
-ul.hmenu {
+ul.ui-autocomplete {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 10px 0;
+  width: 200px;
+  background-color: #d7ffc2; }
+  ul.ui-autocomplete li {
+    line-height: 20px;
+    border-bottom: 1px dotted #ddd;
+    margin-bottom: 2px;
+    padding-left: 4px;
+    position: relative; }
+    ul.ui-autocomplete li div {
+      display: inline;
+      padding-right: 10px; }
+    ul.ui-autocomplete li div.extra {
+      position: absolute;
+      padding-right: 0;
+      right: 2px; }
+      ul.ui-autocomplete li div.extra a {
+        color: #888;
+        padding: 0 4px; }
+        ul.ui-autocomplete li div.extra a:hover {
+          color: red; }
+    ul.ui-autocomplete li a {
+      color: #000;
+      text-decoration: none; }
+
+ul#hmenu {
   list-style: none;
   margin: 0 0 2em;
   padding: 0; }
-  ul.hmenu li {
+  ul#hmenu li {
     display: inline; }
 
 .shadow {
