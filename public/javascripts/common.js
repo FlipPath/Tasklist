@@ -2,15 +2,28 @@ var Tasklist = { };
 
 // Lists
 
-var sortableTaskListOptions = {
+var sortableTaskOptions = {
   update: function(ev, ui){
     var $list = $(this).parents(".list"),
         $lis  = $("li", $list),
-        $form = $(".reorder_form", $list),
+        $form = $(".reorder_task_form", $list),
         task_id = $(ui.item).attr("data-id"),
         position = ($lis.length - $lis.index(ui.item) - 1);
     
     $(".task_id", $form).val(task_id);
+    $(".position", $form).val(position);
+    $form.submit();
+  }
+};
+
+var sortableListOptions = {
+  update: function(ev, ui){
+    var $lis     = $(this).children("li"),
+        $form    = $(".reorder_user_form", $(this)),
+        list_id  = $(ui.item).attr("data-id"),
+        position = ($lis.length - $lis.index(ui.item) - 1);
+        
+    $(".list_id", $form).val(list_id);
     $(".position", $form).val(position);
     $form.submit();
   }
@@ -40,11 +53,11 @@ var autocompleteSharingOptions = {
     }
   },
   open: function(){
-    console.log("opened");
+    // console.log("opened");
     $(".share_form input.username").val("");
   },
   close: function(){
-    console.log("closed");
+    // console.log("closed");
   }
 };
 
@@ -52,7 +65,8 @@ Tasklist.lists = {
   create : function(ev) {
     var $list = $(ev.list_html).prependTo("#lists");
     $("#list_name").val("");
-    $(".tasks", $list).sortable(sortableTaskListOptions)
+    $(".tasks", $list).sortable(sortableTaskOptions)
+    $(this).parents("li").sortable(sortableListOptions);
     $("input.ac_username", $list).autocomplete(autocompleteSharingOptions);
     $("#"+ev.list_id+"_task_task").focus();
   },
@@ -75,16 +89,16 @@ $(document).bind("lists:create", Tasklist.lists.create);
 $(document).bind("lists:destroy", Tasklist.lists.destroy);
 $(document).bind("lists:share", Tasklist.lists.share);
 
-$("ul#lists .share").toggle(function() {
-  $(this).parents("li.list").find(".share_form").slideDown("fast");
-}, function() {
-  $(this).parents("li.list").find(".share_form").slideUp("fast");
+$("ul#lists .share").live("click", function() {
+  $(this).parents("li.list").find(".share_form").slideToggle("fast");
 });
 
-$("ul.tasks").sortable(sortableTaskListOptions);
+$("ul#lists").sortable(sortableListOptions);
+$("ul.tasks").sortable(sortableTaskOptions);
+
 $(".list input.ac_username").autocomplete(autocompleteSharingOptions);
 
-$("#share_list").submit(function(){
+$("form.share_list").submit(function(){
   return ($(".username", this).val().length > 0);
 });
 
@@ -102,7 +116,7 @@ $(".list").each(function(){
       
       // presence_channel = socket.subscribe("presence-list-" + list_id),
       // presence_channel.bind("pusher:subscription_succeeded", function(member){
-      //   console.log("member subscribed: " + member[0].user_info.name);
+      //   f.log("member subscribed: " + member[0].user_info.name);
       // });
       // 
       // presence_channel.bind("pusher:member_added", function(member){
