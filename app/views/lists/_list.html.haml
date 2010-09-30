@@ -1,8 +1,9 @@
 %li.list{ "data-id" => list.id }
-  %div.name= list.name
-  %div.extra
-    = link_to_function "share", :class => :share
-    = link_to "X", list_path(list), :remote => true, :method => :delete, :class => :destroy
+  %div.head
+    %div.name= list.name
+    %div.extra
+      = link_to_function "share", :class => :share
+      = link_to "X", list_path(list), :remote => true, :method => :delete, :class => :destroy
   
   %div.share_form= render "tasks/sharing_form", :list => list
   = render 'tasks/form', :list => list

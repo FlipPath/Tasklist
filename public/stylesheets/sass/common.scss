@@ -131,7 +131,7 @@ div.block {
         width: $list_width - 6px;
       }
       
-      &:hover {
+      .head:hover {
         > div.extra {
           visibility: visible;
         }
