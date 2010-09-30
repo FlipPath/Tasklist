@@ -2,10 +2,11 @@
 <script>
   var socket = new Pusher("<%= Pusher.key %>");
   socket.bind("connection_established", function(evt){
-    jQuery.ajaxSetup({
-      data: {
-        socket_id: evt.socket_id
+    $(document).bind("ajax:before", function(xhr){
+      if (xhr.target.nodeName == "FORM") {
+        $("<input />").attr({ type: "hidden", name: "socket_id" }).
+          val(evt.socket_id).appendTo(xhr.target);
       }
-    })
+    });
   });
 </script>
