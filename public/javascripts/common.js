@@ -50,21 +50,21 @@ var autocompleteSharingOptions = {
 
 Tasklist.lists = {
   create : function(ev) {
-    var $list = $(ev.listHtml).prependTo("#lists");
+    var $list = $(ev.list_html).prependTo("#lists");
     $("#list_name").val("");
     $(".tasks", $list).sortable(sortableTaskListOptions)
     $("input.ac_username", $list).autocomplete(autocompleteSharingOptions);
-    $("#"+ev.listId+"_task_task").focus();
+    $("#"+ev.list_id+"_task_task").focus();
   },
   
   destroy : function(ev) {
-    $(".list[data-id="+ev.listId+"]").slideUp("fast", function(){
+    $(".list[data-id="+ev.list_id+"]").slideUp("fast", function(){
       $(this).remove();
     });
   },
   
   share : function(ev) {
-    var $list = $(".list[data-id="+ev.listId+"]");
+    var $list = $(".list[data-id="+ev.list_id+"]");
     $("input.ac_username", $list).val("").removeClass("username_valid");
     $(ev.userHtml).prependTo(".share_form ul", $list);
     $(".input.username", $list).val(ui.item.value);
@@ -88,11 +88,19 @@ $("#share_list").submit(function(){
   return ($(".username", this).val().length > 0);
 });
 
+$("#new_list").submit(function(){
+  return ($("#list_name").val().length > 0);
+});
+
 $(".list").each(function(){
-  var dataId         = $(this).attr("data-id"),
-      // presence_channel = socket.subscribe("presence-list-" + dataId),
-      list_channel     = socket.subscribe("private-list-" + dataId);
+  var list_id      = $(this).attr("data-id"),
+      list_channel = socket.subscribe("private-list-" + list_id);
       
+      list_channel.bind("task-create", function(e){ $(document).trigger(e) });
+      list_channel.bind("task-toggle-complete", function(e){ $(document).trigger(e) });
+      list_channel.bind("task-destroy", function(e){ $(document).trigger(e) });
+      
+      // presence_channel = socket.subscribe("presence-list-" + list_id),
       // presence_channel.bind("pusher:subscription_succeeded", function(member){
       //   console.log("member subscribed: " + member[0].user_info.name);
       // });
@@ -110,16 +118,16 @@ $(".list").each(function(){
 
 Tasklist.tasks = {
   create : function(ev) {
-    $("#"+ev.listId+"_task_task").val("");
-    $(ev.taskHtml).prependTo(".list[data-id="+ev.listId+"] .tasks");
+    $("#"+ev.list_id+"_task_task").val("");
+    $(ev.task_html).prependTo(".list[data-id="+ev.list_id+"] .tasks");
   },
   
   complete : function(ev) {
-    $(".task[data-id="+ev.taskId+"]").replaceWith(ev.taskHtml);
+    $(".task[data-id="+ev.task_id+"]").replaceWith(ev.task_html);
   },
   
   destroy : function(ev) {
-    $(".task[data-id="+ev.taskId+"]").slideUp("fast", function(){
+    $(".task[data-id="+ev.task_id+"]").slideUp("fast", function(){
       $(this).remove();
     });
   }
@@ -130,5 +138,5 @@ $(document).bind("tasks:complete", Tasklist.tasks.complete);
 $(document).bind("tasks:destroy", Tasklist.tasks.destroy);
 
 $("#new_task").submit(function(){
-  return ($("#task_task").val().length > 0);
+  return ($("#new_task input.new_task").val().length > 0);
 });
