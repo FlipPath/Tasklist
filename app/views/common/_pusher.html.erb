@@ -1,7 +1,7 @@
 <script src="http://js.pusherapp.com/1.6/pusher.min.js"></script>
 <script>
-  var server = new Pusher("<%= Pusher.key %>");
-  server.bind("connection_established", function(evt){
+  var socket = new Pusher("<%= Pusher.key %>");
+  socket.bind("connection_established", function(evt){
     jQuery.ajaxSetup({
       data: {
         socket_id: evt.socket_id

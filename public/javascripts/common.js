@@ -90,18 +90,18 @@ $("#share_list").submit(function(){
 
 $(".list").each(function(){
   var dataId         = $(this).attr("data-id"),
-      // presenceSocket = server.subscribe("presence-list-" + dataId),
-      listSocket     = server.subscribe("private-list-" + dataId);
+      // presence_channel = socket.subscribe("presence-list-" + dataId),
+      list_channel     = socket.subscribe("private-list-" + dataId);
       
-      // presenceSocket.bind("pusher:subscription_succeeded", function(member){
+      // presence_channel.bind("pusher:subscription_succeeded", function(member){
       //   console.log("member subscribed: " + member[0].user_info.name);
       // });
       // 
-      // presenceSocket.bind("pusher:member_added", function(member){
+      // presence_channel.bind("pusher:member_added", function(member){
       //   console.log("member added: " + member.user_info.name);
       // });
       // 
-      // presenceSocket.bind("pusher:member_removed", function(member){
+      // presence_channel.bind("pusher:member_removed", function(member){
       //   console.log("member removed: " + member.user_info.name);
       // });
 });
