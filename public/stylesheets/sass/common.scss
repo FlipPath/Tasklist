@@ -80,8 +80,16 @@ div.block {
     
     li.list {
       list-style: none;
-      width: $list_width;
       position: relative;
+      display: inline-block;
+      vertical-align: top;
+      width: $list_width;
+      min-height: 200px;
+      margin: 0 5px;
+      
+      div.head {
+        cursor: move;
+      }
       
       div.name{
         display: inline;
@@ -94,7 +102,6 @@ div.block {
         display: inline;
         position: absolute;
         right: 2px;
-        padding-top: 5px;
         background-color: #fff;
         visibility: hidden;
     
@@ -131,7 +138,7 @@ div.block {
         width: $list_width - 6px;
       }
       
-      .head:hover {
+      div.head:hover {
         > div.extra {
           visibility: visible;
         }
@@ -145,6 +152,10 @@ div.block {
         
         div.extra {
           visibility: hidden;
+        }
+        
+        &:hover > div.title {
+          text-decoration: line-through;
         }
         
         &.completed {
