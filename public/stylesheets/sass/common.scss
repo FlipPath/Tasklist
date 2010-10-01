@@ -1,6 +1,5 @@
 $red:        #ff0000;
-$bg_color:   #e5e5e5;
-$list_width: 200px;
+$bg_color:   #fff;
 
 @mixin shadow($color: #333333) {
   -moz-box-shadow: 0px 1px 2px $color;
@@ -22,11 +21,12 @@ $list_width: 200px;
   margin: 5px 0 10px 0;
   
   li {
-    line-height: 20px;
+    line-height: 24px;
     border-bottom: 1px dotted #ddd;
     margin-bottom: 2px;
     padding-left: 4px;
     position: relative;
+    background-color: $bg_color;
     
     div {
       display: inline;
@@ -56,47 +56,66 @@ $list_width: 200px;
 }
 
 body {
-  font-family: "Lucida Grande", Arial, Sans-Serif;
-  font-size: 12px;
+  font-family: 'Lucida Grande', verdana, arial, helvetica, sans-serif;
+  font-size: 14px;
   background-color: $bg_color;
 }
 
+div#container {
+  margin: 0 auto;
+  min-width: 750px;
+  width: 85%;
+}
+
+div#left_column {
+  float: left;
+  min-width: 450px;
+  width: 60%;
+}
+
+div#right_right {
+  float: right;
+  width: 290px;
+  padding-left: 10px;
+}
+
 div.block {
-  @include shadow(darken($bg_color, 25%));
-  background: none repeat scroll 0 0 #fff;
-  border-bottom: 1px solid darken($bg_color, 25%);
-  border-right: 1px solid darken($bg_color, 25%);
-  margin: 10px 10px 20px 30px;
-  
-  h1 {
-    background: none repeat scroll 0 0 #edf3fe;
-    margin: 0 0 5px;
-    padding: 13px 30px 13px 24px;
-    font-size: 14px;
+  div.header {
+    position: relative;
+    padding: 4px 5px;
+    
+    h1 {
+      font-size: 16px;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 4px;
+    }
+    
+    div.create_list {
+      top: 0px;
+      right: 75px;
+      position: absolute;
+    }
   }
   
   ul#lists {
-    padding-left: 20px;
+    padding-left: 0px;
     
     li.list {
       background-color: #fff;
       list-style: none;
+      padding-bottom: 15px;
       position: relative;
-      display: inline-block;
       vertical-align: top;
-      width: $list_width;
-      min-height: 200px;
       margin: 0 5px;
       
       div.head {
         cursor: move;
       }
       
-      div.name{
+      h2 {
         display: inline;
-        font-size: 16px;
+        font-size: 24px;
         padding-right: 20px;
-        text-decoration: underline;
       }
 
       div.extra {
@@ -130,7 +149,7 @@ div.block {
         margin-top: 8px;
         background-color: white;
         z-index: 2000;
-        width: $list_width - 20px;
+        width: 180px;
         padding: 15px 10px 25px 10px;
         border-top: 1px solid #ddd;
         @include shadow;
@@ -160,7 +179,6 @@ div.block {
       
       form.new_task input {
         margin-top: 10px;
-        width: $list_width - 6px;
       }
       
       div.head:hover {
@@ -202,30 +220,30 @@ div.block {
       }
     }
   }
-  
-  form#new_list {
-    padding: 5px 0 10px 20px;
-  }
 }
 
 ul.ui-autocomplete {
   @include list;
-  width: $list_width;
+  width: 180px;
   background-color: #d7ffc2;
 }
 
 ul#hmenu {
+  position: relative;
   list-style: none;
   margin: 0 0 2em;
   padding: 0;
+  z-index: 2000;
   
   li {
     display: inline;
   }
-}
-
-.shadow {
-  @include shadow(darken($bg_color, 50%));
+  
+  img {
+    float: right;
+    border: 2px solid white;
+    @include shadow;
+  }
 }
 
 .username_valid {

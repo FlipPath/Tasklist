@@ -1,166 +1,174 @@
 body {
-  font-family: "Lucida Grande", Arial, Sans-Serif;
-  font-size: 12px;
-  background-color: #e5e5e5; }
+  font-family: 'Lucida Grande', verdana, arial, helvetica, sans-serif;
+  font-size: 14px;
+  background-color: white; }
 
-div.block {
-  -moz-box-shadow: 0px 1px 2px #a5a5a5;
-  -webkit-box-shadow: 0px 1px 2px #a5a5a5;
-  box-shadow: 0px 1px 2px #a5a5a5;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color');
-  background: none repeat scroll 0 0 #fff;
-  border-bottom: 1px solid #a5a5a5;
-  border-right: 1px solid #a5a5a5;
-  margin: 10px 10px 20px 30px; }
-  div.block h1 {
-    background: none repeat scroll 0 0 #edf3fe;
-    margin: 0 0 5px;
-    padding: 13px 30px 13px 24px;
-    font-size: 14px; }
-  div.block ul#lists {
-    padding-left: 20px; }
-    div.block ul#lists li.list {
+div#container {
+  margin: 0 auto;
+  min-width: 750px;
+  width: 85%; }
+
+div#left_column {
+  float: left;
+  min-width: 450px;
+  width: 60%; }
+
+div#right_right {
+  float: right;
+  width: 290px;
+  padding-left: 10px; }
+
+div.block div.header {
+  position: relative;
+  padding: 4px 5px; }
+  div.block div.header h1 {
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 4px; }
+  div.block div.header div.create_list {
+    top: 0px;
+    right: 75px;
+    position: absolute; }
+div.block ul#lists {
+  padding-left: 0px; }
+  div.block ul#lists li.list {
+    background-color: #fff;
+    list-style: none;
+    padding-bottom: 15px;
+    position: relative;
+    vertical-align: top;
+    margin: 0 5px; }
+    div.block ul#lists li.list div.head {
+      cursor: move; }
+    div.block ul#lists li.list h2 {
+      display: inline;
+      font-size: 24px;
+      padding-right: 20px; }
+    div.block ul#lists li.list div.extra {
+      display: inline;
+      position: absolute;
+      right: 2px;
       background-color: #fff;
-      list-style: none;
-      position: relative;
-      display: inline-block;
-      vertical-align: top;
-      width: 200px;
-      min-height: 200px;
-      margin: 0 5px; }
-      div.block ul#lists li.list div.head {
-        cursor: move; }
-      div.block ul#lists li.list div.name {
-        display: inline;
-        font-size: 16px;
-        padding-right: 20px;
-        text-decoration: underline; }
-      div.block ul#lists li.list div.extra {
-        display: inline;
-        position: absolute;
-        right: 2px;
-        background-color: #fff;
-        visibility: hidden; }
-        div.block ul#lists li.list div.extra a {
-          text-decoration: none; }
-          div.block ul#lists li.list div.extra a.share_open {
-            color: green; }
-          div.block ul#lists li.list div.extra a.destroy {
-            color: #bbb;
-            padding: 0 4px; }
-            div.block ul#lists li.list div.extra a.destroy:hover {
-              color: red; }
-      div.block ul#lists li.list div.share_form {
-        display: none;
-        position: absolute;
-        margin-top: 8px;
-        background-color: white;
-        z-index: 2000;
-        width: 180px;
-        padding: 15px 10px 25px 10px;
-        border-top: 1px solid #ddd;
-        -moz-box-shadow: 0px 1px 2px #333333;
-        -webkit-box-shadow: 0px 1px 2px #333333;
-        box-shadow: 0px 1px 2px #333333;
-        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
-        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color'); }
-        div.block ul#lists li.list div.share_form ul {
-          list-style: none;
+      visibility: hidden; }
+      div.block ul#lists li.list div.extra a {
+        text-decoration: none; }
+        div.block ul#lists li.list div.extra a.share_open {
+          color: green; }
+        div.block ul#lists li.list div.extra a.destroy {
+          color: #bbb;
+          padding: 0 4px; }
+          div.block ul#lists li.list div.extra a.destroy:hover {
+            color: red; }
+    div.block ul#lists li.list div.share_form {
+      display: none;
+      position: absolute;
+      margin-top: 8px;
+      background-color: white;
+      z-index: 2000;
+      width: 180px;
+      padding: 15px 10px 25px 10px;
+      border-top: 1px solid #ddd;
+      -moz-box-shadow: 0px 1px 2px #333333;
+      -webkit-box-shadow: 0px 1px 2px #333333;
+      box-shadow: 0px 1px 2px #333333;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
+      filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color'); }
+      div.block ul#lists li.list div.share_form ul {
+        list-style: none;
+        padding: 0;
+        margin: 5px 0 10px 0;
+        padding-top: 1px;
+        background-color: #ffffc2; }
+        div.block ul#lists li.list div.share_form ul li {
+          line-height: 24px;
+          border-bottom: 1px dotted #ddd;
+          margin-bottom: 2px;
+          padding-left: 4px;
+          position: relative;
+          background-color: white; }
+          div.block ul#lists li.list div.share_form ul li div {
+            display: inline;
+            padding-right: 10px; }
+          div.block ul#lists li.list div.share_form ul li div.extra {
+            position: absolute;
+            padding-right: 0;
+            right: 2px; }
+            div.block ul#lists li.list div.share_form ul li div.extra a {
+              color: #888;
+              padding: 0 4px; }
+              div.block ul#lists li.list div.share_form ul li div.extra a:hover {
+                color: red; }
+          div.block ul#lists li.list div.share_form ul li a {
+            color: #000;
+            text-decoration: none; }
+        div.block ul#lists li.list div.share_form ul li {
+          margin: 0;
           padding: 0;
-          margin: 5px 0 10px 0;
-          padding-top: 1px;
-          background-color: #ffffc2; }
-          div.block ul#lists li.list div.share_form ul li {
-            line-height: 20px;
-            border-bottom: 1px dotted #ddd;
-            margin-bottom: 2px;
-            padding-left: 4px;
-            position: relative; }
-            div.block ul#lists li.list div.share_form ul li div {
-              display: inline;
-              padding-right: 10px; }
-            div.block ul#lists li.list div.share_form ul li div.extra {
-              position: absolute;
-              padding-right: 0;
-              right: 2px; }
-              div.block ul#lists li.list div.share_form ul li div.extra a {
-                color: #888;
-                padding: 0 4px; }
-                div.block ul#lists li.list div.share_form ul li div.extra a:hover {
-                  color: red; }
-            div.block ul#lists li.list div.share_form ul li a {
-              color: #000;
-              text-decoration: none; }
-          div.block ul#lists li.list div.share_form ul li {
-            margin: 0;
-            padding: 0;
-            display: block; }
-            div.block ul#lists li.list div.share_form ul li p > img {
-              padding: 0 5px 0 10px; }
-        div.block ul#lists li.list div.share_form .share_close {
-          color: red;
-          position: absolute;
-          right: 10px; }
-      div.block ul#lists li.list form.new_task input {
-        margin-top: 10px;
-        width: 194px; }
-      div.block ul#lists li.list div.head:hover > div.extra {
+          display: block; }
+          div.block ul#lists li.list div.share_form ul li p > img {
+            padding: 0 5px 0 10px; }
+      div.block ul#lists li.list div.share_form .share_close {
+        color: red;
+        position: absolute;
+        right: 10px; }
+    div.block ul#lists li.list form.new_task input {
+      margin-top: 10px; }
+    div.block ul#lists li.list div.head:hover > div.extra {
+      visibility: visible; }
+  div.block ul#lists ul.tasks {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 10px 0; }
+    div.block ul#lists ul.tasks li {
+      line-height: 24px;
+      border-bottom: 1px dotted #ddd;
+      margin-bottom: 2px;
+      padding-left: 4px;
+      position: relative;
+      background-color: white; }
+      div.block ul#lists ul.tasks li div {
+        display: inline;
+        padding-right: 10px; }
+      div.block ul#lists ul.tasks li div.extra {
+        position: absolute;
+        padding-right: 0;
+        right: 2px; }
+        div.block ul#lists ul.tasks li div.extra a {
+          color: #888;
+          padding: 0 4px; }
+          div.block ul#lists ul.tasks li div.extra a:hover {
+            color: red; }
+      div.block ul#lists ul.tasks li a {
+        color: #000;
+        text-decoration: none; }
+    div.block ul#lists ul.tasks li.task {
+      cursor: move; }
+      div.block ul#lists ul.tasks li.task:hover div.extra {
         visibility: visible; }
-    div.block ul#lists ul.tasks {
-      list-style: none;
-      padding: 0;
-      margin: 5px 0 10px 0; }
-      div.block ul#lists ul.tasks li {
-        line-height: 20px;
-        border-bottom: 1px dotted #ddd;
-        margin-bottom: 2px;
-        padding-left: 4px;
-        position: relative; }
-        div.block ul#lists ul.tasks li div {
-          display: inline;
-          padding-right: 10px; }
-        div.block ul#lists ul.tasks li div.extra {
-          position: absolute;
-          padding-right: 0;
-          right: 2px; }
-          div.block ul#lists ul.tasks li div.extra a {
-            color: #888;
-            padding: 0 4px; }
-            div.block ul#lists ul.tasks li div.extra a:hover {
-              color: red; }
-        div.block ul#lists ul.tasks li a {
-          color: #000;
-          text-decoration: none; }
-      div.block ul#lists ul.tasks li.task {
-        cursor: move; }
-        div.block ul#lists ul.tasks li.task:hover div.extra {
-          visibility: visible; }
-        div.block ul#lists ul.tasks li.task:hover div.title > a {
-          text-decoration: line-through; }
-        div.block ul#lists ul.tasks li.task div.title a:hover:not(:first-child) {
-          text-decoration: underline;
-          color: blue; }
-        div.block ul#lists ul.tasks li.task.completed div.title a {
-          text-decoration: line-through;
-          color: #888; }
-        div.block ul#lists ul.tasks li.task div.extra {
-          visibility: hidden; }
-  div.block form#new_list {
-    padding: 5px 0 10px 20px; }
+      div.block ul#lists ul.tasks li.task:hover div.title > a {
+        text-decoration: line-through; }
+      div.block ul#lists ul.tasks li.task div.title a:hover:not(:first-child) {
+        text-decoration: underline;
+        color: blue; }
+      div.block ul#lists ul.tasks li.task.completed div.title a {
+        text-decoration: line-through;
+        color: #888; }
+      div.block ul#lists ul.tasks li.task div.extra {
+        visibility: hidden; }
 
 ul.ui-autocomplete {
   list-style: none;
   padding: 0;
   margin: 5px 0 10px 0;
-  width: 200px;
+  width: 180px;
   background-color: #d7ffc2; }
   ul.ui-autocomplete li {
-    line-height: 20px;
+    line-height: 24px;
     border-bottom: 1px dotted #ddd;
     margin-bottom: 2px;
     padding-left: 4px;
-    position: relative; }
+    position: relative;
+    background-color: white; }
     ul.ui-autocomplete li div {
       display: inline;
       padding-right: 10px; }
@@ -178,18 +186,21 @@ ul.ui-autocomplete {
       text-decoration: none; }
 
 ul#hmenu {
+  position: relative;
   list-style: none;
   margin: 0 0 2em;
-  padding: 0; }
+  padding: 0;
+  z-index: 2000; }
   ul#hmenu li {
     display: inline; }
-
-.shadow {
-  -moz-box-shadow: 0px 1px 2px #666666;
-  -webkit-box-shadow: 0px 1px 2px #666666;
-  box-shadow: 0px 1px 2px #666666;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color'); }
+  ul#hmenu img {
+    float: right;
+    border: 2px solid white;
+    -moz-box-shadow: 0px 1px 2px #333333;
+    -webkit-box-shadow: 0px 1px 2px #333333;
+    box-shadow: 0px 1px 2px #333333;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color'); }
 
 .username_valid {
   background-color: #80ff80; }
