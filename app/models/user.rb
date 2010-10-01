@@ -21,12 +21,8 @@ class User
   
   class << self
     def search(query)
-      where(:username => /#{query}/i)
+      any_of({ :name => /#{query}/i }, { :username => /#{query}/i }, { :email => /#{query}/i })
     end
-  end
-  
-  def as_json(options={})
-    attributes.slice("username")
   end
   
   def can_access_channel(channel_name)
