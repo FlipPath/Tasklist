@@ -3,6 +3,7 @@
     %h1 My Lists
   %div#left_column
     %ul#lists
+      = hidden_field_tag "search_path", search_users_path
       = render @lists
   %div#right_column
     %div.create_list  
