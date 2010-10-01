@@ -141,9 +141,9 @@ div.block {
         cursor: move; }
         div.block ul#lists ul.tasks li.task:hover div.extra {
           visibility: visible; }
-        div.block ul#lists ul.tasks li.task:hover div.title > a:first-child {
+        div.block ul#lists ul.tasks li.task:hover div.title > a {
           text-decoration: line-through; }
-        div.block ul#lists ul.tasks li.task div.title a:not(:first-child) {
+        div.block ul#lists ul.tasks li.task div.title a:hover:not(:first-child) {
           text-decoration: underline;
           color: blue; }
         div.block ul#lists ul.tasks li.task.completed div.title a {
