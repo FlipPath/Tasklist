@@ -12,6 +12,7 @@ gem "devise",             "~> 1.1.3"
 gem "hpricot",            "~> 0.8.2"
 gem "gravatar_image_tag", "~> 0.1.0"
 gem "pusher",             "~> 0.6.0"
+gem "hoptoad_notifier",   "~> 2.3.8"
 
 group :development do
   gem "heroku",       "~> 1.10.8"
