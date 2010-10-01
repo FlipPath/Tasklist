@@ -12,6 +12,6 @@
     %p{ :style => "color: red" }= alert
     %div#container
       = yield
-    = javascript_include_tag :defaults
+    = javascript_include_tag :defaults, "jquery.inlineedit"
     = render "common/pusher"
     = javascript_include_tag "common"
