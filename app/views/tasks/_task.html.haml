@@ -1,6 +1,7 @@
 %li{ "data-id" => task.id, :class => "task #{link_class(task)}" }
   %div.title
     = link_to toggle_complete_list_task_path(task.list, task), :remote => true, :method => :put do
-      = task.task
+      = auto_link(task.task, :html => { :target => '_blank' }) do |text|
+        - text.sub(%r(^http://(www\.)?), "")
   %div.extra
     = link_to "X", list_task_path(task.list, task), :remote => true, :method => :delete

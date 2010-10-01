@@ -100,8 +100,10 @@ $("ul.tasks").sortable(sortableTaskOptions);
 $(".list input.ac_username").autocomplete(autocompleteSharingOptions);
 
 $("li.task").live("click", function(e){
-  $("div.title a", this).callRemote();
-  return false;
+  if (e.target == this) {
+    $("div.title a", this).callRemote();
+    return false;
+  }
 });
 
 $("form.share_list").submit(function(){

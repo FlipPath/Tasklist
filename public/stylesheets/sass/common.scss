@@ -188,9 +188,14 @@ div.block {
           div.extra {
             visibility: visible;
           }
-          div.title {
+          div.title > a:first-child {
             text-decoration: line-through;
           }
+        }
+                  
+        div.title a:not(:first-child) {
+          text-decoration: underline;
+          color: blue;
         }
         
         &.completed {
