@@ -65,7 +65,7 @@ var autocompleteSharingOptions = {
 
 Tasklist.lists = {
   create : function(ev){
-    var $list = $(ev.list_html).hide().prependTo("#lists").fadeIn("slow");
+    var $list = $(ev.list_html).hide().prependTo("#lists").slideDown("fast");
     $("#list_name").val("");
     $(".tasks", $list).sortable(sortableTaskOptions);
     $(this).parents("li").sortable(sortableListOptions);
@@ -74,7 +74,7 @@ Tasklist.lists = {
   },
   
   destroy : function(ev){
-    $(".list[data-id="+ev.list_id+"]").fadeOut("fast", function(){
+    $(".list[data-id="+ev.list_id+"]").slideUp("fast", function(){
       $(this).remove();
     });
   },
