@@ -1,6 +1,6 @@
 %li.list{ "data-id" => list.id }
   %div.head
-    %div.name= list.name
+    %h2.name= list.name
     %div.extra
       %a.share_open{ :href => "javascript:;" } Sharing
       = link_to "X", list_path(list), :remote => true, :method => :delete, :class => :destroy
