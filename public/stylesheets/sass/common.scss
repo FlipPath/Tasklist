@@ -15,7 +15,7 @@ $bg_color:   #fff;
   -webkit-border-radius: $radius;
 }
 
-@mixin list() {
+@mixin list {
   list-style: none;
   padding: 0;
   margin: 5px 0 10px 0;
@@ -144,6 +144,7 @@ div.block {
       }
       
       div.share_form {
+        @include shadow;
         display: none;
         position:absolute;
         margin-top: 8px;
@@ -152,29 +153,6 @@ div.block {
         width: 180px;
         padding: 15px 10px 25px 10px;
         border-top: 1px solid #ddd;
-        @include shadow;
-        
-        ul {
-          @include list;
-          padding-top: 1px;
-          background-color: #ffffc2;
-          
-          li {
-            margin: 0;
-            padding: 0;
-            display: block;
-            
-            p > img {
-              padding: 0 5px 0 10px;
-            }
-          }
-        }
-        
-        .share_close {
-          color: red;
-          position: absolute;
-          right: 10px;
-        }
       }
       
       form.new_task input {
@@ -222,10 +200,35 @@ div.block {
   }
 }
 
+ul.share_users, ul.ui-autocomplete {
+  @include list;
+  
+  li {
+    p > img {
+      padding: 0 5px 0 10px;
+    }
+  }
+}
+
+.share_close {
+  color: red;
+  position: absolute;
+  right: 10px;
+}
+
 ul.ui-autocomplete {
   @include list;
+  @include shadow(lighten(#333, 35%));
+  
+  li {
+    border-bottom: none;
+    cursor: pointer;
+  }
+  
   width: 180px;
-  background-color: #d7ffc2;
+  max-height: 140px;
+  overflow-y: auto;
+  background-color: white;
 }
 
 ul#hmenu {

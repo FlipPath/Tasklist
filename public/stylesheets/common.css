@@ -60,6 +60,11 @@ div.block ul#lists {
           div.block ul#lists li.list div.extra a.destroy:hover {
             color: red; }
     div.block ul#lists li.list div.share_form {
+      -moz-box-shadow: 0px 1px 2px #333333;
+      -webkit-box-shadow: 0px 1px 2px #333333;
+      box-shadow: 0px 1px 2px #333333;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
+      filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color');
       display: none;
       position: absolute;
       margin-top: 8px;
@@ -67,50 +72,7 @@ div.block ul#lists {
       z-index: 2000;
       width: 180px;
       padding: 15px 10px 25px 10px;
-      border-top: 1px solid #ddd;
-      -moz-box-shadow: 0px 1px 2px #333333;
-      -webkit-box-shadow: 0px 1px 2px #333333;
-      box-shadow: 0px 1px 2px #333333;
-      -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
-      filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color'); }
-      div.block ul#lists li.list div.share_form ul {
-        list-style: none;
-        padding: 0;
-        margin: 5px 0 10px 0;
-        padding-top: 1px;
-        background-color: #ffffc2; }
-        div.block ul#lists li.list div.share_form ul li {
-          line-height: 24px;
-          border-bottom: 1px dotted #ddd;
-          margin-bottom: 2px;
-          padding-left: 4px;
-          position: relative;
-          background-color: white; }
-          div.block ul#lists li.list div.share_form ul li div {
-            display: inline;
-            padding-right: 10px; }
-          div.block ul#lists li.list div.share_form ul li div.extra {
-            position: absolute;
-            padding-right: 0;
-            right: 2px; }
-            div.block ul#lists li.list div.share_form ul li div.extra a {
-              color: #888;
-              padding: 0 4px; }
-              div.block ul#lists li.list div.share_form ul li div.extra a:hover {
-                color: red; }
-          div.block ul#lists li.list div.share_form ul li a {
-            color: #000;
-            text-decoration: none; }
-        div.block ul#lists li.list div.share_form ul li {
-          margin: 0;
-          padding: 0;
-          display: block; }
-          div.block ul#lists li.list div.share_form ul li p > img {
-            padding: 0 5px 0 10px; }
-      div.block ul#lists li.list div.share_form .share_close {
-        color: red;
-        position: absolute;
-        right: 10px; }
+      border-top: 1px solid #ddd; }
     div.block ul#lists li.list form.new_task input {
       margin-top: 10px; }
     div.block ul#lists li.list div.head:hover > div.extra {
@@ -156,12 +118,53 @@ div.block ul#lists {
       div.block ul#lists ul.tasks li.task div.extra {
         visibility: hidden; }
 
+ul.share_users, ul.ui-autocomplete {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 10px 0; }
+  ul.share_users li, ul.ui-autocomplete li {
+    line-height: 24px;
+    border-bottom: 1px dotted #ddd;
+    margin-bottom: 2px;
+    padding-left: 4px;
+    position: relative;
+    background-color: white; }
+    ul.share_users li div, ul.ui-autocomplete li div {
+      display: inline;
+      padding-right: 10px; }
+    ul.share_users li div.extra, ul.ui-autocomplete li div.extra {
+      position: absolute;
+      padding-right: 0;
+      right: 2px; }
+      ul.share_users li div.extra a, ul.ui-autocomplete li div.extra a {
+        color: #888;
+        padding: 0 4px; }
+        ul.share_users li div.extra a:hover, ul.ui-autocomplete li div.extra a:hover {
+          color: red; }
+    ul.share_users li a, ul.ui-autocomplete li a {
+      color: #000;
+      text-decoration: none; }
+  ul.share_users li p > img, ul.ui-autocomplete li p > img {
+    padding: 0 5px 0 10px; }
+
+.share_close {
+  color: red;
+  position: absolute;
+  right: 10px; }
+
 ul.ui-autocomplete {
   list-style: none;
   padding: 0;
   margin: 5px 0 10px 0;
+  -moz-box-shadow: 0px 1px 2px #8c8c8c;
+  -webkit-box-shadow: 0px 1px 2px #8c8c8c;
+  box-shadow: 0px 1px 2px #8c8c8c;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color');
   width: 180px;
-  background-color: #d7ffc2; }
+  max-height: 140px;
+  overflow-y: auto;
+  background-color: white; }
   ul.ui-autocomplete li {
     line-height: 24px;
     border-bottom: 1px dotted #ddd;
@@ -184,6 +187,9 @@ ul.ui-autocomplete {
     ul.ui-autocomplete li a {
       color: #000;
       text-decoration: none; }
+  ul.ui-autocomplete li {
+    border-bottom: none;
+    cursor: pointer; }
 
 ul#hmenu {
   position: relative;
