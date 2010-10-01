@@ -1,7 +1,10 @@
 %div.block
-  %h1 Lists
-  %ul#lists
-    = render @lists
-%div.block
-  %h1 Create a new list
-  = render 'form'
+  %div.header
+    %h1 My Lists
+  %div#left_column
+    %ul#lists
+      = render @lists
+  %div#right_column
+    %div.create_list  
+      = render 'form'
+    %p More coming to this column...
