@@ -13,16 +13,11 @@ div.block {
   border-bottom: 1px solid #a5a5a5;
   border-right: 1px solid #a5a5a5;
   margin: 10px 10px 20px 30px; }
-  div.block div.header {
-    position: relative;
-    background-color: #edf3fe;
-    padding: 4px 24px; }
-    div.block div.header h1 {
-      font-size: 14px; }
-    div.block div.header div.create_list {
-      top: 5px;
-      right: 75px;
-      position: absolute; }
+  div.block h1 {
+    background: none repeat scroll 0 0 #edf3fe;
+    margin: 0 0 5px;
+    padding: 13px 30px 13px 24px;
+    font-size: 14px; }
   div.block ul#lists {
     padding-left: 20px; }
     div.block ul#lists li.list {
@@ -183,21 +178,18 @@ ul.ui-autocomplete {
       text-decoration: none; }
 
 ul#hmenu {
-  position: relative;
   list-style: none;
   margin: 0 0 2em;
-  padding: 0;
-  z-index: 2000; }
+  padding: 0; }
   ul#hmenu li {
     display: inline; }
-  ul#hmenu img {
-    float: right;
-    border: 2px solid white;
-    -moz-box-shadow: 0px 1px 2px #333333;
-    -webkit-box-shadow: 0px 1px 2px #333333;
-    box-shadow: 0px 1px 2px #333333;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
-    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color'); }
+
+.shadow {
+  -moz-box-shadow: 0px 1px 2px #666666;
+  -webkit-box-shadow: 0px 1px 2px #666666;
+  box-shadow: 0px 1px 2px #666666;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color'); }
 
 .username_valid {
   background-color: #80ff80; }

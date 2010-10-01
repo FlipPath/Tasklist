@@ -10,7 +10,8 @@
       = render "devise/menu/login_items"
     %p{ :style => "color: green" }= notice
     %p{ :style => "color: red" }= alert
-    = yield
+    %div#container
+      = yield
     = javascript_include_tag :defaults
     = render "common/pusher"
     = javascript_include_tag "common"
