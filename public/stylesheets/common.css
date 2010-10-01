@@ -43,7 +43,12 @@ div.block ul#lists {
     div.block ul#lists li.list h2 {
       display: inline;
       font-size: 24px;
-      padding-right: 20px; }
+      cursor: auto; }
+      div.block ul#lists li.list h2:hover {
+        background-color: #ffffc2; }
+      div.block ul#lists li.list h2 input {
+        font-size: 24px;
+        background-color: #ffffc2; }
     div.block ul#lists li.list div.extra {
       display: inline;
       position: absolute;
