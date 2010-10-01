@@ -104,6 +104,18 @@ $(".share_open, .share_close").live("click", function() {
   $(this).parents("li.list").find(".share_form").slideToggle("fast");
 });
 
+$("h2.name").inlineEdit({
+  save: function(ev, hash){
+    $.ajax({
+      type: 'PUT',
+      url: '/lists/'+$(this).parents("li.list").attr("data-id"),
+      dataType: 'json',
+      data: {name: hash.value}
+    });
+  },
+  buttons: '',
+});
+
 $("ul#lists").sortable(sortableListOptions);
 $("ul.tasks").sortable(sortableTaskOptions);
 $(".list input.ac_username").autocomplete(autocompleteSharingOptions)
