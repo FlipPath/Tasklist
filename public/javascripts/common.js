@@ -31,6 +31,13 @@ var sortableListOptions = {
   }
 };
 
+var autocompleteSharingRenderItem = function(ul, item) {
+  return $(item.html)
+    .data( "item.autocomplete", item )
+    .wrapInner("<a>")
+    .appendTo(ul);
+};
+
 var autocompleteSharingOptions = {
   source: function(request, response){
     $.ajax({
@@ -39,27 +46,27 @@ var autocompleteSharingOptions = {
       data: { q: request.term },
       success: function(data) {
         response(
-          $.map(data, function(user){
-            return { label: user.username, value: user.username }
+          $.map(data, function(response){
+            return {
+              html: response.sharing_user_html,
+              value: response.username
+            }
           }));
       }
     });
   },
   minLength: 2,
   select: function(event, ui){
+    $form = $(this).parents(".share_form form");
     if (ui.item) {
       $(this).addClass("username_valid");
-      $(".share_form input.username").val(ui.item.value);
+      $("input.username", $form).val(ui.item.value);
     } else {
-      $(".share_form input.username").val("");
+      $("input.username", $form).val("");
     }
   },
   open: function(){
-    // console.log("opened");
-    $(".share_form input.username").val("");
-  },
-  close: function(){
-    // console.log("closed");
+    $(this).parents(".share_form form").find("input.username").val("");
   }
 };
 
@@ -69,7 +76,8 @@ Tasklist.lists = {
     $("#list_name").val("");
     $(".tasks", $list).sortable(sortableTaskOptions);
     $(this).parents("li").sortable(sortableListOptions);
-    $("input.ac_username", $list).autocomplete(autocompleteSharingOptions);
+    $("input.ac_username", $list).autocomplete(autocompleteSharingOptions)
+      .data("autocomplete")._renderItem = autocompleteSharingRenderItem;
     $("#"+ev.list_id+"_task_task").focus();
   },
   
@@ -80,10 +88,11 @@ Tasklist.lists = {
   },
   
   share : function(ev){
-    var $list = $(".list[data-id="+ev.list_id+"]");
+    var $list = $(".list[data-id="+ev.list_id+"]"),
+        $ul   = $(".share_form ul", $list);
     $("input.ac_username", $list).val("").removeClass("username_valid");
-    $(ev.userHtml).prependTo(".share_form ul", $list);
-    $(".input.username", $list).val(ui.item.value);
+    $(ev.userHtml).hide().prependTo($ul).slideDown("fast");
+    $("form.share_list input.username", $list).val("");
   }
 };
 
@@ -97,7 +106,8 @@ $(".share_open, .share_close").live("click", function() {
 
 $("ul#lists").sortable(sortableListOptions);
 $("ul.tasks").sortable(sortableTaskOptions);
-$(".list input.ac_username").autocomplete(autocompleteSharingOptions);
+$(".list input.ac_username").autocomplete(autocompleteSharingOptions)
+  .data("autocomplete")._renderItem = autocompleteSharingRenderItem;
 
 $("li.task").live("click", function(e){
   if (e.target == this) {
