@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :load_lists
-  before_filter :load_list, :only => [:destroy, :share]
+  before_filter :load_list, :only => [:destroy, :share, :update]
   
   def index
     @lists = @lists.latest
@@ -9,6 +9,14 @@ class ListsController < ApplicationController
   
   def create
     @list = @lists.create(:name => params[:list][:name])
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def update
+    @list.update_attributes(params)
     
     respond_to do |format|
       format.js
