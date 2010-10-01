@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @users = User.search(params[:q]).reject {|u| u.id == current_user.id }
     
     respond_to do |format|
-      format.json { render :json => @users }
+      format.json
     end
   end
 end

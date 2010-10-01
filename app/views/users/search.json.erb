@@ -1,0 +1,9 @@
+[
+  <% @users.each_with_index do |user, i| %>
+    <%= "," if i > 0 %>
+    {
+      "username":"<%=escape_javascript user.username %>",
+      "sharing_user_html":"<%=escape_javascript render "lists/sharing_user.html", :user => user %>"
+    }
+  <% end %>
+]
