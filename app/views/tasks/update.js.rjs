@@ -1,0 +1,2 @@
+task_html = render @task
+page.trigger "tasks:update", :task_id => @task.id.to_s, :task_html => task_html

@@ -1,13 +1,13 @@
 class TasksController < ApplicationController
   before_filter :load_list
   before_filter :load_channel, :only => [:create, :toggle_complete, :destroy, :reorder]
-  before_filter :load_task, :only => [:toggle_complete, :destroy, :reorder]
+  before_filter :load_task, :only => [:toggle_complete, :destroy, :reorder, :update]
   
   def create
     @task = @list.tasks.create(:task => params[:task][:task])
     
     data = {
-      :type => "task:create", :list_id => "#{@list.id}",
+      :type => "tasks:create", :list_id => "#{@list.id}",
       :task_html => render_haml("task", :task => @task)
     };
     
@@ -18,11 +18,19 @@ class TasksController < ApplicationController
     end
   end
   
+  def update
+    @task.update_attributes(params[:task])
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   def toggle_complete
     @task.toggle_complete
     
     data = {
-      :type => "task:toggle_complete", :task_id => "#{@task.id}",
+      :type => "tasks:toggle_complete", :task_id => "#{@task.id}",
       :task_html => render_haml("task", :task => @task)
     }
     
@@ -36,7 +44,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     
-    data = { :type => "task:destroy", :task_id => "#{@task.id}" }
+    data = { :type => "tasks:destroy", :task_id => "#{@task.id}" }
     
     @channel.trigger("task-destroy", data);
     
@@ -49,7 +57,7 @@ class TasksController < ApplicationController
     @task.move_to(params[:position])
     
     @channel.trigger("task-reorder", {
-      :type => "task:reorder", :task_id => "#{@task.id}",
+      :type => "tasks:reorder", :task_id => "#{@task.id}",
       :position => @task.position
     }, params[:socket_id])
     
