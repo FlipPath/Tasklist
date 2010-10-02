@@ -1,7 +1,16 @@
 case params[:context]
 when "title" then
-  page.trigger("lists:update:title", :name => @list.name)
+  data = {
+    :list_id => @list.id,
+    :name    => @list.name
+  }
+  @list.channel.trigger "lists-update_title", data, params[:socket_id] if @list.shared?
+  page.trigger          "lists:update:title", data
 else
-  list_html = render @list
-  page.trigger("lists:update", :list_html => list_html)
+  data = {
+    :list_id   => @list.id.to_s,
+    :list_html => render(@list)
+  }
+  @list.channel.trigger "lists-update", data, params[:socket_id]
+  page.trigger          "lists:update", data
 end

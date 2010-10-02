@@ -3,5 +3,5 @@ data = {
   :position => @task.position
 }
 
-@channel.trigger "tasks-reorder", data, params[:socket_id]
-page.trigger     "tasks:reorder", data
+@list.channel.trigger "tasks-reorder", data, params[:socket_id]
+page.trigger          "tasks:reorder", data

@@ -17,8 +17,16 @@ class List
     end
   end
   
+  def channel
+    Pusher["private-list-#{id}"]
+  end
+  
   def share(user)
     user.lists << self
     user.save
+  end
+  
+  def shared?
+    users.count > 1
   end
 end

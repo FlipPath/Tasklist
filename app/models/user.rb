@@ -25,8 +25,13 @@ class User
     end
   end
   
+  def channel
+    Pusher["private-user-#{id}"]
+  end
+  
   def can_access_channel(channel_name)
     case channel_name
+    when /^(?:presence|private)-user-(.+)/ then $1 == id.to_s
     when /^(?:presence|private)-list-([\da-f]+)/ then check_list_access($1)
     else false
     end

@@ -1,1 +1,3 @@
-page.trigger "lists:destroy", :list_id => @list.id.to_s
+data = { :list_id => @list.id.to_s }
+@list.channel.trigger "lists-destroy", data
+page.trigger          "lists:destroy", data

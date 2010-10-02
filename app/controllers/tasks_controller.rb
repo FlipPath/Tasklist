@@ -1,7 +1,6 @@
 class TasksController < ApplicationController
   before_filter :load_list
-  before_filter :load_channel, :only => [:create, :update, :toggle_complete, :destroy, :reorder]
-  before_filter :load_task, :only => [:toggle_complete, :destroy, :reorder, :update]
+  before_filter :load_task, :only => [:toggle_complete, :destroy, :reorder, :update]  
   
   respond_to :js
   
@@ -33,9 +32,5 @@ class TasksController < ApplicationController
   
   def load_task
     @task = @list.tasks.find(params[:id])
-  end
-  
-  def load_channel
-    @channel = Pusher["private-list-#{@list.id}"]
   end
 end

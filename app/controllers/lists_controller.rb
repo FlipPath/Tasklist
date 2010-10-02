@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :load_lists
-  before_filter :load_list, :only => [:destroy, :share, :update]
+  before_filter :load_list, :only => [:update, :destroy, :share]
   
   respond_to :html, :only => [:index]
   respond_to :js, :except => [:index]

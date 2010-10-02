@@ -3,5 +3,5 @@ data = {
   :task_html => render(@task)
 }
 
-@channel.trigger "tasks-create", data, params[:socket_id]
-page.trigger     "tasks:create", data
+@list.channel.trigger "tasks-create", data, params[:socket_id]
+page.trigger          "tasks:create", data

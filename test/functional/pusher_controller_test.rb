@@ -30,9 +30,9 @@ class PusherControllerTest < ActionController::TestCase
           }
         }
         
-        @channel = mock()
-        @channel.stubs(:authenticate).with("abc123", user_data).returns({})
-        Pusher.stubs(:[]).returns(@channel)
+        @list.channel = mock()
+        @list.channel.stubs(:authenticate).with("abc123", user_data).returns({})
+        Pusher.stubs(:[]).returns(@list.channel)
       end
       
       context "for auth action" do

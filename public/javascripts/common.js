@@ -73,8 +73,24 @@ var autocompleteSharingOptions = {
 };
 
 Tasklist.lists = {
+  init : function() {
+    var list_channel = socket.subscribe("private-list-" + $(this).attr("data-id"));
+
+    list_channel.bind("lists-create", Tasklist.lists.create);
+    list_channel.bind("lists-update", Tasklist.lists.update);
+    list_channel.bind("lists-destroy", Tasklist.lists.destroy);
+    list_channel.bind("lists-update_title", Tasklist.lists.update_title);
+
+    list_channel.bind("tasks-create", Tasklist.tasks.create);
+    list_channel.bind("tasks-update", Tasklist.tasks.update);
+    list_channel.bind("tasks-destroy", Tasklist.tasks.destroy);
+    list_channel.bind("tasks-reorder", Tasklist.tasks.reorder);
+    list_channel.bind("tasks-toggle_complete", Tasklist.tasks.toggle_complete);
+  },
+  
   create : function(ev){
     var $list = $(ev.list_html).hide().prependTo("#lists").slideDown("fast");
+    $list.each(Tasklist.lists.init);
     $("#list_name").val("");
     $(".tasks", $list).sortable(sortableTaskOptions);
     $(this).parents("li").sortable(sortableListOptions);
@@ -95,6 +111,10 @@ Tasklist.lists = {
     $("input.ac_username", $list).val("").removeClass("username_valid");
     $(ev.user_html).hide().prependTo($ul).slideDown("fast");
     $("form.share_list input.username", $list).val("");
+  },
+  
+  update_title : function(ev){
+    $(".list[data-id="+ev.list_id+"] h2.name").text(ev.name).effect("highlight", 1000);
   }
 };
 
@@ -111,7 +131,7 @@ $("h2.name").inlineEdit({
     $.ajax({
       type: "PUT",
       dataType: "script",
-      url: $(this).parents(".list").attr("data-path") + "?context=title",
+      url: $(this).parents(".list").attr("data-path") + "?context=title&socket_id=" + socket_id,
       data: {
         list: { name: hash.value }
       }
@@ -208,17 +228,10 @@ $(document).bind("tasks:destroy", Tasklist.tasks.destroy);
 $(document).bind("tasks:reorder", Tasklist.tasks.reorder);
 $(document).bind("tasks:toggle_complete", Tasklist.tasks.toggle_complete);
 
-$(".list").each(function(){
-  var list_id      = $(this).attr("data-id"),
-      list_channel = socket.subscribe("private-list-" + list_id);
-      
-      list_channel.bind("tasks-create", Tasklist.tasks.create);
-      list_channel.bind("tasks-update", Tasklist.tasks.update);
-      list_channel.bind("tasks-destroy", Tasklist.tasks.destroy);
-      list_channel.bind("tasks-reorder", Tasklist.tasks.reorder);
-      list_channel.bind("tasks-toggle_complete", Tasklist.tasks.toggle_complete);
-});
-
 $("#new_task").submit(function(){
   return ($("#new_task input.new_task").val().length > 0);
 });
+
+user_channel.bind("lists-create", Tasklist.lists.create);
+
+$(".list").each(Tasklist.lists.init);

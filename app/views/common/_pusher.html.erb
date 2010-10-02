@@ -1,12 +1,14 @@
 <script src="http://js.pusherapp.com/1.6/pusher.min.js"></script>
 <script>
-  var socket = new Pusher("<%= Pusher.key %>");
+  var socket = new Pusher("<%= Pusher.key %>"), socket_id = null;
   socket.bind("connection_established", function(evt){
+    socket_id = evt.socket_id;
     $(document).bind("ajax:before", function(xhr){
       if (xhr.target.nodeName == "FORM") {
         $("<input />").attr({ type: "hidden", name: "socket_id" }).
-          val(evt.socket_id).appendTo(xhr.target);
+          val(socket_id).appendTo(xhr.target);
       }
     });
   });
+  var user_channel = socket.subscribe("private-user-<%= user.id %>");
 </script>

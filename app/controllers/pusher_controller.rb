@@ -10,8 +10,8 @@ class PusherController < ApplicationController
         :user_id => current_user.id,
         :user_info => {
           :username => current_user.username,
-          :name => current_user.name,
-          :email => current_user.email
+          :name     => current_user.name,
+          :email    => current_user.email
         }
       })
       render :json => @response
