@@ -93,7 +93,7 @@ Tasklist.lists = {
     var $list = $(".list[data-id="+ev.list_id+"]"),
         $ul   = $(".share_form ul", $list);
     $("input.ac_username", $list).val("").removeClass("username_valid");
-    $(ev.userHtml).hide().prependTo($ul).slideDown("fast");
+    $(ev.user_html).hide().prependTo($ul).slideDown("fast");
     $("form.share_list input.username", $list).val("");
   }
 };

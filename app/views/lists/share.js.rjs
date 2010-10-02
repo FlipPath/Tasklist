@@ -1,0 +1,2 @@
+user_html = render "sharing_user", :user => @user
+page.trigger "lists:share", :list_id => @list.id.to_s, :user_html => user_html

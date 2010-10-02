@@ -3,41 +3,28 @@ class ListsController < ApplicationController
   before_filter :load_lists
   before_filter :load_list, :only => [:destroy, :share, :update]
   
+  respond_to :html, :only => [:index]
+  respond_to :js, :except => [:index]
+  
   def index
-    @lists = @lists.latest
+    respond_with @lists = @lists.latest
   end
   
   def create
     @list = @lists.create(:name => params[:list][:name])
-    
-    respond_to do |format|
-      format.js
-    end
   end
   
   def update
     @list.update_attributes(params[:list])
-    
-    respond_to do |format|
-      format.js
-    end
   end
   
   def destroy
     @list.destroy
-    
-    respond_to do |format|
-      format.js
-    end
   end
   
   def share
     @user = User.find(params[:username])
     @list.share(@user)
-    
-    respond_to do |format|
-      format.js
-    end
   end
     
   private
