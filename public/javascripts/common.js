@@ -9,7 +9,8 @@ var sortableTaskOptions = {
         $form    = $(".reorder_tasks_form", $list),
         path     = $form.attr("data-path"),
         task_id  = $(ui.item).attr("data-id"),
-        position = ($lis.length - $lis.index(ui.item) - 1);
+        position = ($lis.length - $lis.index(ui.item) - 1),
+        axis     = "y";
         
     $form.attr("action", path.replace(/%id/, task_id));
     
@@ -23,7 +24,8 @@ var sortableListOptions = {
     var $lis     = $(this).children("li"),
         $form    = $(".reorder_lists_form", $(this)),
         list_id  = $(ui.item).attr("data-id"),
-        position = ($lis.length - $lis.index(ui.item) - 1);
+        position = ($lis.length - $lis.index(ui.item) - 1),
+        axis     = "y";
         
     $(".list_id", $form).val(list_id);
     $(".position", $form).val(position);
