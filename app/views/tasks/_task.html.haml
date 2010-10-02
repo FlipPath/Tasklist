@@ -1,4 +1,4 @@
-%li{ "data-id" => task.id, :class => "task #{link_class(task)}" }
+%li{ "data-id" => task.id, "data-path" => list_task_path(task.list, task), "data-task" => task.task, :class => "task #{link_class(task)}" }
   %div.title
     = link_to toggle_complete_list_task_path(task.list, task), :remote => true, :method => :put do
       = auto_link(task.task, :html => { :target => '_blank' }) do |text|

@@ -15,7 +15,7 @@ var sortableTaskOptions = {
     $form.attr("action", path.replace(/%id/, task_id));
     
     $(".position", $form).val(position);
-    $form.trigger("submit");
+    $form.submit();
   }
 };
 
@@ -29,7 +29,7 @@ var sortableListOptions = {
         
     $(".list_id", $form).val(list_id);
     $(".position", $form).val(position);
-    // $form.trigger("submit");
+    // $form.submit();
   }
 };
 
@@ -93,7 +93,7 @@ Tasklist.lists = {
     var $list = $(".list[data-id="+ev.list_id+"]"),
         $ul   = $(".share_form ul", $list);
     $("input.ac_username", $list).val("").removeClass("username_valid");
-    $(ev.user_html).hide().prependTo($ul).slideDown("fast");
+    $(ev.userHtml).hide().prependTo($ul).slideDown("fast");
     $("form.share_list input.username", $list).val("");
   }
 };
@@ -123,9 +123,8 @@ $("h2.name").inlineEdit({
 
 $("ul#lists").sortable(sortableListOptions);
 $("ul.tasks").sortable(sortableTaskOptions);
-$(".list input.ac_username").autocomplete(autocompleteSharingOptions).each(function(){
-  $(this).data("autocomplete")._renderItem = autocompleteSharingRenderItem;
-});
+$(".list input.ac_username").autocomplete(autocompleteSharingOptions)
+  .data("autocomplete")._renderItem = autocompleteSharingRenderItem;
 
 $("li.task").live("click", function(e){
   if (e.target == this) {
