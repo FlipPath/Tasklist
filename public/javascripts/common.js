@@ -15,7 +15,7 @@ var sortableTaskOptions = {
     $form.attr("action", path.replace(/%id/, task_id));
     
     $(".position", $form).val(position);
-    $form.submit();
+    $form.trigger("submit");
   }
 };
 
@@ -29,7 +29,7 @@ var sortableListOptions = {
         
     $(".list_id", $form).val(list_id);
     $(".position", $form).val(position);
-    // $form.submit();
+    // $form.trigger("submit");
   }
 };
 
