@@ -114,6 +114,7 @@ $("h2.name").inlineEdit({
     });
   },
   buttons: '',
+  cancelOnBlur: true
 });
 
 $("ul#lists").sortable(sortableListOptions);
