@@ -16,7 +16,7 @@ class ListsController < ApplicationController
   end
   
   def update
-    @list.update_attributes(params)
+    @list.update_attributes(params[:list])
     
     respond_to do |format|
       format.js
