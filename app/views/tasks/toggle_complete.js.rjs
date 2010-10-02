@@ -3,5 +3,5 @@ data = {
   :task_html => render(@task)
 }
 
-@list.channel.trigger "tasks-toggle_complete", data
-page.trigger          "tasks:toggle_complete", data
+@list.channel.trigger_async "tasks-toggle_complete", data
+page.trigger "tasks:toggle_complete", data

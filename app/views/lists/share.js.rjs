@@ -5,4 +5,4 @@ data = {
   :list_id   => @list.id.to_s,
   :list_html => render(@list)
 }
-@user.channel.trigger "lists-create", data, params[:socket_id]
+@user.channel.trigger_async "lists-create", data, params[:socket_id]

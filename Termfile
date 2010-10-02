@@ -1,6 +1,6 @@
 - server:
   - rvm use ree@rails3
-  - r s --debugger
+  - r s thin --debugger
 - console:
   - rvm use ree@rails3
   - r c --debugger

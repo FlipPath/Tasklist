@@ -2,6 +2,8 @@ source "http://rubygems.org"
 
 gem "rails", "~> 3.0.0"
 
+gem "thin",               "~> 1.2.7"
+gem "em-http-request",    "~> 0.2.13"
 gem "bson_ext",           "~> 1.0.4"
 gem "mongoid",            "~> 2.0.0.beta.18"
 gem "haml",               "~> 3.0.18"
