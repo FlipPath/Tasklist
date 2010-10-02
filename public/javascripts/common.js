@@ -15,7 +15,7 @@ var sortableTaskOptions = {
     $form.attr("action", path.replace(/%id/, task_id));
     
     $(".position", $form).val(position);
-    $form.submit();
+    $form.trigger("submit");
   }
 };
 
@@ -29,7 +29,7 @@ var sortableListOptions = {
         
     $(".list_id", $form).val(list_id);
     $(".position", $form).val(position);
-    // $form.submit();
+    // $form.trigger("submit");
   }
 };
 
@@ -93,7 +93,7 @@ Tasklist.lists = {
     var $list = $(".list[data-id="+ev.list_id+"]"),
         $ul   = $(".share_form ul", $list);
     $("input.ac_username", $list).val("").removeClass("username_valid");
-    $(ev.userHtml).hide().prependTo($ul).slideDown("fast");
+    $(ev.user_html).hide().prependTo($ul).slideDown("fast");
     $("form.share_list input.username", $list).val("");
   }
 };
@@ -123,8 +123,30 @@ $("h2.name").inlineEdit({
 
 $("ul#lists").sortable(sortableListOptions);
 $("ul.tasks").sortable(sortableTaskOptions);
-$(".list input.ac_username").autocomplete(autocompleteSharingOptions)
-  .data("autocomplete")._renderItem = autocompleteSharingRenderItem;
+
+$(".list input.ac_username").autocomplete(autocompleteSharingOptions).each(function(){
+  $(this).data("autocomplete")._renderItem = autocompleteSharingRenderItem;
+});
+
+$('form.new_task').droppable({
+  drop: function( event, ui ) {
+    var $task           = ui.draggable,
+        original_action = this.action,
+        $task_input     = $(".new_task", this),
+        $method_input   = $('<input />').attr({type: "hidden", name: "_method"}).val("PUT");
+    
+    $task.hide();
+    this.action = $task.attr('data-path');
+    $task_input.val($task.attr('data-task'));
+    $method_input.appendTo(this);
+    
+    $(this).bind("ajax:loading", function(){
+      this.action = original_action;
+      $method_input.remove();
+      $task_input.val("");
+    });
+  }
+});
 
 $("li.task").live("click", function(e){
   if (e.target == this) {
@@ -149,8 +171,8 @@ Tasklist.tasks = {
     $(ev.task_html).hide().prependTo(".list[data-id="+ev.list_id+"] .tasks").slideDown("fast");
   },
   
-  toggle_complete : function(ev){
-    $(".task[data-id="+ev.task_id+"]").replaceWith(ev.task_html);
+  update : function(ev){
+    $(ev.task_html).hide().replaceAll("li.task[data-id="+ev.task_id+"]").slideDown("fast");
   },
   
   destroy : function(ev){
@@ -173,13 +195,18 @@ Tasklist.tasks = {
     } else {
       $task.insertBefore($target);
     }
+  },
+  
+  toggle_complete : function(ev){
+    $(".task[data-id="+ev.task_id+"]").replaceWith(ev.task_html);
   }
 };
 
-$(document).bind("task:create", Tasklist.tasks.create);
-$(document).bind("task:toggle_complete", Tasklist.tasks.toggle_complete);
-$(document).bind("task:destroy", Tasklist.tasks.destroy);
-$(document).bind("task:reorder", Tasklist.tasks.reorder);
+$(document).bind("tasks:create", Tasklist.tasks.create);
+$(document).bind("tasks:update", Tasklist.tasks.update);
+$(document).bind("tasks:destroy", Tasklist.tasks.destroy);
+$(document).bind("tasks:reorder", Tasklist.tasks.reorder);
+$(document).bind("tasks:toggle_complete", Tasklist.tasks.toggle_complete);
 
 
 $(".list").each(function(){
