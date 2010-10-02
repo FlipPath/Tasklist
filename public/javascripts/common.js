@@ -123,8 +123,9 @@ $("h2.name").inlineEdit({
 
 $("ul#lists").sortable(sortableListOptions);
 $("ul.tasks").sortable(sortableTaskOptions);
-$(".list input.ac_username").autocomplete(autocompleteSharingOptions)
-  .data("autocomplete")._renderItem = autocompleteSharingRenderItem;
+$(".list input.ac_username").autocomplete(autocompleteSharingOptions).each(function(){
+  $(this).data("autocomplete")._renderItem = autocompleteSharingRenderItem;
+});
 
 $("li.task").live("click", function(e){
   if (e.target == this) {
