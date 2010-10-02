@@ -109,10 +109,12 @@ $(".share_open, .share_close").live("click", function() {
 $("h2.name").inlineEdit({
   save: function(ev, hash){
     $.ajax({
-      type: 'PUT',
-      url: '/lists/'+$(this).parents("li.list").attr("data-id"),
-      dataType: 'json',
-      data: {name: hash.value}
+      type: "PUT",
+      dataType: "script",
+      url: $(this).parents(".list").attr("data-path") + "?context=title",
+      data: {
+        list: { name: hash.value }
+      }
     });
   },
   buttons: '',
