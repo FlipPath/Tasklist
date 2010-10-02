@@ -1,0 +1,7 @@
+data = {
+  :task_id  => @task.id.to_s,
+  :position => @task.position
+}
+
+@channel.trigger "tasks-reorder", data, params[:socket_id]
+page.trigger     "tasks:reorder", data

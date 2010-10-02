@@ -208,30 +208,16 @@ $(document).bind("tasks:destroy", Tasklist.tasks.destroy);
 $(document).bind("tasks:reorder", Tasklist.tasks.reorder);
 $(document).bind("tasks:toggle_complete", Tasklist.tasks.toggle_complete);
 
-
 $(".list").each(function(){
   var list_id      = $(this).attr("data-id"),
       list_channel = socket.subscribe("private-list-" + list_id);
       
-      list_channel.bind("task-create", function(e){ $(document).trigger(e) });
-      list_channel.bind("task-toggle-complete", function(e){ $(document).trigger(e) });
-      list_channel.bind("task-destroy", function(e){ $(document).trigger(e) });
-      list_channel.bind("task-reorder", function(e){ $(document).trigger(e) });
-      
-      // presence_channel = socket.subscribe("presence-list-" + list_id),
-      // presence_channel.bind("pusher:subscription_succeeded", function(member){
-      //   f.log("member subscribed: " + member[0].user_info.name);
-      // });
-      // 
-      // presence_channel.bind("pusher:member_added", function(member){
-      //   console.log("member added: " + member.user_info.name);
-      // });
-      // 
-      // presence_channel.bind("pusher:member_removed", function(member){
-      //   console.log("member removed: " + member.user_info.name);
-      // });
+      list_channel.bind("tasks-create", Tasklist.tasks.create);
+      list_channel.bind("tasks-update", Tasklist.tasks.update);
+      list_channel.bind("tasks-destroy", Tasklist.tasks.destroy);
+      list_channel.bind("tasks-reorder", Tasklist.tasks.reorder);
+      list_channel.bind("tasks-toggle_complete", Tasklist.tasks.toggle_complete);
 });
-
 
 $("#new_task").submit(function(){
   return ($("#new_task input.new_task").val().length > 0);

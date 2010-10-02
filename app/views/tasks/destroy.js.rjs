@@ -1,0 +1,6 @@
+data = {
+  :task_id => @task.id.to_s
+}
+
+@channel.trigger "tasks-destroy", data
+page.trigger     "tasks:destroy", data
