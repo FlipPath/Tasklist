@@ -1,0 +1,7 @@
+case params[:context]
+when "title" then
+  page.trigger("list:update:title", :name => @list.name)
+else
+  list_html = render("list", :list => @list)
+  page.trigger("list:update", :list_html => list_html)
+end
