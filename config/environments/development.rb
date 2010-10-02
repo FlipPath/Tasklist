@@ -27,5 +27,8 @@ Tasklist::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+  
+  # Add debug library to defaults when in development
+  config.action_view.javascript_expansions[:defaults] += %w(ba-debug.min)
 end
 
