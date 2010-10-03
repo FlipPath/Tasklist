@@ -17,8 +17,6 @@ gem "pusher",             "~> 0.6.0"
 gem "hoptoad_notifier",   "~> 2.3.8"
 
 group :development do
-  gem "heroku",       "~> 1.10.8"
-  gem "wirble",       "~> 0.1.3"
   gem "rcov_plugin",  "~> 3.0.1"
   gem "ruby-debug",   "~> 0.10.3"
 end
