@@ -19,18 +19,18 @@ body {
 html, body, #page {
   height: 100%; }
 
-#page {
+div#page {
   height: auto;
   min-height: 100%;
   position: relative; }
-  #page #header {
-    background: url(/images/nav-background.png) repeat-x;
+  div#page div#header {
+    background: url(/images/sprites.png) repeat-x 0 -50px;
     height: 54px; }
-    #page #header #nav {
+    div#page div#header div#nav {
       height: 44px;
       position: relative;
       width: 855px; }
-      #page #header #nav a.item {
+      div#page div#header div#nav a.item {
         color: white;
         display: block;
         float: left;
@@ -40,47 +40,37 @@ html, body, #page {
         margin: 0px;
         padding-left: 13px;
         text-decoration: none; }
-        #page #header #nav a.item span.inner {
+        div#page div#header div#nav a.item span.inner {
           display: block;
           height: 40px;
           margin: 0px;
           padding-right: 11px; }
-        #page #header #nav a.item:hover > .inner, #page #header #nav a.item.active > .inner {
-          background: url(/images/nav-hover-right.png) no-repeat top right; }
-        #page #header #nav a.item:hover, #page #header #nav a.item.active {
-          background: url(/images/nav-hover-left.png) no-repeat; }
-        #page #header #nav a.item span.label {
+        div#page div#header div#nav a.item:hover > .inner, div#page div#header div#nav a.item.active > .inner {
+          background: url(/images/sprites.png) no-repeat top right; }
+        div#page div#header div#nav a.item:hover, div#page div#header div#nav a.item.active {
+          background: url(/images/sprites.png) no-repeat 0 0; }
+        div#page div#header div#nav a.item span.label {
           display: block;
           float: left;
           margin: 15px 0 0; }
-        #page #header #nav a.item span.counter {
-          display: block;
-          float: left;
-          margin: 15px 0 0 8px; }
-      #page #header #nav #nav-left {
+      div#page div#header div#nav #nav-left {
         left: 0px;
         position: absolute;
         top: 0px; }
-      #page #header #nav #nav-right {
-        height: 44px;
-        position: absolute;
-        right: 0px;
-        top: 0px;
-        width: 440px; }
-  #page div.view {
+  div#page div.view {
     display: block; }
-  #page div.sidebar {
+  div#page div#sidebar {
     display: inline;
     float: left;
     margin: 0px 1px 20px 0px;
     position: relative;
     width: 175px; }
-    #page div.sidebar ul.panel {
+    div#page div#sidebar ul {
       list-style: none;
       margin: 19px 0px 16px;
       padding: 0px; }
-      #page div.sidebar ul.panel li.heading {
-        background: #e8e8e8 url(/images/contexts.png) repeat-y 0px 0px;
+      div#page div#sidebar ul li.heading {
+        background: #e8e8e8 url(/images/lists.png) repeat-y 0px 0px;
         color: #666;
         font-size: 10px;
         font-weight: bold;
@@ -88,46 +78,35 @@ html, body, #page {
         margin: 0px;
         padding: 10px 10px 0px;
         text-align: center; }
-      #page div.sidebar ul.panel li.item {
-        background: white url(/images/contexts.png) repeat-y -175px 0px;
+      div#page div#sidebar ul li.item {
+        background: white url(/images/lists.png) repeat-y -175px 0px;
         display: block;
         font-size: 13px;
         height: 28px;
         margin: 0px; }
-        #page div.sidebar ul.panel li.item.selected {
+        div#page div#sidebar ul li.item.selected {
           background-position: -350px 0px; }
-          #page div.sidebar ul.panel li.item.selected a {
+          div#page div#sidebar ul li.item.selected a {
             color: #fff; }
-        #page div.sidebar ul.panel li.item.last {
+        div#page div#sidebar ul li.item.last {
           background-position: -525px 0px;
           height: 37px; }
-        #page div.sidebar ul.panel li.item .counter {
-          color: #fff;
-          display: block;
+        div#page div#sidebar ul li.item .counter {
           float: right;
-          font-weight: bold;
-          height: 16px;
-          margin: 7px 10px 0px 2px;
-          padding: 0px 0px 0px 5px;
-          background: url(/images/item-counter-left.png) no-repeat; }
-          #page div.sidebar ul.panel li.item .counter > .inner {
-            display: block;
-            line-height: 13px;
-            padding: 0px 5px 0px 0px;
-            background: url(/images/item-counter-right.png) no-repeat 100% 0%; }
-        #page div.sidebar ul.panel li.item a {
+          margin: 7px 10px 0px 2px; }
+        div#page div#sidebar ul li.item a {
           text-decoration: none;
           color: #333;
           display: block;
           height: 20px;
           padding: 8px 16px 0px;
           text-decoration: none; }
-  #page div#actions-full {
+  div#page div#full {
     display: block;
     margin: 19px 0px 16px;
     position: relative;
     width: 859px; }
-    #page div#actions-full div.heading {
+    div#page div#full div.heading {
       background: white url(/images/full.png) no-repeat 0px 0px;
       color: #999;
       font-size: 10px;
@@ -136,23 +115,26 @@ html, body, #page {
       overflow: hidden;
       white-space: nowrap;
       width: 859px; }
-      #page div#actions-full div.heading div.left {
+      div#page div#full div.heading a {
+        color: #2D5E93;
+        text-decoration: none; }
+      div#page div#full div.heading div.left {
         padding: 10px 0px 0px 15px;
         float: left; }
-        #page div#actions-full div.heading div.left div {
+        div#page div#full div.heading div.left div {
           display: block;
           float: left;
           height: 12px; }
-    #page div#actions-full div.items {
+    div#page div#full div.items {
       background: #e8e8e8 url(/images/full.png) repeat-y -859px 0px; }
-      #page div#actions-full div.items div.separator {
+      div#page div#full div.items div.separator {
         background: white url(/images/full.png) no-repeat -1721px 0px;
         height: 5px;
         margin: 0px 3px;
         width: 853px; }
-        #page div#actions-full div.items div.separator.first {
+        div#page div#full div.items div.separator.first {
           background-position: -1721px -10px; }
-        #page div#actions-full div.items div.separator.last {
+        div#page div#full div.items div.separator.last {
           background-position: -2577px -20px;
           height: 10px;
           margin: 0px;
@@ -160,62 +142,26 @@ html, body, #page {
           padding: 4px 0px 0px;
           white-space: nowrap;
           width: 859px; }
-      #page div#actions-full div.items div.item {
+      div#page div#full div.items div.item {
         background: white;
-        cursor: pointer;
         font-size: 13px;
-        height: 20px;
         margin: 0px 3px;
-        overflow: hidden;
         padding: 3px 0px 0px;
-        white-space: nowrap;
         width: 853px; }
-        #page div#actions-full div.items div.item div.checkbox {
-          background: url(/images/buttons.png) no-repeat 0px 0px;
+        div#page div#full div.items div.item div.counter {
           float: left;
-          height: 16px;
-          margin: 2px 6px 0px;
-          overflow: hidden;
-          text-indent: -9999px;
-          width: 16px; }
-        #page div#actions-full div.items div.item div.preview {
-          height: 20px;
-          margin-right: 10px;
-          overflow: hidden;
-          padding: 3px 0px 0px; }
-          #page div#actions-full div.items div.item div.preview div.title {
-            display: inline;
-            font-size: 13px; }
-          #page div#actions-full div.items div.item div.preview div.excerpt {
-            color: #888;
-            display: inline;
-            font-size: 10px;
-            margin: 0px 5px; }
-        #page div#actions-full div.items div.item div.counter {
-          color: white;
-          display: block;
-          float: left;
-          font-weight: bold;
-          height: 16px;
-          margin: 2px 7px 0px 0px;
-          padding: 0px 0px 0px 5px;
-          background: url(/images/item-counter-left.png) no-repeat; }
-          #page div#actions-full div.items div.item div.counter > .inner {
-            display: block;
-            line-height: 13px;
-            padding: 0px 5px 0px 0px;
-            background: url(/images/item-counter-right.png) no-repeat 100% 0%; }
-  #page div.workspace {
+          margin: 2px 7px 0px 0px; }
+  div#page div#workspace {
     display: inline;
     float: right;
     margin: 0px 0px 20px;
     position: relative;
     width: 700px; }
-    #page div.workspace div#context-actions {
+    div#page div#workspace div#tasks {
       margin: 19px 0px 16px;
       position: relative;
       width: 700px; }
-    #page div.workspace div.action-list div.heading {
+    div#page div#workspace div.list div.heading {
       color: #999;
       font-size: 10px;
       font-weight: bold;
@@ -226,75 +172,36 @@ html, body, #page {
       white-space: nowrap;
       width: 660px;
       background: transparent url(/images/workspace.png) no-repeat 0px 1px; }
-      #page div.workspace div.action-list div.heading div.left {
+      div#page div#workspace div.list div.heading div.left {
         float: left;
         padding: 10px 0px 0px 9px; }
-        #page div.workspace div.action-list div.heading div.left div {
+        div#page div#workspace div.list div.heading div.left div {
           display: block;
           float: left;
           height: 12px; }
-      #page div.workspace div.action-list div.heading a {
+      div#page div#workspace div.list div.heading a {
         color: #2d5e93;
         text-decoration: none; }
-    #page div.workspace div.action-list div.items {
+    div#page div#workspace div.list div.items {
       width: 700px; }
-      #page div.workspace div.action-list div.items div.preview {
-        margin-right: 10px;
-        overflow: hidden;
-        padding: 1px 0px 0px 2px; }
-        #page div.workspace div.action-list div.items div.preview div.title {
-          display: inline;
-          font-size: 13px; }
-        #page div.workspace div.action-list div.items div.preview div.excerpt {
-          color: #888;
-          display: inline;
-          font-size: 10px;
-          margin: 0px 5px; }
-      #page div.workspace div.action-list div.items div.item {
+      div#page div#workspace div.list div.items div.item {
         background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px;
-        cursor: pointer;
-        height: 20px;
-        overflow: hidden;
         padding: 3px 20px 0px;
-        white-space: no-wrap;
         width: 660px; }
-        #page div.workspace div.action-list div.items div.item div.checkbox {
-          background: url(/images/buttons.png) no-repeat 0px 0px;
-          float: left;
-          height: 16px;
-          margin: 2px 2px 0px 6px;
-          overflow: hidden;
-          text-indent: -9999px;
-          width: 16px; }
-          #page div.workspace div.action-list div.items div.item div.checkbox:hover, #page div.workspace div.action-list div.items div.item div.checkbox.checked {
-            background-position: 0px -16px; }
-        #page div.workspace div.action-list div.items div.item div.star {
-          background: url(/images/buttons.png) no-repeat -16px 0px;
-          float: left;
-          height: 16px;
-          margin: 2px 2px 0px 0px;
-          overflow: hidden;
-          text-indent: -9999px;
-          width: 16px; }
-          #page div.workspace div.action-list div.items div.item div.star:hover, #page div.workspace div.action-list div.items div.item div.star.starred {
-            background-position: -16px -16px; }
-        #page div.workspace div.action-list div.items div.item div.context-title {
-          color: #333;
-          font-size: 10px;
-          font-weight: bold;
-          padding: 8px 0px 4px;
-          text-align: center; }
-    #page div.workspace div.action-list div.separator {
+        div#page div#workspace div.list div.items div.item div.preview {
+          height: 20px;
+          padding: 1px 0px 0px 2px; }
+    div#page div#workspace div.list div.separator {
       background: transparent url(/images/workspace.png) no-repeat 1400px 0px;
       height: 5px; }
-      #page div.workspace div.action-list div.separator.first {
+      div#page div#workspace div.list div.separator.first {
         background-position: -1400px -10px; }
-      #page div.workspace div.action-list div.separator.last {
+      div#page div#workspace div.list div.separator.last {
         background-position: -2100px -20px;
         height: 10px;
         overflow: hidden;
         padding: 4px 0px 0px; }
-  #page #main {
+  div#page #main {
     overflow: hidden;
     padding-bottom: 45px; }
 
@@ -349,3 +256,58 @@ div.container {
   margin-right: auto;
   padding-left: 20px;
   width: 876px; }
+
+.counter {
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  height: 16px;
+  padding: 0px 0px 0px 5px;
+  background: url(/images/item-counter-left.png) no-repeat; }
+  .counter > .inner {
+    display: block;
+    line-height: 13px;
+    padding: 0px 5px 0px 0px;
+    background: url(/images/sprites.png) no-repeat -138px -105px; }
+
+div.checkbox {
+  background: url(/images/sprites.png) no-repeat 0px -105px;
+  float: left;
+  height: 16px;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 16px;
+  margin: 2px 4px 0px 6px; }
+  div.checkbox:hover, div.checkbox.checked {
+    background-position: -14px -105px; }
+
+div.preview {
+  margin-right: 10px;
+  overflow: hidden;
+  height: 20px;
+  padding: 3px 0px 0px; }
+  div.preview div.title {
+    display: inline;
+    font-size: 13px; }
+  div.preview div.excerpt {
+    color: #888;
+    display: inline;
+    font-size: 10px;
+    margin: 0px 5px; }
+
+div.item {
+  cursor: pointer;
+  font-size: 13px;
+  height: 20px;
+  overflow: hidden;
+  white-space: nowrap; }
+  div.item div.star {
+    background: url(/images/sprites.png) no-repeat -28px -105px;
+    float: left;
+    height: 16px;
+    margin: 2px 2px 0px 0px;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 16px; }
+    div.item div.star:hover, div.item div.star.starred {
+      background-position: -42px -105px; }
