@@ -57,6 +57,10 @@ div#page {
         left: 0px;
         position: absolute;
         top: 0px; }
+      div#page div#header div#nav #nav-right {
+        position: absolute;
+        right: 0px;
+        top: 0px; }
   div#page div.view {
     display: block; }
   div#page div#sidebar {
@@ -101,6 +105,11 @@ div#page {
           height: 20px;
           padding: 8px 16px 0px;
           text-decoration: none; }
+      div#page div#sidebar ul li input {
+        width: 150px;
+        margin: 5px 5px 0px 10px; }
+        div#page div#sidebar ul li input[type=submit] {
+          display: none; }
   div#page div#full {
     display: block;
     margin: 19px 0px 16px;

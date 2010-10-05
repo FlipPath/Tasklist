@@ -1,7 +1,9 @@
 %div#sidebar
-  %ul
+  %ul#lists
     %li.heading Lists
     = render @lists
+    %li{ :class => "item last" }
+      = render 'form'
 %div#workspace
   %div#tasks
     %div{ :class => "context list" }

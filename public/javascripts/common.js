@@ -89,13 +89,13 @@ Tasklist.lists = {
   },
   
   create : function(ev){
-    var $list = $(ev.list_html).hide().prependTo("#lists").slideDown("fast");
+    var $list = $(ev.list_html).hide().insertAfter("ul#lists .heading").slideDown("fast");
     $list.each(Tasklist.lists.init);
-    $("#list_name").val("");
-    $(".tasks", $list).sortable(sortableTaskOptions);
-    $(this).parents("li").sortable(sortableListOptions);
-    $("input.ac_username", $list).autocomplete(autocompleteSharingOptions)
-      .data("autocomplete")._renderItem = autocompleteSharingRenderItem;
+    // $("#list_name").val("");
+    // $(".tasks", $list).sortable(sortableTaskOptions);
+    // $(this).parents("li").sortable(sortableListOptions);
+    // $("input.ac_username", $list).autocomplete(autocompleteSharingOptions)
+    //       .data("autocomplete")._renderItem = autocompleteSharingRenderItem;
     $("input.new_task", $list).focus();
   },
   

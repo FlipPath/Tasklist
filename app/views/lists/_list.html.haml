@@ -1,11 +1,4 @@
-%li.list{ "data-id" => list.id, "data-path" => list_path(list) }
-  %div.head
-    %h2.name= list.name
-    %div.extra
-      %a.share_open{ :href => "javascript:;" } Sharing
-      = link_to "X", list_path(list), :remote => true, :method => :delete, :class => :destroy
-  
-  %div.share_form= render "tasks/sharing_form", :list => list
-  = render 'tasks/form', :list => list
-  = render 'tasks/list', :tasks => list.tasks, :list_id => list.id
-  = render 'reorder_form', :list => list
+%li.item
+  %div.counter
+    %span.inner= list.tasks.count
+  = link_to list.name, list

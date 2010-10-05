@@ -4,86 +4,12 @@
     %title Tasklist
     = stylesheet_link_tag "common"
   %body
-  %div#page
-    %div#header
-      %div.container
-        %div#nav
-          %div#nav-left
-            %a.item{ :href => "#", :class => :selected }
-              %span.inner
-                %span.label Personal
-            %a.item{ :class => "active", :href => "#" }
-              %span.inner
-                %span.label Credentify
-            %a.item{ :href => "#" }
-              %span.inner 
-                %span.label Someday
-    %div{ :class => "container view" }
-      %div#sidebar
-        %ul
-          %li.heading Lists
-          %li.item
-            %div.counter{ :href => "#" }
-              %span.inner 2
-            %a{ :href => "#" } Web
-          %li.item{ :class => "selected" }
-            %div.counter{ :href => "#" }
-              %span.inner 0
-            %a{ :href => "#" } Code
-          %li.item{ :class => "last" }
-            %div.counter{ :href => "#" }
-              %span.inner 4
-            %a{ :href => "#" } Personal
-      %div#workspace
-        %div#tasks
-          %div{ :class => "context list" }
-            %div.heading
-              %div.left
-                %div
-                  %a{ :href => "#" } Add a Task
-            %div.items
-              %div{ :class => "separator first" }
-              %div{ :class => "item first "}
-                %div{ :class => "checkbox checked" }
-                  %a{ :href => "#" } Complete
-                %div.star{ :class => "starred" }
-                  %a{ :href => "#" } Star
-                %div.project-title
-                %div.preview
-                  %div.title Notes anyone?
-                  %div.excerpt 
-                    By golee, I am a note!
-                    Sweeeet
-                    What about another line?
-              %div{ :class => "separator last" }
-      %div#full{ :class => "full" }
-        %div
-          %div.heading
-            %div.left
-              %div.add-action
-                %a{ :href => "#" } Add an Action
-          %div.items
-            %div{ :class => "separator first" }
-            %div{ :class => "item first"}
-              %div{ :class => "checkbox checked" }
-                %a{ :href => "#" } Complete
-              %div.counter
-                %div.inner 1
-              %div.preview
-                %div.title Credentify
-                %div.excerpt
-                  By golee, I am a note!
-                  Sweeeet
-                  What about another line?
-            %div{ :class => "separator last" }
-  %div#footer{ :class => "clearfix" }
-    %div.container
-      %div.left
-        %a#footer-logo{ :href => "#" }
-      %div.right
-        %span#search-field{ :class => "search-field" }
-          %input{ :type => :text }
-        %a{ :href => "#" } Completed
-        %a{ :href => "#" } Overview
-        %a{ :href => "#" } Settings
-        %a{ :href => "#" } Logout      
+    %ul#hmenu
+      = render "devise/menu/registration_items"
+      = render "devise/menu/login_items"
+    -if notice
+      %p{ :style => "color: green" }= notice
+    - if alert
+      %p{ :style => "color: red" }= alert
+    %div#container
+      = yield
