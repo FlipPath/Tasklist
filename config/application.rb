@@ -1,8 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "active_resource/railtie"
+require 'rails/all'
 require "lib/extensions/prototype_ext"
 
 # If you have a Gemfile, require the gems listed there, including any gems
@@ -11,8 +9,6 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Tasklist
   class Application < Rails::Application
-    config.mongoid.logger = Logger.new($stdout, :warn)
-    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -43,5 +39,11 @@ module Tasklist
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password, :password_confirmation]
+    
+    config.generators do |g|  
+      g.orm             :active_record
+      g.template_engine :haml
+      g.test_framework  :test_unit, :fixture => false
+    end  
   end
 end

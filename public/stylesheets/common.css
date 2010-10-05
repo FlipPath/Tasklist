@@ -117,7 +117,7 @@ div.block ul#lists {
       div.block ul#lists ul.tasks li.task div.title a:hover:not(:first-child) {
         text-decoration: underline;
         color: blue; }
-      div.block ul#lists ul.tasks li.task.completed div.title a {
+      div.block ul#lists ul.tasks li.task.closed div.title a {
         text-decoration: line-through;
         color: #888; }
       div.block ul#lists ul.tasks li.task div.extra {

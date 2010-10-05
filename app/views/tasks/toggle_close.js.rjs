@@ -1,0 +1,7 @@
+data = {
+  :task_id   => @task.id.to_s,
+  :task_html => render(@task)
+}
+
+@list.channel.trigger_async "tasks-toggle_close", data
+page.trigger "tasks:toggle_close", data

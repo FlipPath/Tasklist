@@ -3,6 +3,6 @@
   = text_field_tag nil, nil, :id => nil, :class => "ac_username"
   = submit_tag "add"
 %ul.share_users
-  - list.users.order_by(:name.asc).reject{|u| u.id == current_user.id }.each do |u|
+  - list.collaborators.order(:name.asc).reject{|u| u.id == current_user.id }.each do |u|
     = render "sharing_user", :user => u
 %a.share_close{ :href => "javascript:;" } Close

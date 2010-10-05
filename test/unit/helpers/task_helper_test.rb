@@ -6,14 +6,14 @@ class TaskHelperTest < ActionView::TestCase
     setup { @first_task = @list.tasks.first }
     
     context "for link_class method" do
-      setup { @first_task.completed = true }
+      setup { @first_task.closed = true }
       
-      should "return class completed" do
-        assert_equal "completed", link_class(@first_task)
+      should "return class closed" do
+        assert_equal "closed", link_class(@first_task)
       end
       
       should "return nil" do
-        @first_task.completed = false
+        @first_task.closed = false
         assert_nil link_class(@first_task)
       end
     end

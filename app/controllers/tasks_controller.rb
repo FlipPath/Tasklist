@@ -1,27 +1,27 @@
 class TasksController < ApplicationController
   before_filter :load_list
-  before_filter :load_task, :only => [:toggle_complete, :destroy, :reorder, :update]  
+  before_filter :load_task, :only => [:toggle_close, :destroy, :insert_at, :update]  
   
   respond_to :js
   
   def create
-    @task = @list.tasks.create :task => params[:task][:task]
+    @task = @list.tasks.create :title => params[:task][:title]
   end
   
   def update
     @task.update_attributes params[:task]
   end
   
-  def toggle_complete
-    @task.toggle_complete
+  def toggle_close
+    @task.toggle_close
   end
   
   def destroy
     @task.destroy
   end
   
-  def reorder
-    @task.move_to params[:position]
+  def insert_at
+    @task.insert_at params[:position]
   end
   
   private

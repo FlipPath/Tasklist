@@ -3,4 +3,4 @@ data = {
   :position => @task.position.to_s
 }
 
-@list.channel.trigger_async "tasks-reorder", data, params[:socket_id]
+@list.channel.trigger_async "tasks-insert_at", data, params[:socket_id]

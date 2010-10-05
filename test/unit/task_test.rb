@@ -1,24 +1,25 @@
 require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
-  should validate_presence_of(:task)
+  should validate_presence_of(:title)
   
-  context "for toggle complete method" do
+  context "the toggle complete method" do
     setup do
-      @list = Factory(:list_with_item)
+      @user = Factory(:user)
+      @list = @user.lists.create(Factory.build(:list_with_item).attributes)
       @task = @list.tasks.first
     end
     
-    should "mark task completed" do
-      @task.completed = false
-      @task.toggle_complete
-      assert @task.completed
+    should "mark task closed" do
+      @task.closed = false
+      @task.toggle_close
+      assert @task.closed
     end
     
     should "mark task incomplete" do
-      @task.completed = true
-      @task.toggle_complete
-      assert !@task.completed
+      @task.closed = true
+      @task.toggle_close
+      assert !@task.closed
     end
   end
   
@@ -40,12 +41,12 @@ class TaskTest < ActiveSupport::TestCase
     end
   end
   
-  context "for reorder" do
+  context "for insert_at" do
     
     context "to move task up" do
       setup do
         @list = Factory(:list_with_ten_items)
-        @list.tasks.second.move_to(7)
+        @list.tasks.second.insert_at(7)
       end
       
       should "place task 2 at position 7" do
@@ -56,7 +57,7 @@ class TaskTest < ActiveSupport::TestCase
     context "to move task down" do
       setup do
         @list = Factory(:list_with_ten_items)
-        @list.tasks[7].move_to(3)
+        @list.tasks[7].insert_at(3)
       end
       
       should "place task 7 at position 3" do
@@ -67,7 +68,7 @@ class TaskTest < ActiveSupport::TestCase
     context "to move task out of positively bounds" do
       setup do
         @list = Factory(:list_with_ten_items)
-        @list.tasks[7].move_to(1000)
+        @list.tasks[7].insert_at(1000)
       end
       
       should "move to top position" do
@@ -78,7 +79,7 @@ class TaskTest < ActiveSupport::TestCase
     context "to move task out of negatively bounds" do
       setup do
         @list = Factory(:list_with_ten_items)
-        @list.tasks[7].move_to(-1000)
+        @list.tasks[7].insert_at(-1000)
       end
       
       should "move to bottom position" do

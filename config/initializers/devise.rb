@@ -3,7 +3,7 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "do-not-reply@tasklist.heroku.com"
+  config.mailer_sender = "please-change-me@config-initializers-devise.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/mongoid'
+  require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating an user. By default is
@@ -46,7 +46,7 @@ Devise.setup do |config|
   config.encryptor = :bcrypt
 
   # Setup a pepper to generate the encrypted password.
-  config.pepper = "b544776598765f9318ecb1b1b50d6f094ea209bfb34eae5bf768fe668e9b8d77ec2f26b495817661163ebe826f53f7533bc5202adf7552032472f0e94fa163a9"
+  config.pepper = "78e7645a03909882c6a3a21a683de23c7940e97ec9cccb61394694179ae140d9b36ec913b0d03a2099e9784e1ec850570d19c73657340c345958d4f885fa0f42"
 
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time

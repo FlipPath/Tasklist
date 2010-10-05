@@ -35,11 +35,11 @@ class ListsControllerTest < ActionController::TestCase
       should render_template(:destroy)
     end
     
-    context "for reorder action" do
+    context "for insert_at action" do
       setup do
         @task = @list.tasks.first
         
-        put(:reorder, :format => :js, :id => @list.id, :task_id => @task.id, :position => "2")
+        put(:insert_at, :format => :js, :id => @list.id, :task_id => @task.id, :position => "2")
       end
       
       should respond_with :ok

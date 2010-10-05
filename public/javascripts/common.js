@@ -6,10 +6,10 @@ var sortableTaskOptions = {
   update: function(ev, ui){
     var $list    = $(this).parents(".list"),
         $lis     = $("li", $list),
-        $form    = $(".reorder_tasks_form", $list),
+        $form    = $(".insert_at_tasks_form", $list),
         path     = $form.attr("data-path"),
         task_id  = $(ui.item).attr("data-id"),
-        position = ($lis.length - $lis.index(ui.item) - 1),
+        position = ($lis.length - $lis.index(ui.item)),
         axis     = "y";
         
     $form.attr("action", path.replace(/%id/, task_id));
@@ -22,7 +22,7 @@ var sortableTaskOptions = {
 var sortableListOptions = {
   update: function(ev, ui){
     var $lis     = $(this).children("li"),
-        $form    = $(".reorder_lists_form", $(this)),
+        $form    = $(".insert_at_lists_form", $(this)),
         list_id  = $(ui.item).attr("data-id"),
         position = ($lis.length - $lis.index(ui.item) - 1),
         axis     = "y";
@@ -84,8 +84,8 @@ Tasklist.lists = {
     list_channel.bind("tasks-create", Tasklist.tasks.create);
     list_channel.bind("tasks-update", Tasklist.tasks.update);
     list_channel.bind("tasks-destroy", Tasklist.tasks.destroy);
-    list_channel.bind("tasks-reorder", Tasklist.tasks.reorder);
-    list_channel.bind("tasks-toggle_complete", Tasklist.tasks.toggle_complete);
+    list_channel.bind("tasks-insert_at", Tasklist.tasks.insert_at);
+    list_channel.bind("tasks-toggle_close", Tasklist.tasks.toggle_close);
   },
   
   create : function(ev){
@@ -96,7 +96,7 @@ Tasklist.lists = {
     $(this).parents("li").sortable(sortableListOptions);
     $("input.ac_username", $list).autocomplete(autocompleteSharingOptions)
       .data("autocomplete")._renderItem = autocompleteSharingRenderItem;
-    $("#"+ev.list_id+"_task_task").focus();
+    $("input.new_task", $list).focus();
   },
   
   destroy : function(ev){
@@ -187,7 +187,7 @@ $("#new_list").submit(function(){
 
 Tasklist.tasks = {
   create : function(ev){
-    $("#"+ev.list_id+"_task_task").val("");
+    $(".list[data-id="+ev.list_id+"] input.new_task").val("");
     $(ev.task_html).hide().prependTo(".list[data-id="+ev.list_id+"] .tasks").slideDown("fast");
   },
   
@@ -201,7 +201,7 @@ Tasklist.tasks = {
     });
   },
   
-  reorder : function(ev){
+  insert_at : function(ev){
     var $task   = $(".task[data-id="+ev.task_id+"]"),
         $list   = $task.parents(".tasks"),
         $tasks  = $("li", $list),
@@ -217,7 +217,7 @@ Tasklist.tasks = {
     }
   },
   
-  toggle_complete : function(ev){
+  toggle_close : function(ev){
     $(".task[data-id="+ev.task_id+"]").replaceWith(ev.task_html);
   }
 };
@@ -225,8 +225,8 @@ Tasklist.tasks = {
 $(document).bind("tasks:create", Tasklist.tasks.create);
 $(document).bind("tasks:update", Tasklist.tasks.update);
 $(document).bind("tasks:destroy", Tasklist.tasks.destroy);
-$(document).bind("tasks:reorder", Tasklist.tasks.reorder);
-$(document).bind("tasks:toggle_complete", Tasklist.tasks.toggle_complete);
+$(document).bind("tasks:insert_at", Tasklist.tasks.insert_at);
+$(document).bind("tasks:toggle_close", Tasklist.tasks.toggle_close);
 
 $("#new_task").submit(function(){
   return ($("#new_task input.new_task").val().length > 0);
