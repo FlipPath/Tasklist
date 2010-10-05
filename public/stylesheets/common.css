@@ -1,217 +1,351 @@
+* {
+  font-family: Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif; }
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+  margin: 0;
+  padding: 0; }
+
 body {
-  font-family: 'Lucida Grande', verdana, arial, helvetica, sans-serif;
-  font-size: 14px;
-  background-color: white; }
+  line-height: 1;
+  background-color: #e8e8e8;
+  height: 100%;
+  padding: 0;
+  margin: 0; }
 
-div#container {
-  margin: 0 auto;
-  min-width: 750px;
-  width: 85%; }
+html, body, #page {
+  height: 100%; }
 
-div#left_column {
-  float: left;
-  min-width: 450px;
-  width: 60%; }
-
-div#right_right {
-  float: right;
-  width: 290px;
-  padding-left: 10px; }
-
-div.block div.header {
-  position: relative;
-  padding: 4px 5px; }
-  div.block div.header h1 {
-    font-size: 16px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 4px; }
-  div.block div.header div.create_list {
-    top: 0px;
-    right: 75px;
-    position: absolute; }
-div.block ul#lists {
-  padding-left: 0px; }
-  div.block ul#lists li.list {
-    background-color: #fff;
-    list-style: none;
-    padding-bottom: 15px;
-    position: relative;
-    vertical-align: top;
-    margin: 0 5px; }
-    div.block ul#lists li.list div.head {
-      cursor: move; }
-    div.block ul#lists li.list h2 {
-      display: inline;
-      font-size: 24px;
-      cursor: auto; }
-      div.block ul#lists li.list h2:hover {
-        background-color: #ffffc2; }
-      div.block ul#lists li.list h2 input {
-        font-size: 24px;
-        background-color: #ffffc2; }
-    div.block ul#lists li.list div.extra {
-      display: inline;
-      position: absolute;
-      right: 2px;
-      background-color: #fff;
-      visibility: hidden; }
-      div.block ul#lists li.list div.extra a {
-        text-decoration: none; }
-        div.block ul#lists li.list div.extra a.share_open {
-          color: green; }
-        div.block ul#lists li.list div.extra a.destroy {
-          color: #bbb;
-          padding: 0 4px; }
-          div.block ul#lists li.list div.extra a.destroy:hover {
-            color: red; }
-    div.block ul#lists li.list div.share_form {
-      -moz-box-shadow: 0px 1px 2px #333333;
-      -webkit-box-shadow: 0px 1px 2px #333333;
-      box-shadow: 0px 1px 2px #333333;
-      -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
-      filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color');
-      display: none;
-      position: absolute;
-      margin-top: 8px;
-      background-color: white;
-      z-index: 2000;
-      width: 180px;
-      padding: 15px 10px 25px 10px;
-      border-top: 1px solid #ddd; }
-    div.block ul#lists li.list form.new_task input {
-      margin-top: 10px; }
-    div.block ul#lists li.list div.head:hover > div.extra {
-      visibility: visible; }
-  div.block ul#lists ul.tasks {
-    list-style: none;
-    padding: 0;
-    margin: 5px 0 10px 0; }
-    div.block ul#lists ul.tasks li {
-      line-height: 24px;
-      border-bottom: 1px dotted #ddd;
-      margin-bottom: 2px;
-      padding-left: 4px;
+#page {
+  height: auto;
+  min-height: 100%;
+  position: relative; }
+  #page #header {
+    background: url(/images/nav-background.png) repeat-x;
+    height: 54px; }
+    #page #header #nav {
+      height: 44px;
       position: relative;
-      background-color: white; }
-      div.block ul#lists ul.tasks li div {
-        display: inline;
-        padding-right: 10px; }
-      div.block ul#lists ul.tasks li div.extra {
-        position: absolute;
-        padding-right: 0;
-        right: 2px; }
-        div.block ul#lists ul.tasks li div.extra a {
-          color: #888;
-          padding: 0 4px; }
-          div.block ul#lists ul.tasks li div.extra a:hover {
-            color: red; }
-      div.block ul#lists ul.tasks li a {
-        color: #000;
+      width: 855px; }
+      #page #header #nav a.item {
+        color: white;
+        display: block;
+        float: left;
+        font-size: 13px;
+        font-weight: bold;
+        height: 44px;
+        margin: 0px;
+        padding-left: 13px;
         text-decoration: none; }
-    div.block ul#lists ul.tasks li.task {
-      cursor: move; }
-      div.block ul#lists ul.tasks li.task:hover div.extra {
-        visibility: visible; }
-      div.block ul#lists ul.tasks li.task:hover div.title > a {
-        text-decoration: line-through; }
-      div.block ul#lists ul.tasks li.task div.title a:hover:not(:first-child) {
-        text-decoration: underline;
-        color: blue; }
-      div.block ul#lists ul.tasks li.task.closed div.title a {
-        text-decoration: line-through;
-        color: #888; }
-      div.block ul#lists ul.tasks li.task div.extra {
-        visibility: hidden; }
-
-ul.share_users, ul.ui-autocomplete {
-  list-style: none;
-  padding: 0;
-  margin: 5px 0 10px 0; }
-  ul.share_users li, ul.ui-autocomplete li {
-    line-height: 24px;
-    border-bottom: 1px dotted #ddd;
-    margin-bottom: 2px;
-    padding-left: 4px;
+        #page #header #nav a.item span.inner {
+          display: block;
+          height: 40px;
+          margin: 0px;
+          padding-right: 11px; }
+        #page #header #nav a.item:hover > .inner, #page #header #nav a.item.active > .inner {
+          background: url(/images/nav-hover-right.png) no-repeat top right; }
+        #page #header #nav a.item:hover, #page #header #nav a.item.active {
+          background: url(/images/nav-hover-left.png) no-repeat; }
+        #page #header #nav a.item span.label {
+          display: block;
+          float: left;
+          margin: 15px 0 0; }
+        #page #header #nav a.item span.counter {
+          display: block;
+          float: left;
+          margin: 15px 0 0 8px; }
+      #page #header #nav #nav-left {
+        left: 0px;
+        position: absolute;
+        top: 0px; }
+      #page #header #nav #nav-right {
+        height: 44px;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 440px; }
+  #page div.view {
+    display: block; }
+  #page div.sidebar {
+    display: inline;
+    float: left;
+    margin: 0px 1px 20px 0px;
     position: relative;
-    background-color: white; }
-    ul.share_users li div, ul.ui-autocomplete li div {
-      display: inline;
-      padding-right: 10px; }
-    ul.share_users li div.extra, ul.ui-autocomplete li div.extra {
-      position: absolute;
-      padding-right: 0;
-      right: 2px; }
-      ul.share_users li div.extra a, ul.ui-autocomplete li div.extra a {
-        color: #888;
-        padding: 0 4px; }
-        ul.share_users li div.extra a:hover, ul.ui-autocomplete li div.extra a:hover {
-          color: red; }
-    ul.share_users li a, ul.ui-autocomplete li a {
-      color: #000;
-      text-decoration: none; }
-  ul.share_users li p > img, ul.ui-autocomplete li p > img {
-    padding: 0 5px 0 10px; }
-
-.share_close {
-  color: red;
-  position: absolute;
-  right: 10px; }
-
-ul.ui-autocomplete {
-  list-style: none;
-  padding: 0;
-  margin: 5px 0 10px 0;
-  -moz-box-shadow: 0px 1px 2px #8c8c8c;
-  -webkit-box-shadow: 0px 1px 2px #8c8c8c;
-  box-shadow: 0px 1px 2px #8c8c8c;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color');
-  width: 180px;
-  max-height: 140px;
-  overflow-y: auto;
-  background-color: white; }
-  ul.ui-autocomplete li {
-    line-height: 24px;
-    border-bottom: 1px dotted #ddd;
-    margin-bottom: 2px;
-    padding-left: 4px;
+    width: 175px; }
+    #page div.sidebar ul.panel {
+      list-style: none;
+      margin: 19px 0px 16px;
+      padding: 0px; }
+      #page div.sidebar ul.panel li.heading {
+        background: #e8e8e8 url(/images/contexts.png) repeat-y 0px 0px;
+        color: #666;
+        font-size: 10px;
+        font-weight: bold;
+        height: 16px;
+        margin: 0px;
+        padding: 10px 10px 0px;
+        text-align: center; }
+      #page div.sidebar ul.panel li.item {
+        background: white url(/images/contexts.png) repeat-y -175px 0px;
+        display: block;
+        font-size: 13px;
+        height: 28px;
+        margin: 0px; }
+        #page div.sidebar ul.panel li.item.selected {
+          background-position: -350px 0px; }
+          #page div.sidebar ul.panel li.item.selected a {
+            color: #fff; }
+        #page div.sidebar ul.panel li.item.last {
+          background-position: -525px 0px;
+          height: 37px; }
+        #page div.sidebar ul.panel li.item .counter {
+          color: #fff;
+          display: block;
+          float: right;
+          font-weight: bold;
+          height: 16px;
+          margin: 7px 10px 0px 2px;
+          padding: 0px 0px 0px 5px;
+          background: url(/images/item-counter-left.png) no-repeat; }
+          #page div.sidebar ul.panel li.item .counter > .inner {
+            display: block;
+            line-height: 13px;
+            padding: 0px 5px 0px 0px;
+            background: url(/images/item-counter-right.png) no-repeat 100% 0%; }
+        #page div.sidebar ul.panel li.item a {
+          text-decoration: none;
+          color: #333;
+          display: block;
+          height: 20px;
+          padding: 8px 16px 0px;
+          text-decoration: none; }
+  #page div#actions-full {
+    display: block;
+    margin: 19px 0px 16px;
     position: relative;
-    background-color: white; }
-    ul.ui-autocomplete li div {
-      display: inline;
-      padding-right: 10px; }
-    ul.ui-autocomplete li div.extra {
-      position: absolute;
-      padding-right: 0;
-      right: 2px; }
-      ul.ui-autocomplete li div.extra a {
-        color: #888;
-        padding: 0 4px; }
-        ul.ui-autocomplete li div.extra a:hover {
-          color: red; }
-    ul.ui-autocomplete li a {
-      color: #000;
-      text-decoration: none; }
-  ul.ui-autocomplete li {
-    border-bottom: none;
-    cursor: pointer; }
-
-ul#hmenu {
-  position: relative;
-  list-style: none;
-  margin: 0 0 2em;
-  padding: 0;
-  z-index: 2000; }
-  ul#hmenu li {
-    display: inline; }
-  ul#hmenu img {
+    width: 859px; }
+    #page div#actions-full div.heading {
+      background: white url(/images/full.png) no-repeat 0px 0px;
+      color: #999;
+      font-size: 10px;
+      font-weight: bold;
+      height: 24px;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 859px; }
+      #page div#actions-full div.heading div.left {
+        padding: 10px 0px 0px 15px;
+        float: left; }
+        #page div#actions-full div.heading div.left div {
+          display: block;
+          float: left;
+          height: 12px; }
+    #page div#actions-full div.items {
+      background: #e8e8e8 url(/images/full.png) repeat-y -859px 0px; }
+      #page div#actions-full div.items div.separator {
+        background: white url(/images/full.png) no-repeat -1721px 0px;
+        height: 5px;
+        margin: 0px 3px;
+        width: 853px; }
+        #page div#actions-full div.items div.separator.first {
+          background-position: -1721px -10px; }
+        #page div#actions-full div.items div.separator.last {
+          background-position: -2577px -20px;
+          height: 10px;
+          margin: 0px;
+          overflow: hidden;
+          padding: 4px 0px 0px;
+          white-space: nowrap;
+          width: 859px; }
+      #page div#actions-full div.items div.item {
+        background: white;
+        cursor: pointer;
+        font-size: 13px;
+        height: 20px;
+        margin: 0px 3px;
+        overflow: hidden;
+        padding: 3px 0px 0px;
+        white-space: nowrap;
+        width: 853px; }
+        #page div#actions-full div.items div.item div.checkbox {
+          background: url(/images/buttons.png) no-repeat 0px 0px;
+          float: left;
+          height: 16px;
+          margin: 2px 6px 0px;
+          overflow: hidden;
+          text-indent: -9999px;
+          width: 16px; }
+        #page div#actions-full div.items div.item div.preview {
+          height: 20px;
+          margin-right: 10px;
+          overflow: hidden;
+          padding: 3px 0px 0px; }
+          #page div#actions-full div.items div.item div.preview div.title {
+            display: inline;
+            font-size: 13px; }
+          #page div#actions-full div.items div.item div.preview div.excerpt {
+            color: #888;
+            display: inline;
+            font-size: 10px;
+            margin: 0px 5px; }
+        #page div#actions-full div.items div.item div.counter {
+          color: white;
+          display: block;
+          float: left;
+          font-weight: bold;
+          height: 16px;
+          margin: 2px 7px 0px 0px;
+          padding: 0px 0px 0px 5px;
+          background: url(/images/item-counter-left.png) no-repeat; }
+          #page div#actions-full div.items div.item div.counter > .inner {
+            display: block;
+            line-height: 13px;
+            padding: 0px 5px 0px 0px;
+            background: url(/images/item-counter-right.png) no-repeat 100% 0%; }
+  #page div.workspace {
+    display: inline;
     float: right;
-    border: 2px solid white;
-    -moz-box-shadow: 0px 1px 2px #333333;
-    -webkit-box-shadow: 0px 1px 2px #333333;
-    box-shadow: 0px 1px 2px #333333;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
-    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color'); }
+    margin: 0px 0px 20px;
+    position: relative;
+    width: 700px; }
+    #page div.workspace div#context-actions {
+      margin: 19px 0px 16px;
+      position: relative;
+      width: 700px; }
+    #page div.workspace div.action-list div.heading {
+      color: #999;
+      font-size: 10px;
+      font-weight: bold;
+      height: 23px;
+      margin-top: 1px;
+      overflow: hidden;
+      padding: 0px 20px;
+      white-space: nowrap;
+      width: 660px;
+      background: transparent url(/images/workspace.png) no-repeat 0px 1px; }
+      #page div.workspace div.action-list div.heading div.left {
+        float: left;
+        padding: 10px 0px 0px 9px; }
+        #page div.workspace div.action-list div.heading div.left div {
+          display: block;
+          float: left;
+          height: 12px; }
+      #page div.workspace div.action-list div.heading a {
+        color: #2d5e93;
+        text-decoration: none; }
+    #page div.workspace div.action-list div.items {
+      width: 700px; }
+      #page div.workspace div.action-list div.items div.preview {
+        margin-right: 10px;
+        overflow: hidden;
+        padding: 1px 0px 0px 2px; }
+        #page div.workspace div.action-list div.items div.preview div.title {
+          display: inline;
+          font-size: 13px; }
+        #page div.workspace div.action-list div.items div.preview div.excerpt {
+          color: #888;
+          display: inline;
+          font-size: 10px;
+          margin: 0px 5px; }
+      #page div.workspace div.action-list div.items div.item {
+        background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px;
+        cursor: pointer;
+        height: 20px;
+        overflow: hidden;
+        padding: 3px 20px 0px;
+        white-space: no-wrap;
+        width: 660px; }
+        #page div.workspace div.action-list div.items div.item div.checkbox {
+          background: url(/images/buttons.png) no-repeat 0px 0px;
+          float: left;
+          height: 16px;
+          margin: 2px 2px 0px 6px;
+          overflow: hidden;
+          text-indent: -9999px;
+          width: 16px; }
+          #page div.workspace div.action-list div.items div.item div.checkbox:hover, #page div.workspace div.action-list div.items div.item div.checkbox.checked {
+            background-position: 0px -16px; }
+        #page div.workspace div.action-list div.items div.item div.star {
+          background: url(/images/buttons.png) no-repeat -16px 0px;
+          float: left;
+          height: 16px;
+          margin: 2px 2px 0px 0px;
+          overflow: hidden;
+          text-indent: -9999px;
+          width: 16px; }
+          #page div.workspace div.action-list div.items div.item div.star:hover, #page div.workspace div.action-list div.items div.item div.star.starred {
+            background-position: -16px -16px; }
+        #page div.workspace div.action-list div.items div.item div.context-title {
+          color: #333;
+          font-size: 10px;
+          font-weight: bold;
+          padding: 8px 0px 4px;
+          text-align: center; }
+    #page div.workspace div.action-list div.separator {
+      background: transparent url(/images/workspace.png) no-repeat 1400px 0px;
+      height: 5px; }
+      #page div.workspace div.action-list div.separator.first {
+        background-position: -1400px -10px; }
+      #page div.workspace div.action-list div.separator.last {
+        background-position: -2100px -20px;
+        height: 10px;
+        overflow: hidden;
+        padding: 4px 0px 0px; }
+  #page #main {
+    overflow: hidden;
+    padding-bottom: 45px; }
 
-.username_valid {
-  background-color: #80ff80; }
+div.clearfix {
+  display: block; }
+
+div.full {
+  clear: both; }
+
+div#footer {
+  overflow: hidden;
+  background: url(/images/footer.png) repeat-x;
+  clear: both;
+  height: 45px;
+  margin-top: -45px;
+  position: relative; }
+  div#footer a#footer-logo {
+    height: 23px;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -9999px;
+    top: 15px;
+    width: 130px; }
+  div#footer div.right {
+    padding: 0px 20px 0px 0px; }
+    div#footer div.right > a, div#footer div.right > span {
+      color: #316e9e;
+      display: block;
+      float: right;
+      font-size: 13px;
+      height: 26px;
+      margin: 13px 0px 0px 16px;
+      text-decoration: none; }
+    div#footer div.right > a {
+      padding: 6px 0px 0px;
+      width: auto; }
+  div#footer div#search-field {
+    margin-top: 12px !important;
+    position: relative;
+    z-index: 103;
+    width: 151px;
+    background: transparent url(/images/search-field.png) no-repeat; }
+    div#footer div#search-field > input {
+      margin-top: 3px;
+      border: 0px none;
+      font-size: 13px;
+      padding: 7px 3px 0px 12px;
+      width: 116px; }
+
+div.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  width: 876px; }

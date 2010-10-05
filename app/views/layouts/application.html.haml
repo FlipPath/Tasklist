@@ -4,12 +4,98 @@
     %title Tasklist
     = stylesheet_link_tag "common"
   %body
-    %ul#hmenu
-      = render "devise/menu/registration_items"
-      = render "devise/menu/login_items"
-    -if notice
-      %p{ :style => "color: green" }= notice
-    - if alert
-      %p{ :style => "color: red" }= alert
-    %div#container
-      = yield
+  %div#page
+    %div#header
+      %div.container
+        %div#nav
+          %div#nav-left
+            %a.item{ :href => "#", :class => :selected }
+              %span.inner
+                %span.label Actions
+            %a.item{ :class => "active", :href => "#" }
+              %span.inner
+                %span.label Projects
+            %a.item{ :href => "#" }
+              %span.inner 
+                %span.label Someday
+            %a.item{ :href => "#" }
+              %span.inner
+                %span.label Ticklers
+            %a.item{ :href => "#" }
+              %span.inner
+                %span.label Altitudes
+          / %div#nav-right
+          /   %a.item{ :href => "#" } 
+          /     %span.inner
+          /       %span.label Inbox
+          /       %span.counter
+          /         %span.inner 0
+    %div#actions-view{ :class => "container view" }
+      %div#actions-sidebar{ :class => "sidebar" }
+        %ul#context-panel{ :class => "panel" }
+          %li.heading Contexts
+          %li.item
+            %a.counter{ :href => "#" }
+              %span.inner 2
+            %a{ :href => "#" } Web
+          %li.item{ :class => "selected" }
+            %a.counter{ :href => "#" }
+              %span.inner 0
+            %a{ :href => "#" } Code
+          %li.item{ :class => "last" }
+            %a.counter{ :href => "#" }
+              %span.inner 4
+            %a{ :href => "#" } Personal
+      %div#actions-workspace{ :class => :workspace }
+        %div#context-actions
+          %div{ :class => "context action-list" }
+            %div.heading
+              %div.left
+                %div.add-action
+                  %a{ :href => "#" } Add an Action
+            %div.items
+              %div{ :class => "separator first" }
+              %div{ :class => "item first "}
+                %div{ :class => "checkbox checked" }
+                  %a{ :href => "#" } Complete
+                %div.star{ :class => "starred" }
+                  %a{ :href => "#" } Star
+                %div.project-title
+                %div.preview
+                  %div.title Notes anyone?
+                  %div.excerpt 
+                    By golee, I am a note!
+                    Sweeeet
+                    What about another line?
+              %div{ :class => "separator last" }
+      %div#actions-full{ :class => "full" }
+        %div#actions-list
+          %div.heading
+            %div.left
+              %div.add-action
+                %a{ :href => "#" } Add an Action
+          %div.items
+            %div{ :class => "separator first" }
+            %div{ :class => "item first"}
+              %div{ :class => "checkbox checked" }
+                %a{ :href => "#" } Complete
+              %div.counter
+                %div.inner 1
+              %div.preview
+                %div.title Credentify
+                %div.excerpt
+                  By golee, I am a note!
+                  Sweeeet
+                  What about another line?
+            %div{ :class => "separator last" }
+  %div#footer{ :class => "clearfix" }
+    %div.container
+      %div.left
+        %a#footer-logo{ :href => "#" }
+      %div.right
+        %span#search-field{ :class => "search-field" }
+          %input{ :type => :text }
+        %a{ :href => "#" } Completed
+        %a{ :href => "#" } Overview
+        %a{ :href => "#" } Settings
+        %a{ :href => "#" } Logout      
