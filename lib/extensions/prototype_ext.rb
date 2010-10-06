@@ -15,7 +15,6 @@ module ActionView::Helpers::PrototypeHelper
       # example: page.trigger "custom:event"
       #
       def trigger(event_name, parameters={})
-        puts "foo"
         parameters.reverse_merge!(:type => event_name)
         self << "$(document).trigger(#{parameters.to_json})"
         self << "debug.info('triggered', #{event_name.inspect}, #{parameters.to_json})" if Rails.env.development?

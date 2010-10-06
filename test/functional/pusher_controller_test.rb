@@ -3,6 +3,20 @@ require 'test_helper'
 class PusherControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   
+  setup do
+    Pusher.app_id = '20'
+    Pusher.key    = '12345678900000001'
+    Pusher.secret = '12345678900000001'
+    Pusher.host = 'api.pusherapp.com'
+    Pusher.port = 80
+  end
+      
+  teardown do
+    Pusher.app_id = nil
+    Pusher.key = nil
+    Pusher.secret = nil
+  end
+  
   context "pusher controller" do
     
     context "with unauthenticated user" do
@@ -30,9 +44,9 @@ class PusherControllerTest < ActionController::TestCase
           }
         }
         
-        @list.channel = mock()
-        @list.channel.stubs(:authenticate).with("abc123", user_data).returns({})
-        Pusher.stubs(:[]).returns(@list.channel)
+        @channel = mock()
+        @channel.stubs(:authenticate).with("abc123", user_data).returns({})
+        Pusher.stubs(:[]).returns(@channel)
       end
       
       context "for auth action" do

@@ -5,7 +5,6 @@ class UsersControllerTest < ActionController::TestCase
   
   context "users controller" do
     setup do
-      User.destroy_all
       @user = Factory(:user)
       sign_in @user
     end
