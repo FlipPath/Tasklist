@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :load_lists
-  before_filter :load_list, :only => [:update, :destroy, :share]
+  before_filter :load_list, :only => [:index, :update, :destroy, :share]
   
   respond_to :html, :only => [:index]
   respond_to :js, :except => [:index]
@@ -34,6 +34,6 @@ class ListsController < ApplicationController
   end
   
   def load_list
-    @list = @lists.find(params[:id])
+    @list = @lists.find(params[:id] ? params[:id] : @lists.last)
   end
 end
