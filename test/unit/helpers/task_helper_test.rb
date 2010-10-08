@@ -5,11 +5,11 @@ class TaskHelperTest < ActionView::TestCase
     setup { @list = Factory(:list_with_item) }
     setup { @first_task = @list.tasks.first }
     
-    context "for link_class method" do
+    context "for closed_class method" do
       setup { @first_task.closed = true }
       
       should "return class closed" do
-        assert_equal "closed", link_class(@first_task)
+        assert_equal "closed", closed_class(@first_task)
       end
       
       should "return nil" do

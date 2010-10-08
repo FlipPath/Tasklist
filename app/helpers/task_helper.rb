@@ -1,5 +1,5 @@
 module TaskHelper
-  def link_class(task)
+  def closed_class(task)
     task.closed? ? "closed" : nil
   end
 end
