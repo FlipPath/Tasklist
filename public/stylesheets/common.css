@@ -209,6 +209,8 @@ div#page {
         background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px;
         padding: 8px 20px 0px;
         width: 660px; }
+        div#page div#workspace div.list div.items div.item.closed {
+          color: #aaa; }
         div#page div#workspace div.list div.items div.item div.preview {
           height: 20px;
           padding: 1px 0px 0px 2px; }
@@ -289,7 +291,7 @@ div.checkbox {
   text-indent: -9999px;
   width: 16px;
   margin: 2px 4px 0px 6px; }
-  div.checkbox:hover, div.checkbox.checked, div.checkbox.closed {
+  div.checkbox:hover, div.checkbox.closed {
     background-position: -14px -105px; }
 
 div.preview {

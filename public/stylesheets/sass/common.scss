@@ -323,7 +323,11 @@ div#page {
           background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px;
           padding: 8px 20px 0px;
           width: 660px;
-
+          
+          &.closed {
+            color: #aaa;
+          }
+          
           div.preview {
             height: 20px;
             padding: 1px 0px 0px 2px;
@@ -434,7 +438,6 @@ div.checkbox {
   margin: 2px 4px 0px 6px;
   
   &:hover,
-  &.checked,
   &.closed {
     background-position: -14px -105px;
   }
