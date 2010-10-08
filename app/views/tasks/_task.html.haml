@@ -1,7 +1,13 @@
-%li{ "data-id" => task.id, "data-path" => list_task_path(task.list, task), "data-task" => task.title, :class => "task #{link_class(task)}" }
-  %div.title
-    = link_to toggle_close_list_task_path(task.list, task), :remote => true, :method => :put do
-      = auto_link(task.title, :html => { :target => '_blank' }) do |text|
-        - text.sub(%r(^http://(www\.)?), "")
-  %div.extra
-    = link_to "X", list_task_path(task.list, task), :remote => true, :method => :delete
+%div{ "data-id" => task.id, "data-path" => list_task_path(task.list, task), "data-task" => task.title, :class => "item"}
+  %div{ :class => "checkbox" }
+    %a{ :href => "#" } Complete
+  / %div.star{ :class => "starred" }
+  /   %a{ :href => "#" } Star
+  %div.project-title
+  %div.preview
+    %div.title 
+      = task.title
+    / %div.excerpt 
+    /   By golee, I am a note!
+    /   Sweeeet
+    /   What about another line?

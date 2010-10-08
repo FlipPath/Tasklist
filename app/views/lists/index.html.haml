@@ -1,28 +1,8 @@
 %div#sidebar
   %ul#lists
     %li.heading Lists
-    = render @lists
+    = render @lists, :list_id => @list.id
     %li{ :class => "item last" }
       = render 'form'
 %div#workspace
-  %div#tasks
-    %div{ :class => "context list" }
-      %div.heading
-        %div.left
-          %div
-            %a{ :href => "#" } Add a Task
-      %div.items
-        %div{ :class => "separator first" }
-        %div{ :class => "item first "}
-          %div{ :class => "checkbox checked" }
-            %a{ :href => "#" } Complete
-          %div.star{ :class => "starred" }
-            %a{ :href => "#" } Star
-          %div.project-title
-          %div.preview
-            %div.title Notes anyone?
-            %div.excerpt 
-              By golee, I am a note!
-              Sweeeet
-              What about another line?
-        %div{ :class => "separator last" }
+  = render "tasks/list", :tasks => @list.tasks

@@ -1,4 +1,4 @@
-%li.item
+%li.item{ :class => "#{selected_class(list, list_id)}" }
   %div.counter
     %span.inner= list.tasks.count
   = link_to list.name, list

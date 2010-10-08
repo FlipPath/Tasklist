@@ -1,2 +1,10 @@
-%ul.tasks
-  = render tasks.ordered
+%div#tasks
+  %div{ :class => "context list" }
+    %div.heading
+      %div.left
+        %div
+          = @list.name
+    %div.items
+      %div{ :class => "input" }
+        = render "tasks/form", :list => @list
+      = render tasks.ordered
