@@ -1,2 +1,2 @@
 = form_for Task.new, :url => list_tasks_path(list), :remote => true do |f|
-  = f.text_field :title, :id => nil, :class => "new_task", :autocomplete => "off"
+  = f.text_field :title, :id => nil, :class => "new_task", :autocomplete => "off", :placeholder => "Create a task"
