@@ -333,6 +333,12 @@ div#page {
             padding: 1px 0px 0px 2px;
           }
         }
+        
+        div.item:hover {
+          > div.delete {
+            visibility: visible;
+          }
+        }
       }
     }
   }
@@ -418,13 +424,13 @@ div.container {
   font-weight: bold;
   height: 16px;
   padding: 0px 0px 0px 5px;
-  background: url(/images/item-counter-left.png) no-repeat;
+  background: url(/images/sprites.png) no-repeat -290px -105px;
   
   & > .inner {
     display: block;
     line-height: 13px;
     padding: 0px 5px 0px 0px;
-    background: url(/images/sprites.png) no-repeat -138px -105px;
+    background: url(/images/sprites.png) no-repeat -184px -105px;
   }
 }
 
@@ -439,7 +445,7 @@ div.checkbox {
   
   &:hover,
   &.closed {
-    background-position: -14px -105px;
+    background-position: -16px -105px;
   }
 }
 
@@ -470,7 +476,7 @@ div.item {
   white-space: nowrap;
   
   div.star {
-    background: url(/images/sprites.png) no-repeat -28px -105px;
+    background: url(/images/sprites.png) no-repeat -32px -105px;
     float: left;
     height: 16px;
     margin: 2px 2px 0px 0px;
@@ -480,7 +486,22 @@ div.item {
     
     &:hover,
     &.starred {
-     background-position: -42px -105px;
+     background-position: -49px -105px;
+    }
+  }
+  
+  div.delete {
+    background: url(/images/sprites.png) no-repeat -66px -103px;
+    float: right;
+    height: 16px;
+    margin: 0px 10px 0px;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 16px;
+    visibility: hidden;
+    
+    &:hover {
+     background-position: -83px -103px;
     }
   }
 }

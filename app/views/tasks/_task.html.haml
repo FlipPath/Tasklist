@@ -4,6 +4,9 @@
       Complete
   %div.star
     %a{ :href => "#" } Star
+  %div.delete
+    = link_to list_task_path(@list, task), :remote => true, :method => :delete do
+      Delete
   %div.project-title
   %div.preview
     %div.title 

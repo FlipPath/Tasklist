@@ -175,6 +175,13 @@ $("div.checkbox").live("click", function(e){
   }
 });
 
+$("div.delete").live("click", function(e){
+  if (e.target == this) {
+    $("a", this).callRemote();
+    return false;
+  }
+});
+
 $("form.share_list").submit(function(){
   return ($(".username", this).val().length > 0);
 });
@@ -192,11 +199,11 @@ Tasklist.tasks = {
   },
   
   update : function(ev){
-    $(ev.task_html).hide().replaceAll("li.task[data-id="+ev.task_id+"]").slideDown("fast");
+    $(ev.task_html).hide().replaceAll("div.item[data-id="+ev.task_id+"]").slideDown("fast");
   },
   
   destroy : function(ev){
-    $(".task[data-id="+ev.task_id+"]").slideUp("fast", function(){
+    $("div.item[data-id="+ev.task_id+"]").slideUp("fast", function(){
       $(this).remove();
     });
   },
