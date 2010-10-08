@@ -1,8 +1,8 @@
 %div{ "data-id" => task.id, "data-path" => list_task_path(task.list, task), "data-task" => task.title, :class => "item"}
   %div{ :class => "checkbox" }
     %a{ :href => "#" } Complete
-  / %div.star{ :class => "starred" }
-  /   %a{ :href => "#" } Star
+  %div.star
+    %a{ :href => "#" } Star
   %div.project-title
   %div.preview
     %div.title 

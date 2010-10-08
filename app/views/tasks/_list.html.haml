@@ -1,10 +1,11 @@
 %div#tasks
-  %div{ :class => "context list" }
-    %div.heading
+  %div{ :class => "list" }
+    %div.header
       %div.left
         %div
-          = @list.name
+          = @list.name          
+    %div{ :class => "new-task" }
+      = render "tasks/form", :list => @list
     %div.items
-      %div{ :class => "input" }
-        = render "tasks/form", :list => @list
       = render tasks.ordered
+    %div.footer

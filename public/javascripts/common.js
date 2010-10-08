@@ -188,7 +188,8 @@ $("#new_list").submit(function(){
 Tasklist.tasks = {
   create : function(ev){
     $(".list[data-id="+ev.list_id+"] input.new_task").val("");
-    $(ev.task_html).hide().insertBefore("div.item:first").slideDown("fast");
+    
+    $(ev.task_html).hide().prependTo("div.items").slideDown("fast");
   },
   
   update : function(ev){
