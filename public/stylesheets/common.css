@@ -199,8 +199,10 @@ div#page {
       background: #e8e8e8 url(/images/workspace.png) no-repeat -2100px -27px; }
     div#page div#workspace div.list div.new-task {
       background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px;
-      padding: 5px 10px 4px 25px;
+      padding: 5px 10px 4px 28px;
       width: 660px; }
+      div#page div#workspace div.list div.new-task input {
+        width: 635px; }
     div#page div#workspace div.list div.items {
       width: 700px; }
       div#page div#workspace div.list div.items div.item {
@@ -210,9 +212,6 @@ div#page {
         div#page div#workspace div.list div.items div.item div.preview {
           height: 20px;
           padding: 1px 0px 0px 2px; }
-      div#page div#workspace div.list div.items div.input input {
-        margin-left: 7px;
-        width: 640px; }
   div#page #main {
     overflow: hidden;
     padding-bottom: 45px; }

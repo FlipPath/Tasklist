@@ -1,6 +1,7 @@
-%div{ "data-id" => task.id, "data-path" => list_task_path(task.list, task), "data-task" => task.title, :class => "item"}
-  %div{ :class => "checkbox" }
-    %a{ :href => "#" } Complete
+%div{ "data-id" => task.id, "data-path" => list_task_path(task.list, task), "data-task" => task.title, :class => "item #{closed_class(task)}"}
+  %div{ :class => "checkbox #{closed_class(task)}" }
+    = link_to toggle_close_list_task_path(@list, task), :remote => true, :method => :put do
+      Complete
   %div.star
     %a{ :href => "#" } Star
   %div.project-title

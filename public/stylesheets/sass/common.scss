@@ -308,8 +308,12 @@ div#page {
       
       div.new-task {
         background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px;
-        padding: 5px 10px 4px 25px;
+        padding: 5px 10px 4px 28px;
         width: 660px;
+        
+        input {
+          width: 635px;
+        }
       }
       
       div.items {
@@ -324,11 +328,6 @@ div#page {
             height: 20px;
             padding: 1px 0px 0px 2px;
           }
-        }
-        
-        div.input input {
-          margin-left: 7px;
-          width: 640px;
         }
       }
     }

@@ -168,9 +168,9 @@ $('form.new_task').droppable({
   }
 });
 
-$("li.task").live("click", function(e){
+$("div.checkbox").live("click", function(e){
   if (e.target == this) {
-    $("div.title a", this).callRemote();
+    $("a", this).callRemote();
     return false;
   }
 });
@@ -187,8 +187,7 @@ $("#new_list").submit(function(){
 
 Tasklist.tasks = {
   create : function(ev){
-    $(".list[data-id="+ev.list_id+"] input.new_task").val("");
-    
+    $("div.new-task input").val("");
     $(ev.task_html).hide().prependTo("div.items").slideDown("fast");
   },
   
@@ -219,7 +218,7 @@ Tasklist.tasks = {
   },
   
   toggle_close : function(ev){
-    $(".task[data-id="+ev.task_id+"]").replaceWith(ev.task_html);
+    $("div.item[data-id="+ev.task_id+"]").replaceWith(ev.task_html);
   }
 };
 
