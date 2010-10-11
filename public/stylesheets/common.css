@@ -25,7 +25,78 @@ input {
 div#page {
   height: auto;
   min-height: 100%;
-  position: relative; }
+  position: relative;
+  /*  div#full {
+      display: block;
+      margin: 19px 0px 16px;
+      position: relative;
+      width: 859px;
+      
+      div.heading {
+        background: white url(/images/full.png) no-repeat 0px 0px;
+        color: #999;
+        font-size: 10px;
+        font-weight: bold;
+        height: 24px;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 859px;
+        
+        a {
+          color: #2D5E93;
+          text-decoration: none;
+        }
+        
+        div.left {
+          padding: 10px 0px 0px 15px;
+          float: left;
+          
+          div {
+            display: block;
+            float: left;
+            height: 12px;
+          }
+        }
+      }
+      
+      div.items {
+        background: #e8e8e8 url(/images/full.png) repeat-y -859px 0px;
+        
+        div.separator {
+          background: white url(/images/full.png) no-repeat -1721px 0px;
+          height: 5px;
+          margin: 0px 3px;
+          width: 853px;
+          
+          &.first {
+            background-position: -1721px -10px;
+          }
+          
+          &.last {
+            background-position: -2577px -20px;
+            height: 10px;
+            margin: 0px;
+            overflow: hidden;
+            padding: 4px 0px 0px;
+            white-space: nowrap;
+            width: 859px;
+          }
+        }
+        
+        div.item {
+          background: white;
+          font-size: 13px;
+          margin: 0px 3px;
+          padding: 3px 0px 0px;
+          width: 853px;
+          
+          div.counter {
+            float: left;
+            margin: 2px 7px 0px 0px;
+          }
+        }
+      }
+    }*/ }
   div#page div#header {
     background: url(/images/sprites.png) repeat-x 0 -50px;
     height: 54px; }
@@ -113,56 +184,6 @@ div#page {
         margin: 5px 5px 0px 10px; }
         div#page div#sidebar ul li input[type=submit] {
           display: none; }
-  div#page div#full {
-    display: block;
-    margin: 19px 0px 16px;
-    position: relative;
-    width: 859px; }
-    div#page div#full div.heading {
-      background: white url(/images/full.png) no-repeat 0px 0px;
-      color: #999;
-      font-size: 10px;
-      font-weight: bold;
-      height: 24px;
-      overflow: hidden;
-      white-space: nowrap;
-      width: 859px; }
-      div#page div#full div.heading a {
-        color: #2D5E93;
-        text-decoration: none; }
-      div#page div#full div.heading div.left {
-        padding: 10px 0px 0px 15px;
-        float: left; }
-        div#page div#full div.heading div.left div {
-          display: block;
-          float: left;
-          height: 12px; }
-    div#page div#full div.items {
-      background: #e8e8e8 url(/images/full.png) repeat-y -859px 0px; }
-      div#page div#full div.items div.separator {
-        background: white url(/images/full.png) no-repeat -1721px 0px;
-        height: 5px;
-        margin: 0px 3px;
-        width: 853px; }
-        div#page div#full div.items div.separator.first {
-          background-position: -1721px -10px; }
-        div#page div#full div.items div.separator.last {
-          background-position: -2577px -20px;
-          height: 10px;
-          margin: 0px;
-          overflow: hidden;
-          padding: 4px 0px 0px;
-          white-space: nowrap;
-          width: 859px; }
-      div#page div#full div.items div.item {
-        background: white;
-        font-size: 13px;
-        margin: 0px 3px;
-        padding: 3px 0px 0px;
-        width: 853px; }
-        div#page div#full div.items div.item div.counter {
-          float: left;
-          margin: 2px 7px 0px 0px; }
   div#page div#workspace {
     display: inline;
     float: right;
@@ -203,19 +224,20 @@ div#page {
       width: 660px; }
       div#page div#workspace div.list div.new-task input {
         width: 635px; }
-    div#page div#workspace div.list div.items {
-      width: 700px; }
-      div#page div#workspace div.list div.items div.item {
+    div#page div#workspace div.list ul#tasks {
+      width: 700px;
+      list-style: none; }
+      div#page div#workspace div.list ul#tasks li.item {
         background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px;
         padding: 8px 20px 0px;
         width: 660px; }
-        div#page div#workspace div.list div.items div.item.closed {
+        div#page div#workspace div.list ul#tasks li.item.closed {
           color: #aaa; }
-        div#page div#workspace div.list div.items div.item div.preview {
+        div#page div#workspace div.list ul#tasks li.item:hover > div.delete {
+          visibility: visible; }
+        div#page div#workspace div.list ul#tasks li.item div.preview {
           height: 20px;
           padding: 1px 0px 0px 2px; }
-      div#page div#workspace div.list div.items div.item:hover > div.delete {
-        visibility: visible; }
   div#page #main {
     overflow: hidden;
     padding-bottom: 45px; }
@@ -310,13 +332,13 @@ div.preview {
     font-size: 10px;
     margin: 0px 5px; }
 
-div.item {
+li.item {
   cursor: pointer;
   font-size: 13px;
   height: 20px;
   overflow: hidden;
   white-space: nowrap; }
-  div.item div.star {
+  li.item div.star {
     background: url(/images/sprites.png) no-repeat -32px -105px;
     float: left;
     height: 16px;
@@ -324,9 +346,9 @@ div.item {
     overflow: hidden;
     text-indent: -9999px;
     width: 16px; }
-    div.item div.star:hover, div.item div.star.starred {
+    li.item div.star:hover, li.item div.star.starred {
       background-position: -49px -105px; }
-  div.item div.delete {
+  li.item div.delete {
     background: url(/images/sprites.png) no-repeat -66px -103px;
     float: right;
     height: 16px;
@@ -335,5 +357,5 @@ div.item {
     text-indent: -9999px;
     width: 16px;
     visibility: hidden; }
-    div.item div.delete:hover {
+    li.item div.delete:hover {
       background-position: -83px -103px; }

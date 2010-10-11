@@ -6,6 +6,6 @@
           = @list.name          
     %div{ :class => "new-task" }
       = render "tasks/form", :list => @list
-    %div.items
+    %ul#tasks
       = render tasks.ordered
     %div.footer

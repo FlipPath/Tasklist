@@ -4,33 +4,36 @@ var Tasklist = { };
 
 var sortableTaskOptions = {
   update: function(ev, ui){
-    var $list    = $(this).parents(".list"),
-        $lis     = $("li", $list),
-        $form    = $(".insert_at_tasks_form", $list),
-        path     = $form.attr("data-path"),
-        task_id  = $(ui.item).attr("data-id"),
-        position = ($lis.length - $lis.index(ui.item)),
-        axis     = "y";
-        
-    $form.attr("action", path.replace(/%id/, task_id));
-    
-    $(".position", $form).val(position);
-    $form.trigger("submit");
-  }
+    var $lis = $("li", this),
+        pos  = ($lis.length - $lis.index(ui.item) + 1);
+
+    $.ajax({
+      type: "POST",
+      url: ui.item.attr("data-reorder-path"),
+      data: { 
+        _method: "PUT",
+        position: pos 
+      },
+      dataType: "json"
+    });
+  },
+  axis: "y"
 };
 
 var sortableListOptions = {
   update: function(ev, ui){
     var $lis     = $(this).children("li"),
-        $form    = $(".insert_at_lists_form", $(this)),
-        list_id  = $(ui.item).attr("data-id"),
-        position = ($lis.length - $lis.index(ui.item) - 1),
-        axis     = "y";
-        
-    $(".list_id", $form).val(list_id);
-    $(".position", $form).val(position);
-    // $form.trigger("submit");
-  }
+        position = ($lis.length - $lis.index(ui.item) - 1);
+    
+    $.ajax({
+      url: ui.item.attr("data-path"),
+      dataType: "json",
+      type: "PUT",
+      data: { q: request.term }
+    });
+    
+  },
+  axis: "y"
 };
 
 var autocompleteSharingRenderItem = function(ul, item) {
@@ -141,8 +144,8 @@ $("h2.name").inlineEdit({
   cancelOnBlur: true
 });
 
-$("ul#lists").sortable(sortableListOptions);
-$("ul.tasks").sortable(sortableTaskOptions);
+// $("ul#lists").sortable(sortableListOptions);
+$("ul#tasks").sortable(sortableTaskOptions);
 
 $(".list input.ac_username").autocomplete(autocompleteSharingOptions).each(function(){
   $(this).data("autocomplete")._renderItem = autocompleteSharingRenderItem;
@@ -195,7 +198,7 @@ $("#new_list").submit(function(){
 Tasklist.tasks = {
   create : function(ev){
     $("div.new-task input").val("");
-    $(ev.task_html).hide().prependTo("div.items").slideDown("fast");
+    $(ev.task_html).hide().prependTo("ul#tasks").slideDown("fast");
   },
   
   update : function(ev){

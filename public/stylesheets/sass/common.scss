@@ -186,7 +186,7 @@ div#page {
     }
   }
   
-  div#full {
+/*  div#full {
     display: block;
     margin: 19px 0px 16px;
     position: relative;
@@ -256,7 +256,7 @@ div#page {
         }
       }
     }
-  }
+  }*/
   
   div#workspace {
     display: inline;
@@ -316,10 +316,11 @@ div#page {
         }
       }
       
-      div.items {
+      ul#tasks {
         width: 700px;
+        list-style: none;
         
-        div.item {
+        li.item {
           background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px;
           padding: 8px 20px 0px;
           width: 660px;
@@ -328,15 +329,15 @@ div#page {
             color: #aaa;
           }
           
+          &:hover {
+            > div.delete {
+              visibility: visible;
+            }
+          }
+          
           div.preview {
             height: 20px;
             padding: 1px 0px 0px 2px;
-          }
-        }
-        
-        div.item:hover {
-          > div.delete {
-            visibility: visible;
           }
         }
       }
@@ -468,7 +469,7 @@ div.preview {
   }
 }
 
-div.item {
+li.item {
   cursor: pointer;
   font-size: 13px;
   height: 20px;
