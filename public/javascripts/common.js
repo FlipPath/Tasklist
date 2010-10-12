@@ -17,7 +17,8 @@ var sortableTaskOptions = {
       dataType: "json"
     });
   },
-  axis: "y"
+  axis: "y",
+  placeholder: "item"
 };
 
 var sortableListOptions = {
