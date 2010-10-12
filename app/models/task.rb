@@ -9,6 +9,10 @@ class Task < ActiveRecord::Base
     def ordered
       all
     end
+    
+    def open
+      where(:closed => false)
+    end
   end
   
   def toggle_close
