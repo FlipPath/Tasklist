@@ -124,7 +124,7 @@ div#page {
     position: relative;
     width: 175px;
     
-    div.heading {
+    div.header {
       background: #e8e8e8 url(/images/lists.png) repeat-y 0px 0px;
       color: #666;
       font-size: 10px;
@@ -133,6 +133,20 @@ div#page {
       margin: 19px 0px 0px 0px;
       padding: 10px 10px 0px;
       text-align: center;
+    }
+    
+    div.footer {
+      background: #fff url(/images/lists.png) repeat-y -525px 0px;
+      height: 37px;
+    }
+    
+    input {
+      width: 150px;
+      margin: 5px 5px 0px 10px;
+      
+      &[type=submit] {
+        display: none;
+      }
     }
     
     ul {
@@ -155,11 +169,6 @@ div#page {
           }
         }
         
-        &.last {
-          background-position: -525px 0px;
-          height: 37px;
-        }
-        
         .counter {
           float: right;
           margin: 7px 10px 0px 2px;
@@ -172,15 +181,6 @@ div#page {
            height: 20px;
            padding: 8px 16px 0px;
            text-decoration: none;
-        }
-      }
-      
-      li input {
-        width: 150px;
-        margin: 5px 5px 0px 10px;
-        
-        &[type=submit] {
-          display: none;
         }
       }
     }

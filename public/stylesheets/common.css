@@ -143,7 +143,7 @@ div#page {
     margin: 0px 1px 20px 0px;
     position: relative;
     width: 175px; }
-    div#page div#sidebar div.heading {
+    div#page div#sidebar div.header {
       background: #e8e8e8 url(/images/lists.png) repeat-y 0px 0px;
       color: #666;
       font-size: 10px;
@@ -152,6 +152,14 @@ div#page {
       margin: 19px 0px 0px 0px;
       padding: 10px 10px 0px;
       text-align: center; }
+    div#page div#sidebar div.footer {
+      background: white url(/images/lists.png) repeat-y -525px 0px;
+      height: 37px; }
+    div#page div#sidebar input {
+      width: 150px;
+      margin: 5px 5px 0px 10px; }
+      div#page div#sidebar input[type=submit] {
+        display: none; }
     div#page div#sidebar ul {
       list-style: none;
       margin-bottm: 16px;
@@ -166,9 +174,6 @@ div#page {
           background-position: -350px 0px; }
           div#page div#sidebar ul li.item.selected a {
             color: #fff; }
-        div#page div#sidebar ul li.item.last {
-          background-position: -525px 0px;
-          height: 37px; }
         div#page div#sidebar ul li.item .counter {
           float: right;
           margin: 7px 10px 0px 2px; }
@@ -179,11 +184,6 @@ div#page {
           height: 20px;
           padding: 8px 16px 0px;
           text-decoration: none; }
-      div#page div#sidebar ul li input {
-        width: 150px;
-        margin: 5px 5px 0px 10px; }
-        div#page div#sidebar ul li input[type=submit] {
-          display: none; }
   div#page div#workspace {
     display: inline;
     float: right;

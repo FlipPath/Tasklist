@@ -1,8 +1,8 @@
 %div#sidebar
-  %div.heading Lists
+  %div.header Lists
   %ul#lists
     = render @lists, :list_id => @list.id
-    %li{ :class => "item last" }
-      = render 'form'
+  %div.footer
+    = render 'form'
 %div#workspace
   = render "tasks/list", :tasks => @list.tasks
