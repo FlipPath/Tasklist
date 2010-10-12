@@ -9,6 +9,6 @@
           Delete
     %div{ :class => "new-task" }
       = render "tasks/form", :list => @list
-    %ul#tasks{ "data-list-id" => @list.id }
+    %ul#tasks{ "data-id" => @list.id }
       = render tasks.ordered
     %div.footer

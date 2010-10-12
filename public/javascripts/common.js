@@ -108,7 +108,7 @@ Tasklist.lists = {
       $(this).remove();
     });
     
-    if (ev.list_id == $("ul#tasks").attr("data-list-id")){
+    if (ev.list_id == $("ul#tasks").attr("data-id")){
       document.location.href = "/";
     }
   },
@@ -249,4 +249,4 @@ $("#new_task").submit(function(){
 
 user_channel.bind("lists-create", Tasklist.lists.create);
 
-$(".list").each(Tasklist.lists.init);
+$("ul#lists li").each(Tasklist.lists.init);
