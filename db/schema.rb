@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101004105431) do
+ActiveRecord::Schema.define(:version => 20101012040036) do
 
   create_table "collaborations", :force => true do |t|
     t.integer  "user_id"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20101004105431) do
 
   create_table "tasks", :force => true do |t|
     t.string   "title"
-    t.boolean  "closed"
+    t.boolean  "closed",     :default => false
     t.integer  "position"
     t.integer  "list_id"
     t.datetime "created_at"
