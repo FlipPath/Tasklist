@@ -1,6 +1,6 @@
 %div#sidebar
+  %div.heading Lists
   %ul#lists
-    %li.heading Lists
     = render @lists, :list_id => @list.id
     %li{ :class => "item last" }
       = render 'form'

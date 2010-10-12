@@ -1,2 +1,2 @@
-list_html = render @list
+list_html = render @list, :list_id => @list.id.to_s
 page.trigger "lists:create", :list_id => @list.id.to_s, :list_html => list_html

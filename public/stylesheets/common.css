@@ -143,19 +143,19 @@ div#page {
     margin: 0px 1px 20px 0px;
     position: relative;
     width: 175px; }
+    div#page div#sidebar div.heading {
+      background: #e8e8e8 url(/images/lists.png) repeat-y 0px 0px;
+      color: #666;
+      font-size: 10px;
+      font-weight: bold;
+      height: 16px;
+      margin: 19px 0px 0px 0px;
+      padding: 10px 10px 0px;
+      text-align: center; }
     div#page div#sidebar ul {
       list-style: none;
-      margin: 19px 0px 16px;
+      margin-bottm: 16px;
       padding: 0px; }
-      div#page div#sidebar ul li.heading {
-        background: #e8e8e8 url(/images/lists.png) repeat-y 0px 0px;
-        color: #666;
-        font-size: 10px;
-        font-weight: bold;
-        height: 16px;
-        margin: 0px;
-        padding: 10px 10px 0px;
-        text-align: center; }
       div#page div#sidebar ul li.item {
         background: white url(/images/lists.png) repeat-y -175px 0px;
         display: block;
@@ -212,6 +212,10 @@ div#page {
           display: block;
           float: left;
           height: 12px; }
+      div#page div#workspace div.list div.header div.delete {
+        display: block;
+        float: right;
+        margin: 7px 5px; }
       div#page div#workspace div.list div.header a {
         color: #2d5e93;
         text-decoration: none; }
@@ -349,13 +353,15 @@ li.item {
     li.item div.star:hover, li.item div.star.starred {
       background-position: -49px -105px; }
   li.item div.delete {
-    background: url(/images/sprites.png) no-repeat -66px -103px;
     float: right;
-    height: 16px;
     margin: 0px 10px 0px;
-    overflow: hidden;
-    text-indent: -9999px;
-    width: 16px;
     visibility: hidden; }
-    li.item div.delete:hover {
-      background-position: -83px -103px; }
+
+div.delete {
+  background: url(/images/sprites.png) no-repeat -66px -103px;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  text-indent: -9999px; }
+  div.delete:hover {
+    background-position: -83px -103px; }

@@ -3,9 +3,12 @@
     %div.header
       %div.left
         %div
-          = @list.name          
+          = @list.name
+      %div.delete
+        = link_to list_path(@list), :remote => true, :method => :delete do
+          Delete
     %div{ :class => "new-task" }
       = render "tasks/form", :list => @list
-    %ul#tasks
+    %ul#tasks{ "data-list-id" => @list.id }
       = render tasks.ordered
     %div.footer

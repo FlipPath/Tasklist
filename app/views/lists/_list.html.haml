@@ -1,4 +1,4 @@
-%li.item{ :class => "#{selected_class(list, list_id)}" }
+%li.item{ :class => "#{selected_class(list, list_id)}", "data-id" => list.id }
   - if list.tasks.count > 0
     %div.counter
       %span.inner= list.tasks.count

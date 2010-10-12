@@ -124,21 +124,21 @@ div#page {
     position: relative;
     width: 175px;
     
+    div.heading {
+      background: #e8e8e8 url(/images/lists.png) repeat-y 0px 0px;
+      color: #666;
+      font-size: 10px;
+      font-weight: bold;
+      height: 16px;
+      margin: 19px 0px 0px 0px;
+      padding: 10px 10px 0px;
+      text-align: center;
+    }
+    
     ul {
       list-style: none;
-      margin: 19px 0px 16px;
+      margin-bottm: 16px;
       padding: 0px;
-      
-      li.heading {
-        background: #e8e8e8 url(/images/lists.png) repeat-y 0px 0px;
-        color: #666;
-        font-size: 10px;
-        font-weight: bold;
-        height: 16px;
-        margin: 0px;
-        padding: 10px 10px 0px;
-        text-align: center;
-      }
       
       li.item {
         background: #fff url(/images/lists.png) repeat-y -175px 0px;
@@ -293,6 +293,12 @@ div#page {
             float: left;
             height: 12px;
           }
+        }
+        
+        div.delete {
+          display: block;
+          float: right;
+          margin: 7px 5px;
         }
         
         a {
@@ -491,18 +497,21 @@ li.item {
     }
   }
   
-  div.delete {
-    background: url(/images/sprites.png) no-repeat -66px -103px;
+  div.delete {    
     float: right;
-    height: 16px;
     margin: 0px 10px 0px;
-    overflow: hidden;
-    text-indent: -9999px;
-    width: 16px;
     visibility: hidden;
-    
-    &:hover {
-     background-position: -83px -103px;
-    }
+  }
+}
+
+div.delete {
+  background: url(/images/sprites.png) no-repeat -66px -103px;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  text-indent: -9999px;
+  
+  &:hover {
+   background-position: -83px -103px;
   }
 }

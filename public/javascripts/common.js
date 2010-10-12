@@ -92,7 +92,7 @@ Tasklist.lists = {
   },
   
   create : function(ev){
-    var $list = $(ev.list_html).hide().insertAfter("ul#lists .heading").slideDown("fast");
+    var $list = $(ev.list_html).hide().prependTo("ul#lists").slideDown("fast");
     $list.each(Tasklist.lists.init);
     // $("#list_name").val("");
     // $(".tasks", $list).sortable(sortableTaskOptions);
@@ -103,9 +103,13 @@ Tasklist.lists = {
   },
   
   destroy : function(ev){
-    $(".list[data-id="+ev.list_id+"]").slideUp("fast", function(){
+    $("ul#lists li.item[data-id="+ev.list_id+"]").slideUp("fast", function(){
       $(this).remove();
     });
+    
+    if (ev.list_id == $("ul#tasks").attr("data-list-id")){
+      document.location.href = "/";
+    }
   },
   
   share : function(ev){
@@ -202,11 +206,11 @@ Tasklist.tasks = {
   },
   
   update : function(ev){
-    $(ev.task_html).hide().replaceAll("div.item[data-id="+ev.task_id+"]").slideDown("fast");
+    $(ev.task_html).hide().replaceAll("li.item[data-id="+ev.task_id+"]").slideDown("fast");
   },
   
   destroy : function(ev){
-    $("div.item[data-id="+ev.task_id+"]").slideUp("fast", function(){
+    $("li.item[data-id="+ev.task_id+"]").slideUp("fast", function(){
       $(this).remove();
     });
   },
@@ -228,7 +232,7 @@ Tasklist.tasks = {
   },
   
   toggle_close : function(ev){
-    $("div.item[data-id="+ev.task_id+"]").replaceWith(ev.task_html);
+    $("li.item[data-id="+ev.task_id+"]").replaceWith(ev.task_html);
   }
 };
 
