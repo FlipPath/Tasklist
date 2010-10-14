@@ -1,57 +1,39 @@
 require 'test_helper'
 
 class ListTest < ActiveSupport::TestCase
-  setup do
-    @user = Factory(:user, :username => "admin", :email => "admin@test.com")
-    @list = Factory.build(:empty_list)
-  end
+  should have_many(:list_associations)
+  should have_many(:users).through(:list_associations)
+  should have_many(:tasks)
   
   should validate_presence_of(:name)
   
-  context "a new list" do
+  context "given an existing list" do
     setup do
-      @list = @user.lists.create(@list.attributes)
+      @user = Factory(:user)
+      @list = Factory.build(:list)
+      @user.lists << @list
     end
     
-    should "have the creating user as a collaborator" do
-      assert_contains @list.collaborators, @user
+    should "have user as owner" do
+      assert_equal @user, @list.owner
     end
     
-    context "the first user" do
-      should "be an admin" do
-        assert @list.is_admin?(@user)
-      end
-      
-      should "find this list in their managed lists" do
-        @managed_lists = @user.lists.managed
-        assert_equal @managed_lists.first, @list
-      end
-    end
-  end
-  
-  context "for an existing list" do
-    setup do
-      @list = @user.lists.create(@list.attributes)
-    end
-    
-    context "the second collaborator" do
-      setup do
-        @second_user = Factory(:user, :username => "bob", :email => "bob@test.com")
-        @list.collaborators << @second_user
-      end
-      
-      should "have two collaborators" do
-        assert_equal 2, @list.collaborators.count
-      end
-      
-      should "not be an admin" do
-        assert !@list.is_admin?(@second_user)
-      end
-      
-      should "not find the list in their managed lists" do
-        @managed_lists = @second_user.lists.managed
-        assert_not_equal @managed_lists.first, @list
+    context "for shared list" do
+      context "with 5 collaborators" do
+        should "have 5 collaborators" do
+          5.times { @list.users << Factory(:user) }
+          assert_equal 5, @list.collaborators.count
+        end
       end
     end
   end
 end
+
+# == Schema Info
+#
+# Table name: lists
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime

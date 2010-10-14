@@ -1,21 +1,6 @@
 require 'test_helper'
 
-class TasksControllerTest < ActionController::TestCase
-  setup do
-    Pusher::Channel.any_instance.expects(:trigger_async).returns(true)
-    Pusher.app_id = '20'
-    Pusher.key    = '12345678900000001'
-    Pusher.secret = '12345678900000001'
-    Pusher.host = 'api.pusherapp.com'
-    Pusher.port = 80
-  end
-      
-  teardown do
-    Pusher.app_id = nil
-    Pusher.key = nil
-    Pusher.secret = nil
-  end
-  
+class TasksControllerTest < ActionController::TestCase  
   context "the tasks controller" do
     setup do
       @task = Factory(:task)

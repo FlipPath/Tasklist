@@ -19,3 +19,15 @@ class Task < ActiveRecord::Base
     update_attribute :closed, !closed
   end
 end
+
+# == Schema Info
+#
+# Table name: tasks
+#
+#  id         :integer         not null, primary key
+#  title      :string(255)
+#  closed     :boolean
+#  position   :integer
+#  list_id    :integer
+#  created_at :datetime
+#  updated_at :datetime

@@ -10,12 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101012040036) do
 
-  create_table "collaborations", :force => true do |t|
-    t.integer  "user_id"
+ActiveRecord::Schema.define(:version => 20101014014110) do
+  create_table "group_associations", :force => true do |t|
+    t.integer  "group_id"
     t.integer  "list_id"
-    t.boolean  "admin"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "list_associations", :force => true do |t|
+    t.integer  "list_id"
+    t.integer  "user_id"
+    t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -2,19 +2,18 @@ require 'test_helper'
 
 class TaskHelperTest < ActionView::TestCase
   context "for task helper" do
-    setup { @list = Factory(:list_with_item) }
-    setup { @first_task = @list.tasks.first }
+    setup { @task = Factory(:task) }
     
     context "for closed_class method" do
-      setup { @first_task.closed = true }
+      setup { @task.closed = true }
       
       should "return class closed" do
-        assert_equal "closed", closed_class(@first_task)
+        assert_equal "closed", closed_class(@task)
       end
       
       should "return nil" do
-        @first_task.closed = false
-        assert_nil link_class(@first_task)
+        @task.closed = false
+        assert_nil closed_class(@task)
       end
     end
   end

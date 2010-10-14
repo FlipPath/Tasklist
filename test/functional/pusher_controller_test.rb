@@ -32,7 +32,7 @@ class PusherControllerTest < ActionController::TestCase
         User.destroy_all
         @user = Factory(:user)
         sign_in @user
-        @list = Factory(:list_with_item)
+        @list = Factory(:list_with_tasks)
         @user.lists << @list
         
         user_data = { 
