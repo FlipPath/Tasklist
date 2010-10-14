@@ -1,6 +1,6 @@
 %div#sidebar
   %div.header Lists
-  = render "group_lists", :group => @group
+  = render "group_lists", :group => @group, :current_list => @list
   %div.footer
     = render 'form', :group => @group
 %div#workspace
