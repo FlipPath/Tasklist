@@ -228,18 +228,25 @@ div#page {
       width: 660px; }
       div#page div#workspace div.list div.new-task input {
         width: 635px; }
-    div#page div#workspace div.list ul#tasks {
+    div#page div#workspace div.list ul#closed-tasks {
+      border-top: 1px dashed #e8e8e8; }
+    div#page div#workspace div.list ol#tasks,
+    div#page div#workspace div.list ul#closed-tasks {
       width: 700px;
-      list-style: none; }
-      div#page div#workspace div.list ul#tasks li.item {
-        background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px;
-        padding: 8px 20px 0px;
+      list-style: none;
+      background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px; }
+      div#page div#workspace div.list ol#tasks li.item,
+      div#page div#workspace div.list ul#closed-tasks li.item {
+        padding: 7px 20px 0px;
         width: 660px; }
-        div#page div#workspace div.list ul#tasks li.item.closed {
+        div#page div#workspace div.list ol#tasks li.item.closed,
+        div#page div#workspace div.list ul#closed-tasks li.item.closed {
           color: #aaa; }
-        div#page div#workspace div.list ul#tasks li.item:hover > div.delete {
+        div#page div#workspace div.list ol#tasks li.item:hover > div.delete,
+        div#page div#workspace div.list ul#closed-tasks li.item:hover > div.delete {
           visibility: visible; }
-        div#page div#workspace div.list ul#tasks li.item div.preview {
+        div#page div#workspace div.list ol#tasks li.item div.preview,
+        div#page div#workspace div.list ul#closed-tasks li.item div.preview {
           height: 20px;
           padding: 1px 0px 0px 2px; }
   div#page #main {

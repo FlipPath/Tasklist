@@ -322,13 +322,18 @@ div#page {
         }
       }
       
-      ul#tasks {
+      ul#closed-tasks {
+        border-top: 1px dashed #e8e8e8;
+      }
+      
+      ol#tasks,
+      ul#closed-tasks {
         width: 700px;
         list-style: none;
+        background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px;
         
         li.item {
-          background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px;
-          padding: 8px 20px 0px;
+          padding: 7px 20px 0px;
           width: 660px;
           
           &.closed {

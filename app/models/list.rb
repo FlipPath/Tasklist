@@ -9,7 +9,7 @@ class List < ActiveRecord::Base
   has_many :group_associations, :order => "position DESC"
   has_many :groups, :through => :group_associations
   
-  has_many :tasks, :order => "position DESC"
+  has_many :tasks, :order => "closed ASC, position DESC"
   
   validates_presence_of :name
   

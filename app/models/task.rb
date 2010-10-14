@@ -13,6 +13,10 @@ class Task < ActiveRecord::Base
     def open
       where(:closed => false)
     end
+    
+    def closed
+      where(:closed => true)
+    end
   end
   
   def toggle_close
