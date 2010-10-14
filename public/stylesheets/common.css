@@ -31,14 +31,14 @@ div#page {
     height: 50px; }
     div#page div#header div.container {
       width: 855px; }
-    div#page div#header ul#nav {
+    div#page div#header ol#groups {
       position: relative;
       vertical-align: middle;
       list-style: none;
       display: inline; }
-      div#page div#header ul#nav li {
+      div#page div#header ol#groups li {
         display: inline; }
-      div#page div#header ul#nav a {
+      div#page div#header ol#groups a {
         color: white;
         display: block;
         float: left;
@@ -47,7 +47,7 @@ div#page {
         padding: 4px 10px;
         margin: 12px 2px;
         text-decoration: none; }
-        div#page div#header ul#nav a:hover, div#page div#header ul#nav a.active {
+        div#page div#header ol#groups a:hover, div#page div#header ol#groups a.active {
           background: url(/images/bg_sprites.png) repeat-x 0 -169px;
           -webkit-border-radius: 15px;
           -moz-border-radius: 12px;
