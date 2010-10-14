@@ -12,15 +12,17 @@ Tasklist::Application.routes.draw do
     end
   end
   
-  resources :lists, :only => [:index, :create, :destroy] do
-    member do
-      put :share, :update
-      get :index
-    end
-    
-    resources :tasks, :only => [:create, :destroy] do
+  resources :groups, :only => [:index, :show] do
+    resources :lists, :only => [:index, :create, :destroy] do
       member do
-        put :toggle_close, :insert_at, :update
+        put :share, :update
+        get :index
+      end
+
+      resources :tasks, :only => [:create, :destroy] do
+        member do
+          put :toggle_close, :insert_at, :update
+        end
       end
     end
   end

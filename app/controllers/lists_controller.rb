@@ -1,7 +1,8 @@
 class ListsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :load_group
   before_filter :load_lists
-  before_filter :load_list, :only => [:index, :update, :destroy, :share]
+  before_filter :load_list, :only => [:index, :update, :destroy, :share], :if => @lists
   
   respond_to :html, :only => [:index]
   respond_to :js, :except => [:index]
@@ -29,11 +30,15 @@ class ListsController < ApplicationController
     
   private
   
+  def load_group
+    @group = current_user.groups.find(params[:group_id])
+  end
+  
   def load_lists
-    @lists = current_user.lists
+    @lists = @group.lists
   end
   
   def load_list
-    @list = @lists.find(params[:id] ? params[:id] : @lists.last)
+    @list = @lists.find(params[:id])
   end
 end

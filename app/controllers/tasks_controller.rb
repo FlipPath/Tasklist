@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_filter :load_group
   before_filter :load_list
   before_filter :load_task, :only => [:toggle_close, :destroy, :insert_at, :update]  
   
@@ -26,8 +27,12 @@ class TasksController < ApplicationController
   
   private
   
+  def load_group
+    @group = current_user.groups.find(params[:group_id])
+  end
+  
   def load_list
-    @list = List.find(params[:list_id])
+    @list = @group.lists.find(params[:list_id])
   end
   
   def load_task

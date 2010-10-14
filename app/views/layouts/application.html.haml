@@ -4,12 +4,54 @@
     %title Tasklist
     = stylesheet_link_tag "common"
   %body
-    %ul#hmenu
-      = render "devise/menu/registration_items"
-      = render "devise/menu/login_items"
-    -if notice
-      %p{ :style => "color: green" }= notice
-    - if alert
-      %p{ :style => "color: red" }= alert
-    %div#container
+  %div#page
+    %div#header
+      %div.container
+        %div#nav
+          %div#nav-left
+            %a.item{ :href => "#", :class => :selected }
+              %span.inner
+                %span.label Personal
+            %a.item{ :class => "active", :href => "#" }
+              %span.inner
+                %span.label Credentify
+            %a.item{ :href => "#" }
+              %span.inner 
+                %span.label Someday
+          %div#nav-right
+            = gravatar_image_tag current_user.email, :gravatar => { :size => 43 }
+    %div{ :class => "container view" }
       = yield
+      / %div#full{ :class => "full" }
+      /   %div
+      /     %div.heading
+      /       %div.left
+      /         %div.add-action
+      /           %a{ :href => "#" } Add an Action
+      /     %div.items
+      /       %div{ :class => "separator first" }
+      /       %div{ :class => "item first"}
+      /         %div{ :class => "checkbox checked" }
+      /           %a{ :href => "#" } Complete
+      /         %div.counter
+      /           %div.inner 1
+      /         %div.preview
+      /           %div.title Credentify
+      /           %div.excerpt
+      /             By golee, I am a note!
+      /             Sweeeet
+      /             What about another line?
+      /       %div{ :class => "separator last" }
+  %div#footer{ :class => "clearfix" }
+    %div.container
+      %div.left
+        %a#footer-logo{ :href => "#" }
+      %div.right
+        %span#search-field{ :class => "search-field" }
+          %input{ :type => :text }
+        = render "devise/menu/registration_items"
+        = render "devise/menu/login_items"
+      
+  = javascript_include_tag :defaults, "jquery.inlineedit"
+  = render "common/pusher", :user => current_user
+  = javascript_include_tag "common"

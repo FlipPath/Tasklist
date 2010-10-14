@@ -1,6 +1,6 @@
 data = {
   :list_id   => @list.id.to_s,
-  :task_html => render(@task)
+  :task_html => render(@task, :group => @group, :list => @list)
 }
 
 @list.channel.trigger_async "tasks-create", data, params[:socket_id]
