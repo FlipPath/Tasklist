@@ -1,23 +1,10 @@
-@mixin rounded($radius: 10px) {
-  border-radius: $radius;
-  -moz-border-radius: $radius;
+@mixin box($color: #999, $radius: 0 0 10px 10px) {
   -webkit-border-radius: $radius;
-}
-
-@mixin shadow($color: #333333) {
-  -moz-box-shadow: 0px 1px 2px $color;
-  -webkit-box-shadow: 0px 1px 2px $color;
-  box-shadow: 0px 1px 2px $color;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color');
-}
-
-@mixin inset_shadow($color: #333333) {
-  -moz-box-shadow: inset 0px 1px 2px $color;
-  -webkit-box-shadow: inset 0px 1px 2px $color;
-  box-shadow: inset 0px 1px 2px $color;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color')";
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$color');
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+  -webkit-box-shadow:0 0 5px $color; 
+  -moz-box-shadow: 0 0 5px $color;
+  box-shadow:0 0 5px $color;
 }
 
 * {
@@ -55,61 +42,53 @@ div#page {
   position: relative;
   
   div#header {
-    background: url(/images/sprites.png) repeat-x 0 -50px;
-    height: 54px;
+    background: url(/images/bg_sprites.png) repeat-x 0 0;
+    height: 50px;
     
-    div#nav {
-      height: 44px;
-      position: relative;
+    div.container {
       width: 855px;
+    }
+    
+    ul#nav {
+      position: relative;
+      vertical-align: middle;
+      list-style: none;
+      display: inline;
       
-      a.item {
+      li {
+        display: inline;
+      }
+      
+      a {
         color: white;
         display: block;
         float: left;
         font-size: 13px;
         font-weight: bold;
-        height: 44px;
-        margin: 0px;
-        padding-left: 13px;
+        padding: 4px 10px;
+        margin: 12px 2px;
         text-decoration: none;
         
-        span.inner {
-          display: block;
-          height: 40px;
-          margin: 0px;
-          padding-right: 11px;
-        }
-        
-        &:hover > .inner,
-        &.active > .inner {
-          background: url(/images/sprites.png) no-repeat top right;
-        }
         
         &:hover,
         &.active {
-          background: url(/images/sprites.png) no-repeat 0 0;
+          background: url(/images/bg_sprites.png) repeat-x 0 -169px;
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 12px;
+          border-radius: 12px;
+          -moz-box-shadow: inset 0px 1px 2px #333;
+          -webkit-box-shadow: inset 0px 1px 2px #333;
+          box-shadow: inset 0px 1px 2px #333;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333')";
+          filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333');
         }
-        
-        span.label {
-          display: block;
-          float: left;
-          margin: 15px 0 0;
-        }
-        
       }
-      
-      #nav-left {
-        left: 0px;
-        position: absolute;
-        top: 0px;
-      }
-      
-      #nav-right {
-        position: absolute;
-        right: 0px;
-        top: 0px;
-      }
+    }
+    
+    #nav-right {
+      position: absolute;
+      right: 0px;
+      top: 0px;
     }
   }
   
@@ -120,32 +99,36 @@ div#page {
   div#sidebar {
     display: inline;
     float: left;
-    margin: 0px 1px 20px 0px;
     position: relative;
     width: 175px;
+    margin-top: 10px;
+    background-color: #fff;
+    @include box(#999, 0 0 7px 7px);
     
     div.header {
-      background: #e8e8e8 url(/images/lists.png) repeat-y 0px 0px;
       color: #666;
       font-size: 10px;
       font-weight: bold;
-      height: 16px;
-      margin: 19px 0px 0px 0px;
-      padding: 10px 10px 0px;
-      text-align: center;
+      height: 23px;
+      line-height: 23px;
+      padding: 0 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      background: url(/images/bg_sprites.png) repeat-x 0 -50px;
     }
     
     div.footer {
-      background: #fff url(/images/lists.png) repeat-y -525px 0px;
-      height: 37px;
-    }
-    
-    input {
-      width: 150px;
-      margin: 5px 5px 0px 10px;
-      
-      &[type=submit] {
-        display: none;
+      background: url(/images/bg_sprites.png) repeat-x 0 -129px;
+      padding: 5px;
+      -webkit-border-radius: 0 0 7px 7px;
+      -moz-border-radius: 0 0 7px 7px;
+      border-radius: 0 0 7px 7px;
+      input {
+        width: 95%;
+
+        &[type=submit] {
+          display: none;
+        }
       }
     }
     
@@ -155,14 +138,15 @@ div#page {
       padding: 0px;
       
       li.item {
-        background: #fff url(/images/lists.png) repeat-y -175px 0px;
+        background: url(/images/bg_sprites.png) repeat-x 0 -101px;
         display: block;
         font-size: 13px;
         height: 28px;
         margin: 0px;
         
-        &.selected {
-          background-position: -350px 0px;
+        &.selected,
+        &:hover {
+          background-position: 0px -73px;
           
           a {
             color: #fff;
@@ -179,84 +163,11 @@ div#page {
            color: #333;
            display: block;
            height: 20px;
-           padding: 8px 16px 0px;
-           text-decoration: none;
+           padding: 8px 10px 0px;
         }
       }
     }
   }
-  
-/*  div#full {
-    display: block;
-    margin: 19px 0px 16px;
-    position: relative;
-    width: 859px;
-    
-    div.heading {
-      background: white url(/images/full.png) no-repeat 0px 0px;
-      color: #999;
-      font-size: 10px;
-      font-weight: bold;
-      height: 24px;
-      overflow: hidden;
-      white-space: nowrap;
-      width: 859px;
-      
-      a {
-        color: #2D5E93;
-        text-decoration: none;
-      }
-      
-      div.left {
-        padding: 10px 0px 0px 15px;
-        float: left;
-        
-        div {
-          display: block;
-          float: left;
-          height: 12px;
-        }
-      }
-    }
-    
-    div.items {
-      background: #e8e8e8 url(/images/full.png) repeat-y -859px 0px;
-      
-      div.separator {
-        background: white url(/images/full.png) no-repeat -1721px 0px;
-        height: 5px;
-        margin: 0px 3px;
-        width: 853px;
-        
-        &.first {
-          background-position: -1721px -10px;
-        }
-        
-        &.last {
-          background-position: -2577px -20px;
-          height: 10px;
-          margin: 0px;
-          overflow: hidden;
-          padding: 4px 0px 0px;
-          white-space: nowrap;
-          width: 859px;
-        }
-      }
-      
-      div.item {
-        background: white;
-        font-size: 13px;
-        margin: 0px 3px;
-        padding: 3px 0px 0px;
-        width: 853px;
-        
-        div.counter {
-          float: left;
-          margin: 2px 7px 0px 0px;
-        }
-      }
-    }
-  }*/
   
   div#workspace {
     display: inline;
@@ -266,39 +177,40 @@ div#page {
     width: 700px;
     
     div#tasks {
-      margin: 19px 0px 16px;
       position: relative;
-      width: 700px;
     }
     
     div.list {
+      @include box(#999, 0 0 7px 7px);
+      
+      background-color: #fff;
+      margin: 10px 0 0 20px;
+      padding-bottom: 5px;
+      
       div.header {
         color: #999;
         font-size: 10px;
         font-weight: bold;
-        height: 28px;
-        margin-top: 1px;
+        height: 23px;
+        margin-bottom: 8px;
+        line-height: 23px;
+        padding: 0 10px;
         overflow: hidden;
-        padding: 0px 20px;
         white-space: nowrap;
-        width: 660px;
-        background: transparent url(/images/workspace.png) no-repeat 0px 1px;
+        background: url(/images/bg_sprites.png) repeat-x 0 -50px;
         
         div.left {
           float: left;
-          padding: 10px 0px 0px 9px;
           
           div {
             display: block;
-            float: left;
-            height: 12px;
           }
         }
         
         div.delete {
           display: block;
           float: right;
-          margin: 7px 5px;
+          margin: 5px 0;
         }
         
         a {
@@ -307,18 +219,11 @@ div#page {
         }
       }
       
-      div.footer {
-        padding-bottom: 10px;
-        background: #e8e8e8 url(/images/workspace.png) no-repeat -2100px -27px;
-      }
-      
       div.new-task {
-        background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px;
-        padding: 5px 10px 4px 28px;
-        width: 660px;
+        padding: 0 10px;
         
         input {
-          width: 635px;
+          width: 99%;
         }
       }
       
@@ -328,13 +233,10 @@ div#page {
       
       ol#tasks,
       ul#closed-tasks {
-        width: 700px;
         list-style: none;
-        background: #e8e8e8 url(/images/workspace.png) repeat-y -700px 0px;
         
         li.item {
-          padding: 7px 20px 0px;
-          width: 660px;
+          padding-top: 7px;
           
           &.closed {
             color: #aaa;
@@ -371,7 +273,7 @@ div.full {
 
 div#footer {
   overflow: hidden;
-  background: url(/images/footer.png) repeat-x;
+  background: url(/images/bg_sprites.png) repeat-x 0 -207px;
   clear: both;
   height: 45px;
   margin-top: -45px;
@@ -411,7 +313,7 @@ div#footer {
     position: relative;
     z-index: 103;
     width: 151px;
-    background: transparent url(/images/search-field.png) no-repeat;
+/*    background: transparent url(/images/search-field.png) no-repeat;*/
     
     & > input {
       margin-top: 3px;
@@ -434,20 +336,15 @@ div.container {
   color: #fff;
   display: block;
   font-weight: bold;
-  height: 16px;
-  padding: 0px 0px 0px 5px;
-  background: url(/images/sprites.png) no-repeat -290px -105px;
-  
-  & > .inner {
-    display: block;
-    line-height: 13px;
-    padding: 0px 5px 0px 0px;
-    background: url(/images/sprites.png) no-repeat -184px -105px;
-  }
+  padding: 1px 5px;
+  background-color: #d4d4d4;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
 }
 
 div.checkbox {
-  background: url(/images/sprites.png) no-repeat 0px -105px;
+  background: url(/images/icons.png) no-repeat 0 -5px;
   float: left;
   height: 16px;
   overflow: hidden;
@@ -488,7 +385,7 @@ li.item {
   white-space: nowrap;
   
   div.star {
-    background: url(/images/sprites.png) no-repeat -32px -105px;
+    background: url(/images/icons.png) no-repeat -32px -5px;
     float: left;
     height: 16px;
     margin: 2px 2px 0px 0px;
@@ -510,13 +407,13 @@ li.item {
 }
 
 div.delete {
-  background: url(/images/sprites.png) no-repeat -66px -103px;
+  background: url(/images/icons.png) no-repeat -66px -3px;
   width: 16px;
   height: 16px;
   overflow: hidden;
   text-indent: -9999px;
   
   &:hover {
-   background-position: -83px -103px;
+   background-position: -83px -3px;
   }
 }

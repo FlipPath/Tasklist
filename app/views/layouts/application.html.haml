@@ -7,19 +7,18 @@
   %div#page
     %div#header
       %div.container
-        %div#nav
-          %div#nav-left
-            %a.item{ :href => "#", :class => :selected }
-              %span.inner
-                %span.label Personal
-            %a.item{ :class => "active", :href => "#" }
-              %span.inner
-                %span.label Credentify
-            %a.item{ :href => "#" }
-              %span.inner 
-                %span.label Someday
-          %div#nav-right
-            = gravatar_image_tag current_user.email, :gravatar => { :size => 43 }
+        %ul#nav
+          %li 
+            %a{ :href => "#", :class => :selected }
+              Personal
+          %li
+            %a{ :class => "active", :href => "#" }
+              Credentify
+          %li
+            %a{ :href => "#" }
+              Someday
+        %div#nav-right
+          = gravatar_image_tag current_user.email, :gravatar => { :size => 43 }
     %div{ :class => "container view" }
       = yield
       / %div#full{ :class => "full" }
