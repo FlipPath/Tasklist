@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title Tasklist
+    = stylesheet_link_tag "common"
+  %body
+    %ul#hmenu
+      = render "devise/menu/registration_items"
+      = render "devise/menu/login_items"
+    -if notice
+      %p{ :style => "color: green" }= notice
+    - if alert
+      %p{ :style => "color: red" }= alert
+    %div#container
+      = yield
