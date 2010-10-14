@@ -1,11 +1,10 @@
 %div#sidebar
   %div.header Lists
-  %ul#lists
-    = render @lists, :group => @group
+  = render "group_lists", :group => @group
   %div.footer
     = render 'form', :group => @group
 %div#workspace
   - if @list
     = render "tasks/list", :group => @group, :list => @list
   - else
-    = render "no_list"  
+    = render "no_list"
