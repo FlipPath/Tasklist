@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   
-  attr_accessible false
+  attr_accessible :name, :password_confirmation, :username, :password, :password_confirmation, :email
   
   has_many :groups, :dependent => :destroy, :order => "position DESC"
   
