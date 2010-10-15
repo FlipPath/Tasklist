@@ -1,4 +1,4 @@
-%li{ "data-id" => task.id, "data-path" => group_list_task_path(group, list, task), "data-task" => task.title,
+%li.task{ "data-id" => task.id, "data-path" => group_list_task_path(group, list, task), "data-task" => task.title,
      "data-reorder-path" => insert_at_group_list_task_path(group, list, task), :class => "#{closed_class(task)}"}
   %div{ :class => "checkbox #{closed_class(task)}" }
     = link_to toggle_close_group_list_task_path(group, list, task), :remote => true, :method => :put do

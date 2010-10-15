@@ -8,8 +8,7 @@
         Delete
   %div{ :class => "new-task" }
     = render "tasks/form", :group => group, :list => list
-  %ol#tasks{ "data-id" => list.id }
+  %ol#tasks{ "data-list-id" => list.id }
     = render list.tasks.open.ordered, :group => group, :list => list
-  - if list.tasks.closed.count > 0
-    %ul#closed-tasks{ "data-id" => list.id }
-      = render list.tasks.closed.ordered, :group => group, :list => list
+  %ul#closed-tasks{ "data-list-id" => list.id }
+    = render list.tasks.closed.ordered, :group => group, :list => list

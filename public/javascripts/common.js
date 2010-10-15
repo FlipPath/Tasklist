@@ -104,7 +104,7 @@ Tasklist.lists = {
   },
   
   destroy : function(ev){
-    $("ol#lists li.item[data-id="+ev.list_id+"]").slideUp("fast", function(){
+    $("ol#lists li[data-id="+ev.list_id+"]").slideUp("fast", function(){
       $(this).remove();
     });
     
@@ -156,6 +156,8 @@ $(".list input.ac_username").autocomplete(autocompleteSharingOptions).each(funct
   $(this).data("autocomplete")._renderItem = autocompleteSharingRenderItem;
 });
 
+
+
 $('form.new_task').droppable({
   drop: function( event, ui ) {
     var $task           = ui.draggable,
@@ -203,21 +205,21 @@ $("#new_list").submit(function(){
 Tasklist.tasks = {
   create : function(ev){
     $("div.new-task input").val("");
-    $(ev.task_html).hide().prependTo("ul#tasks").slideDown("fast");
+    $(ev.task_html).hide().prependTo("ol#tasks").slideDown("fast");
   },
   
   update : function(ev){
-    $(ev.task_html).hide().replaceAll("li.item[data-id="+ev.task_id+"]").slideDown("fast");
+    $(ev.task_html).hide().replaceAll("li.task[data-id="+ev.task_id+"]").slideDown("fast");
   },
   
   destroy : function(ev){
-    $("li.item[data-id="+ev.task_id+"]").slideUp("fast", function(){
+    $("li.task[data-id="+ev.task_id+"]").slideUp("fast", function(){
       $(this).remove();
     });
   },
   
   insert_at : function(ev){
-    var $task   = $(".task[data-id="+ev.task_id+"]"),
+    var $task   = $("li.task[data-id="+ev.task_id+"]"),
         $list   = $task.parents(".tasks"),
         $tasks  = $("li", $list),
         sindex  = $tasks.index($task),
@@ -233,7 +235,7 @@ Tasklist.tasks = {
   },
   
   toggle_close : function(ev){
-    $("li.item[data-id="+ev.task_id+"]").slideUp("fast").remove();
+    $("li.task[data-id="+ev.task_id+"]").slideUp("fast").remove();
     if (ev.closed == true){
       $(ev.task_html).appendTo("ul#closed-tasks").slideDown("fast");
     } else {
