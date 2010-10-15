@@ -1,6 +1,6 @@
 data = {
   :task_id   => @task.id.to_s,
-  :task_html => render(@task),
+  :task_html => render(@task, :list => @list, :group => @group),
   :closed    => @task.closed
 }
 
