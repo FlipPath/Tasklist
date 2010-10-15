@@ -1,4 +1,4 @@
-%li.item{ :class => "#{selected_class(list, params[:list_id])}", "data-id" => list.id }
+%li{ :class => "#{selected_class(list, current_list)}", "data-id" => list.id }
   - if list.tasks.count > 0
     %div.counter= list.tasks.open.count
   = link_to list.name, group_list_path(group, list)

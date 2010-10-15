@@ -49,7 +49,7 @@ div#page {
       width: 855px;
     }
     
-    ul#nav {
+    ol#groups {
       position: relative;
       vertical-align: middle;
       list-style: none;
@@ -92,10 +92,6 @@ div#page {
     }
   }
   
-  div.view {
-    display: block;
-  }
-  
   div#sidebar {
     display: inline;
     float: left;
@@ -132,12 +128,12 @@ div#page {
       }
     }
     
-    ul {
+    ol {
       list-style: none;
       margin-bottm: 16px;
       padding: 0px;
       
-      li.item {
+      li {
         background: url(/images/bg_sprites.png) repeat-x 0 -101px;
         display: block;
         font-size: 13px;
@@ -175,12 +171,9 @@ div#page {
     margin: 0px 0px 20px;
     position: relative;
     width: 700px;
+    position: relative;
     
-    div#tasks {
-      position: relative;
-    }
-    
-    div.list {
+    div#list {
       @include box(#999, 0 0 7px 7px);
       
       background-color: #fff;
@@ -235,7 +228,7 @@ div#page {
       ul#closed-tasks {
         list-style: none;
         
-        li.item {
+        li {
           padding-top: 7px;
           
           &.closed {
@@ -354,7 +347,7 @@ div.checkbox {
   
   &:hover,
   &.closed {
-    background-position: -16px -105px;
+    background-position: -16px -5px;
   }
 }
 
@@ -377,7 +370,7 @@ div.preview {
   }
 }
 
-li.item {
+li {
   cursor: pointer;
   font-size: 13px;
   height: 20px;
@@ -395,7 +388,7 @@ li.item {
     
     &:hover,
     &.starred {
-     background-position: -49px -105px;
+     background-position: -49px -5px;
     }
   }
   
