@@ -47,7 +47,7 @@ div#page {
         padding: 4px 10px;
         margin: 12px 2px;
         text-decoration: none; }
-        div#page div#header ol#groups a:hover, div#page div#header ol#groups a.active {
+        div#page div#header ol#groups a:hover, div#page div#header ol#groups a.selected {
           background: url(/images/bg_sprites.png) repeat-x 0 -169px;
           -webkit-border-radius: 15px;
           -moz-border-radius: 12px;

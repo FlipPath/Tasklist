@@ -1,0 +1,3 @@
+%ol#groups
+  - groups.each do |group| 
+    = render "groups/group", :group => group, :selected => group == current_group

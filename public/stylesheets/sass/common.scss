@@ -71,7 +71,7 @@ div#page {
         
         
         &:hover,
-        &.active {
+        &.selected {
           background: url(/images/bg_sprites.png) repeat-x 0 -169px;
           -webkit-border-radius: 15px;
           -moz-border-radius: 12px;

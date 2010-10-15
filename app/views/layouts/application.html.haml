@@ -7,16 +7,7 @@
   %div#page
     %div#header
       %div.container
-        %ol#groups
-          %li 
-            %a{ :href => "#", :class => :selected }
-              Personal
-          %li
-            %a{ :class => "active", :href => "#" }
-              Credentify
-          %li
-            %a{ :href => "#" }
-              Someday
+        = render "groups/list", :groups => @groups, :current_group => @group
         %div#nav-right
           = gravatar_image_tag current_user.email, :gravatar => { :size => 43 }
     %div{ :class => "container" }
