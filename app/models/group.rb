@@ -5,6 +5,19 @@ class Group < ActiveRecord::Base
   
   validates_presence_of :name
   validates_uniqueness_of :name, :scope => [:user_id], :case_sensitive => false
+  
+  acts_as_list :scope => :user
+  
+  def channel
+    Pusher["private-list-#{id}"]
+  end
+  
+  def can_access_channel(channel_name)
+    case channel_name
+    when /^(?:presence|private)-group-(\d+)/ then $1 == id.to_s
+    else false
+    end
+  end
 end
 
 # == Schema Info
@@ -14,5 +27,6 @@ end
 #  id         :integer         not null, primary key
 #  user_id    :integer
 #  name       :string(255)
+#  position   :integer
 #  created_at :datetime
 #  updated_at :datetime

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   
   attr_accessible false
   
-  has_many :groups, :dependent => :destroy
+  has_many :groups, :dependent => :destroy, :order => "position DESC"
   
   has_many :list_associations
   has_many :lists, :through => :list_associations
