@@ -1,2 +1,2 @@
-%li
-  = link_to group.name, group_path(group), { :class => (selected ? "selected" : nil) }
+%li{ :class => (selected ? "selected" : nil), "data-reorder-path" => insert_at_group_path(group) }
+  = link_to group.name, group_path(group)

@@ -1,0 +1,6 @@
+data = {
+  :task_id  => @group.id.to_s,
+  :position => @group.position.to_s
+}
+
+# @group.channel.trigger_async "groups-insert_at", data, params[:socket_id]

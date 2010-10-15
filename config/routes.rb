@@ -13,6 +13,10 @@ Tasklist::Application.routes.draw do
   end
   
   resources :groups, :only => [:index, :show] do
+    member do
+      put :insert_at
+    end
+    
     resources :lists, :only => [:index, :create, :destroy] do
       member do
         put :share, :update, :insert_at

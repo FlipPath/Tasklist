@@ -42,17 +42,12 @@ div#page {
       div#page div#header ul li {
         display: inline;
         font-size: 13px;
-        color: #e8e8e8; }
-      div#page div#header ol a,
-      div#page div#header ul a {
-        color: white;
-        font-weight: bold;
+        color: #e8e8e8;
         padding: 4px 10px;
-        margin: 12px 2px;
-        text-decoration: none; }
-        div#page div#header ol a:hover, div#page div#header ol a.selected,
-        div#page div#header ul a:hover,
-        div#page div#header ul a.selected {
+        margin: 12px 2px; }
+        div#page div#header ol li:hover, div#page div#header ol li.selected,
+        div#page div#header ul li:hover,
+        div#page div#header ul li.selected {
           background: url(/images/bg_sprites.png) repeat-x 0 -169px;
           -webkit-border-radius: 15px;
           -moz-border-radius: 12px;
@@ -62,6 +57,15 @@ div#page {
           box-shadow: inset 0px 1px 2px #333;
           -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333')";
           filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333'); }
+        div#page div#header ol li.ui-sortable-helper,
+        div#page div#header ul li.ui-sortable-helper {
+          position: relative;
+          top: 1px; }
+      div#page div#header ol a,
+      div#page div#header ul a {
+        color: white;
+        font-weight: bold;
+        text-decoration: none; }
     div#page div#header ul#nav-right {
       width: 160px;
       position: absolute;

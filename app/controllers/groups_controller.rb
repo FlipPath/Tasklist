@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :load_groups
-  before_filter :load_group, :only => :show
+  before_filter :load_group, :only => [:show, :insert_at]
   
   respond_to :html, :only => [:index]
   respond_to :js, :except => [:index]
@@ -11,6 +11,10 @@ class GroupsController < ApplicationController
     @lists = @group.lists if @group
     @list = @lists.first if @lists
     redirect_to @list ? group_list_url(@group, @list) : @group 
+  end
+  
+  def insert_at
+    @group.insert_at params[:position]
   end
   
   private

@@ -61,14 +61,8 @@ div#page {
         display: inline;
         font-size: 13px;
         color: #e8e8e8;
-      }
-      
-      a {
-        color: white;
-        font-weight: bold;
         padding: 4px 10px;
         margin: 12px 2px;
-        text-decoration: none;
         
         &:hover,
         &.selected {
@@ -82,6 +76,17 @@ div#page {
           -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333')";
           filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333');
         }
+        
+        &.ui-sortable-helper {
+          position: relative;
+          top: 1px;
+        }
+      }
+      
+      a {
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
       }
     }
     

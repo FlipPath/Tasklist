@@ -2,7 +2,7 @@ var Tasklist = { };
 
 // Lists
 
-var sortableTaskOptions = {
+var sortableOptions = {
   update: function(ev, ui){
     var $lis = $("li", this),
         pos  = ($lis.length - $lis.index(ui.item) + 1);
@@ -16,15 +16,14 @@ var sortableTaskOptions = {
       },
       dataType: "json"
     });
-  },
-  axis: "y"
+  }
 };
 
-var sortableListOptions = {
+var sortableGroupOptions = {
   update: function(ev, ui){
     var $lis = $("li", this),
-        pos  = ($lis.length - $lis.index(ui.item) + 1);
-    
+        pos  = ($lis.length - $lis.index(ui.item) - 1);
+
     $.ajax({
       type: "POST",
       url: ui.item.attr("data-reorder-path"),
@@ -35,7 +34,7 @@ var sortableListOptions = {
       dataType: "json"
     });
   },
-  axis: "y"
+  axis: "x"
 };
 
 var autocompleteSharingRenderItem = function(ul, item) {
@@ -150,8 +149,9 @@ $("h2.name").inlineEdit({
 });
 
 // $("ul#lists").sortable(sortableListOptions);
-$("ol#tasks").sortable(sortableTaskOptions);
-$("ol#lists").sortable(sortableListOptions);
+$("ol#tasks").sortable(sortableOptions);
+$("ol#lists").sortable(sortableOptions);
+$("ol#groups").sortable(sortableGroupOptions);
 
 $(".list input.ac_username").autocomplete(autocompleteSharingOptions).each(function(){
   $(this).data("autocomplete")._renderItem = autocompleteSharingRenderItem;
