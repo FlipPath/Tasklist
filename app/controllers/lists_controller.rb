@@ -3,7 +3,7 @@ class ListsController < ApplicationController
   before_filter :load_groups
   before_filter :load_group
   before_filter :load_lists
-  before_filter :load_list, :only => [:index, :update, :destroy, :share], :if => @lists
+  before_filter :load_list, :only => [:index, :update, :destroy, :share, :insert_at], :if => @lists
   
   respond_to :html, :only => [:index]
   respond_to :js, :except => [:index]
@@ -27,6 +27,10 @@ class ListsController < ApplicationController
   def share
     @user = User.find(params[:username])
     @list.share(@user)
+  end
+  
+  def insert_at
+    @list.group_associations.where(:group_id => @group.id).first.insert_at params[:position]
   end
     
   private

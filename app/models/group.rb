@@ -1,6 +1,6 @@
 class Group < ActiveRecord::Base
   has_many :group_associations, :order => "position DESC", :dependent => :destroy
-  has_many :lists, :through => :group_associations
+  has_many :lists, :through => :group_associations, :order => "position DESC"
   belongs_to :user
   
   validates_presence_of :name

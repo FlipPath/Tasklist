@@ -15,7 +15,7 @@ Tasklist::Application.routes.draw do
   resources :groups, :only => [:index, :show] do
     resources :lists, :only => [:index, :create, :destroy] do
       member do
-        put :share, :update
+        put :share, :update, :insert_at
         get :index
       end
 

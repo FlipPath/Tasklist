@@ -17,22 +17,23 @@ var sortableTaskOptions = {
       dataType: "json"
     });
   },
-  axis: "y",
-  placeholder: "item"
+  axis: "y"
 };
 
 var sortableListOptions = {
   update: function(ev, ui){
-    var $lis     = $(this).children("li"),
-        position = ($lis.length - $lis.index(ui.item) - 1);
+    var $lis = $("li", this),
+        pos  = ($lis.length - $lis.index(ui.item) + 1);
     
     $.ajax({
-      url: ui.item.attr("data-path"),
-      dataType: "json",
-      type: "PUT",
-      data: { q: request.term }
+      type: "POST",
+      url: ui.item.attr("data-reorder-path"),
+      data: { 
+        _method: "PUT",
+        position: pos 
+      },
+      dataType: "json"
     });
-    
   },
   axis: "y"
 };
@@ -150,6 +151,7 @@ $("h2.name").inlineEdit({
 
 // $("ul#lists").sortable(sortableListOptions);
 $("ol#tasks").sortable(sortableTaskOptions);
+$("ol#lists").sortable(sortableListOptions);
 
 $(".list input.ac_username").autocomplete(autocompleteSharingOptions).each(function(){
   $(this).data("autocomplete")._renderItem = autocompleteSharingRenderItem;
@@ -236,7 +238,7 @@ Tasklist.tasks = {
   toggle_close : function(ev){
     $("li.task[data-id="+ev.task_id+"]").slideUp("fast").remove();
     if (ev.closed == true){
-      $(ev.task_html).appendTo("ul#closed-tasks").slideDown("fast");
+      $(ev.task_html).prependTo("ul#closed-tasks").slideDown("fast");
     } else {
       $(ev.task_html).appendTo("ol#tasks").slideDown("fast");
     }

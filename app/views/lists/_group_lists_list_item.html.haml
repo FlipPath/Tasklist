@@ -1,4 +1,4 @@
-%li{"data-id" => list.id, :class => (selected ? "selected" : nil) }
+%li{"data-id" => list.id, "data-reorder-path" => insert_at_group_list_path(group, list), :class => (selected ? "selected" : nil) }
   - if list.tasks.count > 0
     %div.counter= list.tasks.open.count
   = link_to list.name, group_list_path(group, list)
