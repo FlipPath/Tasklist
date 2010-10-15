@@ -46,29 +46,29 @@ div#page {
     height: 50px;
     
     div.container {
-      width: 855px;
+      width: 875px;
+      height: 45px;
+      padding-top: 15px;
+      position: relative;
     }
     
-    ol#groups {
-      position: relative;
-      vertical-align: middle;
+    ol,
+    ul {
       list-style: none;
       display: inline;
       
       li {
         display: inline;
+        font-size: 13px;
+        color: #e8e8e8;
       }
       
       a {
         color: white;
-        display: block;
-        float: left;
-        font-size: 13px;
         font-weight: bold;
         padding: 4px 10px;
         margin: 12px 2px;
         text-decoration: none;
-        
         
         &:hover,
         &.selected {
@@ -85,10 +85,10 @@ div#page {
       }
     }
     
-    #nav-right {
+    ul#nav-right {
+      width: 160px;
       position: absolute;
-      right: 0px;
-      top: 0px;
+      right: 0;
     }
   }
   

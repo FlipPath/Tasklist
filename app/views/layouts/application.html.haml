@@ -8,8 +8,12 @@
     %div#header
       %div.container
         = render "groups/list", :groups => @groups, :current_group => @group
-        %div#nav-right
-          = gravatar_image_tag current_user.email, :gravatar => { :size => 43 }
+        / %ul#nav-right
+        /   %li Lists:
+        /   %li 
+        /     %a{ :href => "#" } All
+        /   %li 
+        /     %a{ :href => "#" } Shared
     %div{ :class => "container" }
       = yield
   %div#footer{ :class => "clearfix" }

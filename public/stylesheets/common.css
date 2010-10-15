@@ -30,24 +30,29 @@ div#page {
     background: url(/images/bg_sprites.png) repeat-x 0 0;
     height: 50px; }
     div#page div#header div.container {
-      width: 855px; }
-    div#page div#header ol#groups {
-      position: relative;
-      vertical-align: middle;
+      width: 875px;
+      height: 45px;
+      padding-top: 15px;
+      position: relative; }
+    div#page div#header ol,
+    div#page div#header ul {
       list-style: none;
       display: inline; }
-      div#page div#header ol#groups li {
-        display: inline; }
-      div#page div#header ol#groups a {
-        color: white;
-        display: block;
-        float: left;
+      div#page div#header ol li,
+      div#page div#header ul li {
+        display: inline;
         font-size: 13px;
+        color: #e8e8e8; }
+      div#page div#header ol a,
+      div#page div#header ul a {
+        color: white;
         font-weight: bold;
         padding: 4px 10px;
         margin: 12px 2px;
         text-decoration: none; }
-        div#page div#header ol#groups a:hover, div#page div#header ol#groups a.selected {
+        div#page div#header ol a:hover, div#page div#header ol a.selected,
+        div#page div#header ul a:hover,
+        div#page div#header ul a.selected {
           background: url(/images/bg_sprites.png) repeat-x 0 -169px;
           -webkit-border-radius: 15px;
           -moz-border-radius: 12px;
@@ -57,10 +62,10 @@ div#page {
           box-shadow: inset 0px 1px 2px #333;
           -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333')";
           filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333'); }
-    div#page div#header #nav-right {
+    div#page div#header ul#nav-right {
+      width: 160px;
       position: absolute;
-      right: 0px;
-      top: 0px; }
+      right: 0; }
   div#page div#sidebar {
     display: inline;
     float: left;
