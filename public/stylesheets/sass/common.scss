@@ -296,22 +296,6 @@ div#footer {
       width: auto;
     }
   }
-  
-  div#search-field {
-    margin-top: 12px !important;
-    position: relative;
-    z-index: 103;
-    width: 151px;
-/*    background: transparent url(/images/search-field.png) no-repeat;*/
-    
-    & > input {
-      margin-top: 3px;
-      border: 0px none;
-      font-size: 13px;
-      padding: 7px 3px 0px 12px;
-      width: 116px;
-    }
-  }
 }
 
 div.container {

@@ -160,8 +160,6 @@ div#page {
         padding: 0 10px; }
         div#page div#workspace div#list div.new-task input {
           width: 99%; }
-      div#page div#workspace div#list ul#closed-tasks {
-        border-top: 1px dashed #e8e8e8; }
       div#page div#workspace div#list ol#tasks,
       div#page div#workspace div#list ul#closed-tasks {
         list-style: none; }
@@ -215,18 +213,6 @@ div#footer {
     div#footer div.right > a {
       padding: 6px 0px 0px;
       width: auto; }
-  div#footer div#search-field {
-    margin-top: 12px !important;
-    position: relative;
-    z-index: 103;
-    width: 151px;
-    /*    background: transparent url(/images/search-field.png) no-repeat;*/ }
-    div#footer div#search-field > input {
-      margin-top: 3px;
-      border: 0px none;
-      font-size: 13px;
-      padding: 7px 3px 0px 12px;
-      width: 116px; }
 
 div.container {
   margin-left: auto;
