@@ -11,4 +11,5 @@
   %div.project-title
   %div.preview
     %div.title 
-      = task.title
+      = auto_link(task.title, :html => { :target => '_blank' }) do |text|
+        - text.sub(%r(^http://(www\.)?), "")
