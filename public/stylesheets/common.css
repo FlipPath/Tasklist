@@ -231,9 +231,9 @@ div.container {
   font-weight: bold;
   padding: 1px 5px;
   background-color: #d4d4d4;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px; }
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%; }
 
 div.checkbox {
   background: url(/images/icons.png) no-repeat 0 -5px;
