@@ -1,15 +1,15 @@
-%div#tasks
-  %div{ :class => "list" }
-    %div.header
-      %div.left
-        %div
-          Incomplete
-      %div.delete
-        = link_to group_list_path(group, list), :remote => true, :method => :delete do
-          Delete
-    %div{ :class => "new-task" }
-      = render "tasks/form", :group => group, :list => list
-    %ol#tasks{ "data-id" => list.id }
-      = render list.tasks.open.ordered, :group => group, :list => list
+%div#list
+  %div.header
+    %div.left
+      %div
+        Incomplete
+    %div.delete
+      = link_to group_list_path(group, list), :remote => true, :method => :delete do
+        Delete
+  %div{ :class => "new-task" }
+    = render "tasks/form", :group => group, :list => list
+  %ol#tasks{ "data-id" => list.id }
+    = render list.tasks.open.ordered, :group => group, :list => list
+  - if list.tasks.closed.count > 0
     %ul#closed-tasks{ "data-id" => list.id }
       = render list.tasks.closed.ordered, :group => group, :list => list

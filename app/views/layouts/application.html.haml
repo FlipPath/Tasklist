@@ -19,7 +19,7 @@
               Someday
         %div#nav-right
           = gravatar_image_tag current_user.email, :gravatar => { :size => 43 }
-    %div{ :class => "container view" }
+    %div{ :class => "container" }
       = yield
   %div#footer{ :class => "clearfix" }
     %div.container
