@@ -1,2 +1,2 @@
-list_html = render @list, :group => @group
+list_html = render "group_lists_list_item", :group => @group, :list => @list, :selected => false
 page.trigger "lists:create", :list_html => list_html
