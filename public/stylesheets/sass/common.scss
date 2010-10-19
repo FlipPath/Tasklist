@@ -61,25 +61,34 @@ div#page {
         display: inline;
         font-size: 13px;
         color: #e8e8e8;
-        padding: 4px 10px;
-        margin: 12px 2px;
-        
-        &:hover,
-        &.selected {
-          background: url(/images/bg_sprites.png) repeat-x 0 -169px;
-          -webkit-border-radius: 15px;
-          -moz-border-radius: 12px;
-          border-radius: 12px;
-          -moz-box-shadow: inset 0px 1px 2px #333;
-          -webkit-box-shadow: inset 0px 1px 2px #333;
-          box-shadow: inset 0px 1px 2px #333;
-          -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333')";
-          filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333');
-        }
+
         
         &.ui-sortable-helper {
           position: relative;
-          top: 1px;
+          top: 12px;
+          padding: 5px 10px;
+        }
+        
+        div.badge {
+          position: relative;
+          top: -10px;
+          left: -12px;
+          display: inline;
+          background-color: red;
+          padding: 0 3px;
+          color: white;
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          border-radius: 15px;
+          -moz-box-shadow: 1px 2px 2px #333;
+          -webkit-box-shadow: 1px 2px 2px #333;
+          box-shadow: 1px 2px 2px #333;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333')";
+          filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333');
+          
+          font-size: 11px;
+          letter-spacing: 1px;
+          border: 2px solid white;
         }
       }
       
@@ -87,6 +96,21 @@ div#page {
         color: white;
         font-weight: bold;
         text-decoration: none;
+        padding: 4px 10px;
+        margin: 12px 2px;
+        
+        &:hover,
+        &.selected {
+          background: url(/images/bg_sprites.png) repeat-x 0 -169px;
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          border-radius: 15px;
+          -moz-box-shadow: inset 0px 1px 2px #333;
+          -webkit-box-shadow: inset 0px 1px 2px #333;
+          box-shadow: inset 0px 1px 2px #333;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333')";
+          filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#333');
+        }
       }
     }
     
