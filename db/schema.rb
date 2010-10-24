@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101015120923) do
+ActiveRecord::Schema.define(:version => 20101024193358) do
 
   create_table "group_associations", :force => true do |t|
     t.integer  "group_id"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20101015120923) do
     t.integer  "list_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "important",  :default => false
   end
 
   create_table "users", :force => true do |t|
