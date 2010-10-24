@@ -186,6 +186,14 @@ $("div.checkbox").live("click", function(e){
   }
 });
 
+$("div.star").live("click", function(e) {
+  if (e.target == this) {
+    $("a", this).callRemote();
+    $(this).toggleClass("starred");
+    return false;
+  }
+});
+
 $("div.delete").live("click", function(e){
   if (e.target == this) {
     $("a", this).callRemote();

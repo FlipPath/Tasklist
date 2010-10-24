@@ -25,7 +25,7 @@ Tasklist::Application.routes.draw do
 
       resources :tasks, :only => [:create, :destroy] do
         member do
-          put :toggle_close, :insert_at, :update
+          put :toggle_close, :toggle_important, :insert_at, :update
         end
       end
     end

@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_filter :load_group
   before_filter :load_list
-  before_filter :load_task, :only => [:toggle_close, :destroy, :insert_at, :update]  
+  before_filter :load_task, :only => [:toggle_close, :toggle_important, :destroy, :insert_at, :update]  
   
   respond_to :js
   
@@ -15,6 +15,10 @@ class TasksController < ApplicationController
   
   def toggle_close
     @task.toggle_close
+  end
+  
+  def toggle_important
+    @task.toggle_important
   end
   
   def destroy

@@ -22,6 +22,10 @@ class Task < ActiveRecord::Base
   def toggle_close
     update_attribute :closed, !closed
   end
+  
+  def toggle_important
+    update_attribute :important, !important
+  end
 end
 
 # == Schema Info
