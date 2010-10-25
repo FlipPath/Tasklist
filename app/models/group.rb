@@ -8,6 +8,10 @@ class Group < ActiveRecord::Base
   
   acts_as_list :scope => :user
   
+  def tasks
+    Task.all_for_group(self)
+  end
+  
   def channel
     Pusher["private-list-#{id}"]
   end

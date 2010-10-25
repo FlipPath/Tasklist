@@ -5,6 +5,12 @@ class Task < ActiveRecord::Base
   
   acts_as_list :scope => :list
   
+  named_scope :all_for_group, lambda{|group|{
+    :joins      => {:list, :group_associations},
+    :conditions => {:group_associations => {:group_id => group.id}},
+    :select     => "tasks.*, lists.id" }
+  }
+  
   class << self
     def ordered
       all
@@ -16,6 +22,10 @@ class Task < ActiveRecord::Base
     
     def closed
       where(:closed => true)
+    end
+    
+    def important
+      where(:important => true)
     end
   end
   
